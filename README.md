@@ -1,111 +1,71 @@
 # Tommy's Roster
 
-Describe what you are trying to figure out about a course, and get matched with up to
-three USC students who took it and opted in to be asked. Each match comes with a reason
-taken from what that person wrote, and a draft message to send. Built at the AI@USC
-hackathon. The full spec is in [SPEC.md](SPEC.md) and the build rules are in
-[CONTEXT.md](CONTEXT.md).
+Ask a question about a USC course in your own words and get matched with up to three
+students who took it, with a reason for each one. Then send them a message.
 
-### Run it
+**Live:** https://tommys-roster.vercel.app · Built in 24 hours at the AI@USC Hackathon 2026.
+
+## What you can do
+
+- **Ask.** "I've never coded. Is CSCI 103 doable?" The AI picks who can answer that, and says why.
+- **Reach out.** Press Ask and a first message is drafted for that one person. Press Tab to accept it, or write your own.
+- **Join.** Took a class? Add yourself so the next student can ask you.
+- **Stay in control.** See, edit, download or delete everything you gave the site, from the Account page.
+
+## How a match happens
+
+![Code finds the course and the people, AI ranks them, code checks every claim](docs/how-matching-works.png)
+
+1. Code reads the course from your question and looks it up in USC's catalog. If you named it in plain words ("organic chemistry"), a small AI call works out which course you mean.
+2. Code pulls the students who took that course. No names or emails go to the AI.
+3. The AI ranks them for your question and your profile, and writes one sentence on why each fits.
+4. Code checks every person, course, year and professor in the answer against the roster. Anything untrue is dropped.
+
+If the AI is down, you still get the most recent people for the course, without reasons.
+
+We wrote 14 questions where the roster has one clear best person. With the AI that
+person came first 14 times; sorting by most recent semester, 4 times. A match takes
+about two seconds. It is a small check on sample data, not a benchmark.
+
+## Built with
+
+Next.js 16, React 19, TypeScript, Tailwind · Claude API (Haiku 5.5) with structured
+outputs and tool use · Google sign-in limited to usc.edu accounts · Resend for email ·
+Vercel.
+
+Courses and instructors (1,595 courses, Fall 2024 to Fall 2026) come from USC's public
+Schedule of Classes. The 60 students on the roster are invented for the demo; the
+courses, semesters and professors attached to them are real and checked by a script.
+
+## Run it
 
 ```bash
 npm install
-cp .env.example .env.local   # then put your Claude API key in it
+cp .env.example .env.local   # add ANTHROPIC_API_KEY; the rest is optional
 npm run dev                  # http://localhost:3000
 ```
 
-It runs without a key too: matching then only works for questions that name a course,
-and shows the most recent people from it with no reason.
+`.env.example` explains every setting, including how to turn on USC Google sign-in
+and email. `npm run fetch-catalog` refreshes the course data when a new semester starts.
 
-Try the API:
+## Privacy
 
-```bash
-curl http://localhost:3000/api/courses
-curl http://localhost:3000/api/courses/csci103/people
-curl "http://localhost:3000/api/catalog?q=calculus"
-curl -X POST http://localhost:3000/api/match -H 'content-type: application/json' \
-  -d '{"question":"I have never coded before. Is CSCI 103 doable?"}'
-```
+- Your profile and the messages you sent stay in your browser. There is no account database.
+- The AI never gets a name or an email, and what you type is not stored or logged.
+- Emails are kept only where they are needed to pass a request on, and no page or API shows anyone else's.
+- "Delete my account and all data" removes what the server has and clears the browser.
 
-### Environment
+The statement users accept is in `lib/privacy.ts`, and every line of it matches the code.
 
-| Variable | What it does |
-| --- | --- |
-| `ANTHROPIC_API_KEY` | Claude API key from the Claude Console. Used by matching, the personal draft and Tommy (the helper). Without it they fall back to plain answers built in code. |
-| `ANTHROPIC_MODEL` | Optional. Defaults to `claude-haiku-5-5`. Set `claude-sonnet-5-5` for higher quality at a higher price. |
-| `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` | Optional. Turn on USC Google sign-in (see below). |
-| `AUTH_SECRET` | Needed with the two above. Signs the session cookie. 32+ random characters: `openssl rand -base64 48`. |
-| `ALLOW_DEMO_SIGNIN` | Optional. `true` keeps the demo sign-in next to Google sign-in. |
-| `RESEND_API_KEY`, `EMAIL_FROM` | Optional. Email intro requests through Resend instead of only storing them. |
+## What is not done yet
 
-`.env.local` is gitignored. Never commit a key. `.env.example` explains each one.
+- No database: people who join and requests sent are held in memory, so they are lost when the server restarts.
+- The roster is sample data. Match quality with real students depends on what they write.
+- Guest access does not verify the address typed. It is there for people without a USC account.
+- Email reaches any inbox only once a sending domain is verified.
 
-### Sign-in
+`SPEC.md` has the full contract for the API and the pages.
 
-- **USC Google sign-in** (real): "Continue with USC Google" sends the browser to Google,
-  limited to usc.edu accounts. USC's Google accounts log in on USC's own NetID page, so
-  this site never sees a password. Google tells the server the verified address, and
-  the server keeps it in a signed, HttpOnly cookie. Set it up with the steps in
-  `.env.example` (create an OAuth client in Google Cloud, add the redirect URI
-  `https://YOUR-SITE/api/auth/callback`).
-- **Demo sign-in**: type a USC email. Only the ending is checked, and the page says so.
-  It is the only way in until Google sign-in is set up, and stays next to it when
-  `ALLOW_DEMO_SIGNIN=true` (useful for people without a USC account, such as judges).
+## Team
 
-With Google sign-in on and the demo off, the server only believes its own cookie:
-intro requests and roster sign-ups are saved under the verified address whatever the
-page sends, and the AI routes and the lists of people answer 401 without a session.
-
-### Email (optional)
-
-Set `RESEND_API_KEY` and an intro request is emailed to the person, with reply-to set to
-the asker. The address comes from the person's own sign-up, or from
-`data/private/person-emails.json` (`{ "<person_id>": "<email>" }`, gitignored) for
-people who did not sign up through the site. Without a verified sending domain, Resend
-only delivers to the address the Resend account was created with.
-
-### Data
-
-| File | What it is | Made by |
-| --- | --- | --- |
-| `data/catalog.json` | 1,595 undergraduate courses (code, title, department) | `npm run fetch-catalog` |
-| `data/instructors.json` | Who taught each course in each semester | `npm run fetch-catalog` |
-| `data/majors.json` | USC bachelor's degree names (USC Catalogue 2023-24) | copied once from the official list |
-| `data/demo-people.csv` | 60 invented students, 118 rows, for the demo | `npm run generate-demo` |
-
-Courses, semesters and professors are never typed by hand: they come from the official
-USC Schedule of Classes. The demo students are invented, but every course, semester and
-professor attached to them is checked against those files before the CSV is written.
-
-### A new semester
-
-Run `npm run fetch-catalog` and redeploy. The script asks USC which semesters exist and
-adds any fall or spring semester that has started; the site reads its list of semesters
-from the data, so nothing else needs editing. Add `-- --refresh` to download semesters
-it already has again (for example to pick up instructor changes).
-
-### Privacy
-
-The statement users see is in `lib/privacy.ts` (shown after onboarding, on `/account`
-and at `/privacy`). What the code does to back it up:
-
-- The profile and the sent history live in the browser only. There is no account database.
-- The model is sent no names and no emails. Every person, course, year and phrase in its answer is checked in code before it is shown.
-- An email is saved only under `data/private/` (gitignored), the people list in memory has no email field, and no API response includes anyone else's email.
-- Questions typed into the search box, the draft and the helper are not stored or logged.
-- "Delete my account and all data" on `/account` removes the person's requests and sign-ups from the server, takes them off the roster, ends the session and clears the browser.
-- Anthropic's API terms: data sent through the API is not used to train its models and is deleted within 30 days (longer only to enforce its usage policy or comply with the law).
-
-### Known limitations
-
-- Sign-ups and intro requests are stored in memory (plus a local file when the disk is writable), so on a host like Vercel they are lost when the server restarts; a real launch needs a small database behind those two routes.
-- The rate limits (AI routes, intro requests, sign-ups) are also in memory, so they are counted per server instance.
-- With the demo sign-in, deleting an account removes only what was sent from the same browser, because the address is not verified. With USC Google sign-in it removes everything under that address.
-- Intro requests are emailed only when Resend is set up; otherwise they are stored and someone has to forward them.
-- The roster itself (demo people, first names, majors, what they offered to talk about) is not encrypted at rest; it holds no emails.
-
-### Layout
-
-- `app/api/**`, `lib/**`: the API routes and the code behind them
-- `app/**` (other than `app/api`), `components/**`: the pages
-- `scripts/**`, `data/**`: data preparation and the data files
+Kushal Bhanot · Angela Chen · Alassane Fofana · Leo Wan
