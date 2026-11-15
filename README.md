@@ -64,6 +64,16 @@ The statement users accept is in `lib/privacy.ts`, and every line of it matches 
 - Guest access does not verify the address typed. It is there for people without a USC account.
 - Email reaches any inbox only once a sending domain is verified.
 
+## Where things are
+
+| Part | Folder | What is in it |
+| --- | --- | --- |
+| Frontend | `app/` (pages), `components/` | The screens: sign-in, onboarding, the question box, the ask window, account |
+| Backend | `app/api/`, `lib/` | The API routes, matching, drafts, the helper, sign-in, email, privacy text |
+| Data | `data/`, `scripts/` | USC course data, the sample roster, and the scripts that build them |
+
+Frontend and backend live in one Next.js app, so they deploy together.
+
 `SPEC.md` has the full contract for the API and the pages.
 
 ## Team
