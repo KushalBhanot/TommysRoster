@@ -13,9 +13,10 @@ the AI does not write course advice itself.
 - Next.js (App Router) + TypeScript + Tailwind. One app, no separate backend service.
 - No database. Data lives in /data as CSV/JSON files, loaded into memory.
 - LLM calls go through lib/llm.ts only, so the provider can be swapped in one place.
-  Use the Gemini API with JSON/structured output. Check the current official docs for
-  the SDK package and model name; read the model name from env GEMINI_MODEL.
-- Env: GEMINI_API_KEY, GEMINI_MODEL. Never commit .env. Provide .env.example.
+  Use the Claude API (official @anthropic-ai/sdk) with JSON/structured output. The
+  model name comes from env ANTHROPIC_MODEL and defaults to claude-haiku-5-5.
+- Env: ANTHROPIC_API_KEY, ANTHROPIC_MODEL (optional). Never commit .env. Provide
+  .env.example.
 
 ## Ownership (do not edit outside your area)
 - Backend (Leo): app/api/**, lib/**, scripts/**, data/**

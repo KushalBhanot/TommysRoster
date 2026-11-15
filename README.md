@@ -27,16 +27,16 @@ curl -X POST http://localhost:3000/api/match -H 'content-type: application/json'
   -d '{"question":"How do I get through the pointers unit?","code":"csci103"}'
 ```
 
-With `GEMINI_API_KEY` and `GEMINI_MODEL` set, each match has a one-sentence `reason`.
-Without them (or if the model call fails) the same request still works and returns the
+With `ANTHROPIC_API_KEY` set, each match has a one-sentence `reason`.
+Without it (or if the model call fails) the same request still works and returns the
 most recent people with `"reason": null`; the server log says why.
 
 ### Environment
 
 | Variable | What it does |
 | --- | --- |
-| `GEMINI_API_KEY` | Gemini key. Only `POST /api/match` uses it. Without it, matching falls back to the most recent people with no reason. |
-| `GEMINI_MODEL` | Gemini model name. |
+| `ANTHROPIC_API_KEY` | Claude API key from the Claude Console. Only `POST /api/match` uses it. Without it, matching falls back to the most recent people with no reason. |
+| `ANTHROPIC_MODEL` | Optional. Defaults to `claude-haiku-5-5`. Set `claude-sonnet-5-5` for higher quality at a higher price. |
 | `USE_SAMPLE_DATA` | `true` loads `data/sample-people.csv` (fake rows, first name `SAMPLE`) and adds the header `X-Sample-Data: true` to every API response. Leave it unset for the real demo. |
 
 `.env.local` is gitignored. Never commit a key.
