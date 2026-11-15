@@ -1,0 +1,100 @@
+person_id,first_name,major,grad_year,code,semester,professor,help_tags,about_tags,note,source
+1,Maya,Business Administration,2028,WRIT 150,Fall 2024,Ayesha Mosaddeq,Workload and time management;Choosing a professor or section,,I rewrote a lot that semester and can tell you how I learned to start earlier.,demo
+1,Maya,Business Administration,2028,BUAD 304,Fall 2025,Lynn Robinson,Workload and time management,,,demo
+2,Diego,Computer Science,2028,CSCI 103,Fall 2024,Carter Slocum,Taking it with no background;Workload and time management,First-generation student,I started with no coding experience and can tell you how I caught up.,demo
+2,Diego,Computer Science,2028,CSCI 104,Spring 2025,Carter Slocum,Workload and time management;Exams and how to study,First-generation student,,demo
+3,Priya,Biological Sciences,2028,BISC 120,Fall 2024,Nancy Castro,Exams and how to study;Workload and time management,Pre-med or pre-law,I took this and chemistry in the same semester and can talk about keeping both afloat.,demo
+3,Priya,Biological Sciences,2028,CHEM 105A,Fall 2024,Thomas Bertolini,Exams and how to study,Pre-med or pre-law,,demo
+3,Priya,Biological Sciences,2028,CHEM 322A,Fall 2025,Stuart Moon,Exams and how to study;Workload and time management,Pre-med or pre-law,"I was nervous about this one for a whole year beforehand, and I'm happy to tell you how it actually went for me.",demo
+4,Ethan,Economics,2027,ECON 203,Fall 2024,Yilmaz Kocer,Taking it with no background;Exams and how to study,Switched majors,"I took this as a sophomore before switching into economics, and can talk about how I made that decision.",demo
+4,Ethan,Economics,2027,ACCT 410,Fall 2025,Zivia Wilson Sweeney,Taking it with no background,Switched majors,,demo
+4,Ethan,Economics,2027,WRIT 340,Spring 2026,Marc Aubertin,Workload and time management;Choosing a professor or section,Switched majors,,demo
+5,Aaliyah,Psychology,2029,PSYC 100,Fall 2025,Alexia Holovatyk,Exams and how to study;Workload and time management,,"It was one of my first college classes, so I can tell you what that first month felt like.",demo
+5,Aaliyah,Psychology,2029,WRIT 150,Spring 2026,Kyle Hulburd,Choosing a professor or section,,,demo
+6,Wei,Electrical and Computer Engineering,2028,PHYS 151,Fall 2024,Lara Martini,Exams and how to study;Workload and time management,International student,"I learned physics in another language first, and can share how I got used to the English vocabulary.",demo
+6,Wei,Electrical and Computer Engineering,2028,EE 109,Spring 2025,Mark Redekopp,Taking it with no background;Workload and time management,International student,,demo
+7,Sofia,Communication,2028,COMM 204,Fall 2024,Adam Navarro,Taking it with no background;Choosing a professor or section,,"I was terrified of speaking in front of people going in, and I'm happy to share how I got past that.",demo
+7,Sofia,Communication,2028,JOUR 200,Spring 2025,Geoffrey Cowan,Workload and time management,,,demo
+8,Jordan,Business Administration,2027,BUAD 307,Fall 2025,Lars Perner,Workload and time management;Choosing a professor or section,Transfer student,"This was my first semester at USC after transferring, and I can tell you what that adjustment was like.",demo
+8,Jordan,Business Administration,2027,ECON 351,Fall 2025,Joao Antunes Ramos,Exams and how to study,Transfer student,,demo
+9,Hana,Neuroscience,2029,BISC 120,Fall 2025,Cameron Egan,Exams and how to study;Workload and time management,Pre-med or pre-law,,demo
+9,Hana,Neuroscience,2029,CHEM 105A,Fall 2025,Thomas Bertolini,Exams and how to study;Taking it with no background,Pre-med or pre-law,"My high school chemistry was thin, and I can tell you how I filled in the gaps as I went.",demo
+9,Hana,Neuroscience,2029,PSYC 100,Spring 2026,Kyoung sook Kim,Workload and time management,Pre-med or pre-law,,demo
+10,Mateo,Mechanical Engineering,2028,MATH 226,Spring 2025,Paul Tokorcheck,Exams and how to study,,,demo
+10,Mateo,Mechanical Engineering,2028,AME 201,Fall 2025,Oussama Safadi,Workload and time management;Exams and how to study,,I studied with the same three friends all semester and can tell you how we set that up.,demo
+11,Chloe,Journalism,2029,JOUR 200,Fall 2025,Geoffrey Cowan,Taking it with no background;Workload and time management,,,demo
+11,Chloe,Journalism,2029,WRIT 150,Fall 2025,Amber Foster,Choosing a professor or section;Workload and time management,,"I thought I was already a strong writer coming in, and I can tell you what changed my mind.",demo
+12,Omar,Computer Science/Business Administration,2028,CSCI 170,Spring 2025,Shaddin Dughmi,Exams and how to study;Workload and time management,,"Proof-style thinking did not come naturally to me, and I can share what finally made it click.",demo
+12,Omar,Computer Science/Business Administration,2028,CSCI 104,Fall 2025,Mukund Raghothaman,Workload and time management,,,demo
+12,Omar,Computer Science/Business Administration,2028,BUAD 280,Fall 2025,Bobby Carnes,Taking it with no background,,,demo
+13,Isabella,Cinema and Media Studies,2028,CTCS 190,Fall 2024,George Carstocea,Taking it with no background;Workload and time management,,,demo
+13,Isabella,Cinema and Media Studies,2028,THTR 101,Spring 2025,Stevie Johnson,Taking it with no background,,I had never acted before and can tell you what it was like to walk in as a complete beginner.,demo
+14,Noah,Physics,2028,PHYS 151,Fall 2024,Aaron Wirthwein,Exams and how to study,,,demo
+14,Noah,Physics,2028,MATH 226,Fall 2025,Peter Haine,Exams and how to study;Choosing a professor or section,,I took it a full year after my last math class and can talk about shaking off the rust.,demo
+15,Zara,International Relations,2028,IR 210,Fall 2024,Alix Ziff,Workload and time management;Taking it with no background,International student,I grew up outside the United States and can talk about finding my voice in class as an international student.,demo
+15,Zara,International Relations,2028,SPAN 150,Spring 2025,Ellen Oliveira,Choosing a professor or section;Taking it with no background,International student,,demo
+16,Lucas,Accounting and Finance,2027,BUAD 280,Fall 2024,Smrity Randhawa,Exams and how to study;Taking it with no background,,,demo
+16,Lucas,Accounting and Finance,2027,BUAD 304,Spring 2025,Andrea Dittmann,Workload and time management;Choosing a professor or section,,,demo
+16,Lucas,Accounting and Finance,2027,FBE 421,Fall 2025,Julia Plotts,Exams and how to study;Workload and time management,,I took this during recruiting season and can talk about balancing interviews with school.,demo
+17,Amara,Sociology,2029,SOCI 200,Fall 2025,Juliana Mc Gene,Taking it with no background;Workload and time management,First-generation student,"I'm the first in my family to go to college, and I can talk about learning how to ask for help early.",demo
+17,Amara,Sociology,2029,PSYC 100,Fall 2025,Kyoung sook Kim,Exams and how to study,First-generation student,,demo
+18,Kenji,Computer Engineering and Computer Science,2029,CSCI 103,Fall 2025,Andrew Goodney,Taking it with no background;Exams and how to study,International student,,demo
+18,Kenji,Computer Engineering and Computer Science,2029,EE 109,Spring 2026,Mark Redekopp,Workload and time management,International student,I had never touched hardware before this and can tell you how I got comfortable with it.,demo
+19,Elena,Political Science,2028,POSC 130,Fall 2024,Samuel Zacher,Workload and time management;Taking it with no background,Pre-med or pre-law,,demo
+19,Elena,Political Science,2028,IR 210,Spring 2025,Han-Hui Hsieh,Workload and time management,Pre-med or pre-law,I'm planning on law school and can talk about why I picked these classes with that in mind.,demo
+20,Marcus,Real Estate Development,2029,MATH 118,Fall 2025,Michael Hall,Exams and how to study;Choosing a professor or section,,"Math was never my subject in high school, and I can share what helped me keep up.",demo
+20,Marcus,Real Estate Development,2029,ECON 351,Spring 2026,Matthew Hill,Exams and how to study;Workload and time management,,,demo
+21,Nia,Human Biology,2028,CHEM 105A,Fall 2024,Jessica Parr,Exams and how to study;Choosing a professor or section,Pre-med or pre-law,,demo
+21,Nia,Human Biology,2028,BISC 220,Spring 2025,Alan Watts,Exams and how to study;Workload and time management,Pre-med or pre-law,I was juggling this with volunteering at a clinic and can talk about how I protected my study time.,demo
+21,Nia,Human Biology,2028,PHYS 135A,Fall 2025,Hamid Chabok,Taking it with no background;Exams and how to study,Pre-med or pre-law,,demo
+22,Arjun,Computer Science,2029,CSCI 103,Fall 2025,Andrew Goodney,Workload and time management,International student,"I had coded a little before, and I can tell you where that helped and where it didn't.",demo
+22,Arjun,Computer Science,2029,CSCI 170,Spring 2026,Mate Szabo,Exams and how to study,International student,,demo
+23,Camila,Anthropology,2028,SPAN 150,Fall 2024,Maura Crowley,Taking it with no background;Workload and time management,,"I grew up hearing Spanish at home but never studied it formally, and I can talk about what that was like in a classroom.",demo
+23,Camila,Anthropology,2028,ASTR 100,Spring 2025,Edward Rhodes,Taking it with no background,,,demo
+24,Tyler,Aerospace Engineering,2029,MATH 125,Fall 2025,Calum Rickard,Exams and how to study;Choosing a professor or section,,,demo
+24,Tyler,Aerospace Engineering,2029,PHYS 151,Spring 2026,Vahe Peroomian,Exams and how to study;Workload and time management,,,demo
+24,Tyler,Aerospace Engineering,2029,AME 201,Fall 2026,Ramtin Sheikhhassani,Workload and time management,,I'm taking it right now alongside a heavy schedule and can tell you how I'm managing week to week.,demo
+25,Leila,Public Policy,2028,PPD 245,Fall 2024,Todd Gish,Taking it with no background;Workload and time management,,"I came in undecided and this class is part of why I chose my major, which I'm happy to talk about.",demo
+25,Leila,Public Policy,2028,POSC 130,Spring 2025,Samuel Zacher,Workload and time management,,,demo
+26,Daniel,Mathematics,2028,MATH 125,Fall 2024,Pranava Jayanti,Exams and how to study;Choosing a professor or section,,,demo
+26,Daniel,Mathematics,2028,MATH 226,Fall 2025,Christian Geske,Exams and how to study;Workload and time management,,I tutor other students in math now and can share the study habits I wish I'd started with.,demo
+27,Grace,Biomedical Engineering,2029,BME 101,Fall 2025,Jesse Yen,Taking it with no background,,"I wasn't sure engineering was for me when I started, and I can talk about how I figured that out.",demo
+27,Grace,Biomedical Engineering,2029,CHEM 105A,Fall 2025,Jessica Parr,Exams and how to study;Workload and time management,,,demo
+28,Andre,Theatre,2028,THTR 101,Fall 2024,Jill Alexander,Taking it with no background;Choosing a professor or section,First-generation student,,demo
+28,Andre,Theatre,2028,MUSC 200,Fall 2025,Daniel Lincoln,Workload and time management,First-generation student,I took it purely out of curiosity and can tell you what it's like as someone outside the music school.,demo
+29,Mei,Business Administration,2028,BUAD 304,Fall 2025,Mayra Abrams,Workload and time management;Choosing a professor or section,International student,"English is my second language, and I can share how I got comfortable speaking up.",demo
+29,Mei,Business Administration,2028,BUAD 307,Spring 2026,Evan Weingarten,Workload and time management,International student,,demo
+30,Samuel,Economics,2028,ECON 203,Spring 2025,Yilmaz Kocer,Exams and how to study;Taking it with no background,,,demo
+30,Samuel,Economics,2028,ACCT 410,Fall 2025,Robert Buce,Taking it with no background;Workload and time management,,I had no accounting background at all and can tell you how I got my footing.,demo
+31,Fatima,Biochemistry,2027,CHEM 322A,Fall 2024,Stuart Moon,Exams and how to study;Workload and time management,Pre-med or pre-law,I was thinking about the MCAT the whole time I took this and can talk about how the two fit together for me.,demo
+31,Fatima,Biochemistry,2027,BISC 220,Spring 2025,Rita Barakat,Exams and how to study,Pre-med or pre-law,,demo
+31,Fatima,Biochemistry,2027,WRIT 340,Fall 2025,Stephen Mack,Workload and time management;Choosing a professor or section,Pre-med or pre-law,,demo
+32,Gabriel,Astronomy,2030,ASTR 100,Fall 2026,Edward Rhodes,Taking it with no background;Workload and time management,,I'm a first-year taking it this semester and can tell you what it's like so far.,demo
+32,Gabriel,Astronomy,2030,PHYS 151,Fall 2026,Christopher Gould,Workload and time management,,,demo
+33,Naomi,Public Relations and Advertising,2029,COMM 204,Fall 2025,Perry Johnson,Taking it with no background;Workload and time management,,,demo
+33,Naomi,Public Relations and Advertising,2029,JOUR 200,Spring 2026,Geoffrey Cowan,Workload and time management;Choosing a professor or section,,I came from a tiny high school and can talk about finding my people in a new place.,demo
+34,Kai,Computer Science,2030,CSCI 103,Fall 2026,Andrew Goodney,Taking it with no background;Workload and time management,,I'm in it right now as a first-year and can tell you honestly how the first few months have gone.,demo
+34,Kai,Computer Science,2030,MATH 125,Fall 2026,Spencer Gerhardt,Exams and how to study,,,demo
+35,Valentina,Psychology,2027,WRIT 340,Fall 2025,Jessica Cantiello,Workload and time management;Choosing a professor or section,Transfer student;First-generation student,I transferred from a community college and can talk about how different the writing expectations felt to me.,demo
+35,Valentina,Psychology,2027,SOCI 200,Spring 2026,Juliana Mc Gene,Taking it with no background,Transfer student;First-generation student,,demo
+36,Ryan,Artificial Intelligence for Business,2030,MATH 118,Fall 2026,Casey Schlortt,Exams and how to study;Workload and time management,,,demo
+36,Ryan,Artificial Intelligence for Business,2030,WRIT 150,Fall 2026,Daniel Lang-Perez,Choosing a professor or section;Taking it with no background,,I'm taking it this semester and can share how I picked my section.,demo
+37,Anika,Data Science,2028,MATH 125,Fall 2024,Felicia Tabing,Exams and how to study,Switched majors,,demo
+37,Anika,Data Science,2028,TAC 115,Fall 2025,Calvin Nguyen,Taking it with no background;Workload and time management,Switched majors,"I switched majors after learning to code here, and I can talk about what pushed me to do it.",demo
+38,Julian,Music Industry,2028,MUSC 200,Fall 2024,Daniel Lincoln,Workload and time management,,,demo
+38,Julian,Music Industry,2028,CTCS 190,Fall 2025,George Carstocea,Taking it with no background,,"I'm not a film student and took it for fun, so I can tell you what it's like from the outside.",demo
+39,Yuna,Cognitive Science,2029,PSYC 100,Fall 2025,Patricia George,Exams and how to study;Taking it with no background,International student,I moved to Los Angeles for college and can talk about settling in while keeping up with class.,demo
+39,Yuna,Cognitive Science,2029,TAC 115,Spring 2026,Rob Parke,Taking it with no background,International student,,demo
+40,Malik,Urban Studies and Planning,2028,PPD 245,Fall 2025,Marlon Boarnet,Workload and time management;Taking it with no background,Transfer student,I transferred in as a sophomore and can share how I got oriented in a new department.,demo
+40,Malik,Urban Studies and Planning,2028,SOCI 200,Fall 2025,Juliana Mc Gene,Workload and time management,Transfer student,,demo
+41,Sara,Biomedical Engineering,2028,BME 101,Spring 2025,Jesse Yen,Taking it with no background;Workload and time management,Switched majors,I switched into engineering from another major and can tell you what catching up looked like for me.,demo
+41,Sara,Biomedical Engineering,2028,BISC 220,Spring 2026,Alan Watts,Exams and how to study;Workload and time management,Switched majors,,demo
+42,Ian,Accounting,2028,ECON 351,Fall 2024,Alejandro Martinez marquina,Exams and how to study;Choosing a professor or section,,,demo
+42,Ian,Accounting,2028,BUAD 280,Spring 2025,Jackie Wegner,Exams and how to study;Workload and time management,,"I walked in thinking accounting would be dry, and I can tell you why I ended up majoring in it.",demo
+43,Lin,Business Administration,2027,BUAD 307,Fall 2024,Lars Perner,Workload and time management;Choosing a professor or section,International student,,demo
+43,Lin,Business Administration,2027,FBE 421,Fall 2025,Scott Abrams,Exams and how to study,International student,I took it the same semester I was interviewing for internships and can talk about staying on top of both.,demo
+43,Lin,Business Administration,2027,WRIT 340,Spring 2026,Janna Wong,Workload and time management,International student,"Writing in English is still hard for me, and I can share the routine that got me through it.",demo
+44,Rosa,Health Promotion and Disease Prevention Studies,2029,BISC 120,Fall 2025,Andrew Gracey,Exams and how to study;Taking it with no background,First-generation student;Pre-med or pre-law,"No one in my family had taken a college science class, and I can talk about finding study partners from scratch.",demo
+44,Rosa,Health Promotion and Disease Prevention Studies,2029,PHYS 135A,Fall 2026,Hamid Chabok,Workload and time management,First-generation student;Pre-med or pre-law,,demo
+45,Theo,"Philosophy, Politics and Law",2028,POSC 130,Fall 2025,Erik Hanson,Workload and time management,Pre-med or pre-law,,demo
+45,Theo,"Philosophy, Politics and Law",2028,IR 210,Spring 2026,Alix Ziff,Workload and time management;Taking it with no background,Pre-med or pre-law,"I'm aiming for law school and took this to test whether I liked the subject, which I'm happy to talk about.",demo
