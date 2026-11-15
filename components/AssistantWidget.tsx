@@ -93,7 +93,19 @@ async function askTommy(messages: { role: Role; content: string }[]): Promise<{ 
   return { reply: data.reply, links: cleanLinks(data.links) };
 }
 
+/**
+ * The panel is keyed by who is signed in, so signing out, deleting the
+ * account or switching to another account starts a fresh, empty chat. The
+ * widget lives in the root layout and is never unmounted on its own, so
+ * without this the next person in the same browser would see the earlier
+ * conversation.
+ */
 export function AssistantWidget() {
+  const { profile } = useProfile();
+  return <AssistantPanel key={profile?.email ?? ""} />;
+}
+
+function AssistantPanel() {
   const { profile } = useProfile();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);

@@ -92,6 +92,8 @@ const shared = globalThis as typeof globalThis & {
   __people?: PersonRow[];
   /** Which version of the file __people was read from (its last-changed time). */
   __peopleVersion?: number;
+  /** The highest person_id handed out since the server started, so a deleted one is never reused. */
+  __lastPersonId?: number;
 };
 
 /**
@@ -142,7 +144,13 @@ export function removePersonRows(matches: (row: PersonRow) => boolean): number {
   return removed;
 }
 
-/** The next unused person_id. */
+/**
+ * A person_id nobody has had. It never goes back down when people are
+ * removed: if a deleted person's id were handed to the next sign-up, an Ask
+ * window still open on the old card would reach the new person instead.
+ */
 export function nextPersonId(): number {
-  return Math.max(0, ...getPeopleRows().map((row) => row.person_id)) + 1;
+  const highest = Math.max(0, shared.__lastPersonId ?? 0, ...getPeopleRows().map((row) => row.person_id));
+  shared.__lastPersonId = highest + 1;
+  return shared.__lastPersonId;
 }

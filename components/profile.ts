@@ -132,8 +132,13 @@ export function useSent(): SentRequest[] {
 
 /** Start a session for a USC email (replaces any profile already in this browser). */
 export function signIn(email: string) {
+  const address = email.trim().toLowerCase();
+  // A different person is taking over this browser: the earlier person's
+  // sent messages are theirs alone, so they go too. The same person signing
+  // in again (for example after their session expired) keeps them.
+  if (readProfile()?.email !== address) write(SENT_KEY, null);
   const profile: Profile = {
-    email: email.trim().toLowerCase(),
+    email: address,
     first_name: "",
     major: "",
     level: "",

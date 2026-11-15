@@ -10,6 +10,9 @@ export const MAX_NOTE_CHARS = 140;
 const ABOUT_A_TEACHER = /\b(professors?|prof|instructors?|teachers?|lecturers?|ta|tas|dr)\b/i;
 // An email address, a link, or a run of digits long enough to be a phone number.
 const CONTACT_DETAILS = /@|https?:|www\.|\.(com|edu|net|org)\b|\d{5,}/i;
+// A phone number written with separators, like 555-123-4567 or (555) 123 4567:
+// seven or more digits once spaces, dashes, dots, brackets and "+" are removed.
+const SEPARATED_PHONE = /\d{7,}/;
 // Characters that would be markup or code rather than a sentence.
 const MARKUP = /[[\]{}<>|`\\*_#=~^]/;
 
@@ -24,7 +27,7 @@ export function checkNote(value: unknown): { note: string } | { error: string } 
   if (!note) return { note: "" };
   if (note.length > MAX_NOTE_CHARS) return { error: `Please keep your note under ${MAX_NOTE_CHARS} characters.` };
   if (MARKUP.test(note)) return { error: "Please write your note as a plain sentence, without symbols." };
-  if (CONTACT_DETAILS.test(note)) return { error: "Please leave contact details and links out of your note." };
+  if (CONTACT_DETAILS.test(note) || SEPARATED_PHONE.test(note.replace(/[\s().+-]/g, ""))) return { error: "Please leave contact details and links out of your note." };
   if (ABOUT_A_TEACHER.test(note)) {
     return { error: "Please write about your own experience, not about a professor or TA." };
   }
