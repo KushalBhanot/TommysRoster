@@ -16,7 +16,8 @@ import MAJORS from "@/data/majors.json";
 import type { CourseSummary } from "@/lib/courses";
 import { PrivacyNotice } from "./PrivacyNotice";
 import { getJson, errorMessage } from "./api";
-import { updateProfile, useProfile, type Profile } from "./profile";
+import { signOutLocally, updateProfile, useProfile, type Profile } from "./profile";
+import { endSession } from "./session";
 
 // Shared looks for fields and buttons (the same as the Join form).
 export const FIELD =
@@ -86,7 +87,37 @@ export function Onboarding() {
     );
   }
 
-  return <Steps profile={profile} />;
+  return (
+    <>
+      <Steps profile={profile} />
+      <WrongAccount email={profile.email} />
+    </>
+  );
+}
+
+/**
+ * Under the steps: which account this is, and a way out. Without it, someone
+ * who signed in with the wrong account would have to finish onboarding before
+ * they could reach "Sign out" on the Account page.
+ */
+function WrongAccount({ email }: { email: string }) {
+  const router = useRouter();
+
+  async function startOver() {
+    // The server forgets its session first, then the browser the profile.
+    await endSession();
+    signOutLocally();
+    router.replace("/signin");
+  }
+
+  return (
+    <p className="mt-12 border-t border-rule pt-4 text-sm text-graphite">
+      Signed in as <span className="break-all text-ink">{email}</span>.{" "}
+      <button type="button" onClick={startOver} className="min-h-11 cursor-pointer underline underline-offset-4">
+        Not you? Sign out
+      </button>
+    </p>
+  );
 }
 
 /**
