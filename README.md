@@ -71,7 +71,7 @@ only delivers to the address the Resend account was created with.
 | `data/catalog.json` | 1,595 undergraduate courses (code, title, department) | `npm run fetch-catalog` |
 | `data/instructors.json` | Who taught each course in each semester | `npm run fetch-catalog` |
 | `data/majors.json` | USC bachelor's degree names (USC Catalogue 2023-24) | copied once from the official list |
-| `data/demo-people.csv` | 45 invented students, 103 rows, for the demo | `npm run generate-demo` |
+| `data/demo-people.csv` | 60 invented students, 118 rows, for the demo | `npm run generate-demo` |
 
 Courses, semesters and professors are never typed by hand: they come from the official
 USC Schedule of Classes. The demo students are invented, but every course, semester and

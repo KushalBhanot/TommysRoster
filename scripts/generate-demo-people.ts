@@ -378,6 +378,72 @@ const PEOPLE: DemoPerson[] = [
       took("IR 210", "Spring 2026", [WORKLOAD, NO_BACKGROUND], "I'm aiming for law school and took this to test whether I liked the subject, which I'm happy to talk about."),
     ],
   },
+  // ---- Two courses with a deeper roster --------------------------------
+  // A course with three or four people always shows the same people, whatever
+  // is asked. These give CSCI 103 and BUAD 312 about a dozen people each, with
+  // different backgrounds and different things to talk about, so that who
+  // comes up depends on the question. Added at the end so that nobody above
+  // changes person_id.
+  {
+    name: "Marco", major: "Computer Science Games", grad: 2028, about: [SWITCHED],
+    courses: [took("CSCI 103", "Spring 2025", [WORKLOAD, NO_BACKGROUND], "I switched into computing after this class and can talk about how I made that call.")],
+  },
+  {
+    name: "Tessa", major: "Business Administration", grad: 2028, about: [],
+    courses: [took("CSCI 103", "Spring 2026", [NO_BACKGROUND, WORKLOAD], "I took it as a business student and can share how I fit it around my other classes.")],
+  },
+  {
+    name: "Devon", major: "Computer Science", grad: 2027, about: [TRANSFER], entry: "Fall 2025",
+    courses: [took("CSCI 103", "Fall 2025", [WORKLOAD], "I transferred in and can talk about catching up with people who had been here longer.")],
+  },
+  {
+    name: "Imani", major: "Computer Science", grad: 2028, about: [],
+    courses: [took("CSCI 103", "Fall 2024", [EXAMS, CHOOSING], "I had coded for years before this and can tell you what was still new to me.")],
+  },
+  {
+    name: "Hugo", major: "Electrical and Computer Engineering", grad: 2029, about: [],
+    courses: [took("CSCI 103", "Spring 2026", [WORKLOAD], "I worked a campus job that semester and can share how I planned my weeks.")],
+  },
+  {
+    name: "Nadia", major: "Human Biology", grad: 2028, about: [PRE_PROF],
+    courses: [took("CSCI 103", "Fall 2025", [NO_BACKGROUND], "I'm pre-med and took this out of curiosity, which I'm happy to talk about.")],
+  },
+  {
+    name: "Oscar", major: "Data Science", grad: 2028, about: [],
+    courses: [took("CSCI 103", "Fall 2024", [CHOOSING, EXAMS], "I can share how I chose between the sections that were open to me.")],
+  },
+  {
+    name: "Aiko", major: "Cognitive Science", grad: 2029, about: [INTERNATIONAL],
+    courses: [took("CSCI 103", "Fall 2025", [NO_BACKGROUND, EXAMS], "I was getting used to studying in English at the same time and can share what helped.")],
+  },
+  {
+    name: "Caleb", major: "Business Administration", grad: 2027, about: [TRANSFER], entry: "Fall 2025",
+    courses: [took("BUAD 312", "Fall 2025", [WORKLOAD, CHOOSING], "I transferred in and took this in my first term here, and can talk about adjusting.")],
+  },
+  {
+    name: "Ines", major: "Business Administration", grad: 2028, about: [],
+    courses: [took("BUAD 312", "Spring 2025", [NO_BACKGROUND, EXAMS], "I have always been nervous about math and can share how I got through it.")],
+  },
+  {
+    name: "Rohan", major: "Economics", grad: 2028, about: [],
+    courses: [took("BUAD 312", "Spring 2026", [EXAMS], "I had done a lot of math before and can tell you what still took effort.")],
+  },
+  {
+    name: "Bianca", major: "Accounting", grad: 2028, about: [],
+    courses: [took("BUAD 312", "Fall 2025", [WORKLOAD, CHOOSING], "I took this during recruiting season and can talk about balancing the two.")],
+  },
+  {
+    name: "Farah", major: "Business Administration", grad: 2029, about: [FIRST_GEN],
+    courses: [took("BUAD 312", "Spring 2026", [EXAMS, NO_BACKGROUND], "I'm the first in my family at college and can share how I learned to ask for help.")],
+  },
+  {
+    name: "Jonah", major: "Real Estate Development", grad: 2029, about: [],
+    courses: [took("BUAD 312", "Fall 2026", [WORKLOAD], "I'm taking it this semester and can share the weekly routine I settled into.")],
+  },
+  {
+    name: "Emeka", major: "Business Administration", grad: 2028, about: [INTERNATIONAL],
+    courses: [took("BUAD 312", "Fall 2024", [NO_BACKGROUND, WORKLOAD], "I was studying in my second language and can share what helped me follow along.")],
+  },
 ];
 
 // The "Exams and how to study" tag is only used on courses where exams are a

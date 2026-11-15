@@ -102,3 +102,18 @@ person_id,first_name,major,grad_year,code,semester,professor,help_tags,about_tag
 44,Rosa,Health Promotion and Disease Prevention Studies,2029,PHYS 135A,Fall 2026,Hamid Chabok,Workload and time management,First-generation student;Pre-med or pre-law,,demo
 45,Theo,"Philosophy, Politics and Law",2028,POSC 130,Fall 2025,Erik Hanson,Workload and time management,Pre-med or pre-law,,demo
 45,Theo,"Philosophy, Politics and Law",2028,IR 210,Spring 2026,Alix Ziff,Workload and time management;Taking it with no background,Pre-med or pre-law,"I'm aiming for law school and took this to test whether I liked the subject, which I'm happy to talk about.",demo
+46,Marco,Computer Science Games,2028,CSCI 103,Spring 2025,Mark Redekopp,Workload and time management;Taking it with no background,Switched majors,I switched into computing after this class and can talk about how I made that call.,demo
+47,Tessa,Business Administration,2028,CSCI 103,Spring 2026,Carter Slocum,Taking it with no background;Workload and time management,,I took it as a business student and can share how I fit it around my other classes.,demo
+48,Devon,Computer Science,2027,CSCI 103,Fall 2025,Andrew Goodney,Workload and time management,Transfer student,I transferred in and can talk about catching up with people who had been here longer.,demo
+49,Imani,Computer Science,2028,CSCI 103,Fall 2024,Andrew Goodney,Exams and how to study;Choosing a professor or section,,I had coded for years before this and can tell you what was still new to me.,demo
+50,Hugo,Electrical and Computer Engineering,2029,CSCI 103,Spring 2026,Carter Slocum,Workload and time management,,I worked a campus job that semester and can share how I planned my weeks.,demo
+51,Nadia,Human Biology,2028,CSCI 103,Fall 2025,Andrew Goodney,Taking it with no background,Pre-med or pre-law,"I'm pre-med and took this out of curiosity, which I'm happy to talk about.",demo
+52,Oscar,Data Science,2028,CSCI 103,Fall 2024,Carter Slocum,Choosing a professor or section;Exams and how to study,,I can share how I chose between the sections that were open to me.,demo
+53,Aiko,Cognitive Science,2029,CSCI 103,Fall 2025,Andrew Goodney,Taking it with no background;Exams and how to study,International student,I was getting used to studying in English at the same time and can share what helped.,demo
+54,Caleb,Business Administration,2027,BUAD 312,Fall 2025,Tianmin Xie,Workload and time management;Choosing a professor or section,Transfer student,"I transferred in and took this in my first term here, and can talk about adjusting.",demo
+55,Ines,Business Administration,2028,BUAD 312,Spring 2025,Feng Chen,Taking it with no background;Exams and how to study,,I have always been nervous about math and can share how I got through it.,demo
+56,Rohan,Economics,2028,BUAD 312,Spring 2026,Inga Maslova,Exams and how to study,,I had done a lot of math before and can tell you what still took effort.,demo
+57,Bianca,Accounting,2028,BUAD 312,Fall 2025,Jacob Bien,Workload and time management;Choosing a professor or section,,I took this during recruiting season and can talk about balancing the two.,demo
+58,Farah,Business Administration,2029,BUAD 312,Spring 2026,Inga Maslova,Exams and how to study;Taking it with no background,First-generation student,I'm the first in my family at college and can share how I learned to ask for help.,demo
+59,Jonah,Real Estate Development,2029,BUAD 312,Fall 2026,Feng Chen,Workload and time management,,I'm taking it this semester and can share the weekly routine I settled into.,demo
+60,Emeka,Business Administration,2028,BUAD 312,Fall 2024,Jacob Bien,Taking it with no background;Workload and time management,International student,I was studying in my second language and can share what helped me follow along.,demo
