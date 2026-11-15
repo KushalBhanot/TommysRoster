@@ -119,7 +119,7 @@ export function SignInForm() {
         type="submit"
         className={`${session.google ? SECONDARY_BUTTON : PRIMARY_BUTTON} mt-6 w-full justify-center sm:w-auto`}
       >
-        {session.google ? "Continue without verifying" : "Continue"}
+        {session.google ? "Continue as guest" : "Continue"}
       </button>
     </form>
   );
@@ -156,11 +156,11 @@ export function SignInForm() {
       {session.demo && session.google && (
         <details className="mt-12 max-w-xl border-t border-rule pt-4">
           <summary className="inline-flex min-h-11 cursor-pointer items-center font-medium underline underline-offset-4">
-            No USC account? Sign in without verifying
+            No USC account? Continue as a guest
           </summary>
           <p className="mt-3 text-sm text-graphite">
-            For people looking at this prototype who do not have a USC account. Type any address that ends in
-            @usc.edu. It is not checked, and there is no password.
+            Guest access is for visitors without a USC account. Enter an address ending in @usc.edu. It is not
+            verified, and there is no password.
           </p>
           {demoForm}
         </details>
@@ -171,8 +171,8 @@ export function SignInForm() {
           {demoForm}
           {/* Honest about what this sign-in does and does not check. */}
           <p className="mt-10 max-w-xl border-l-4 border-rule pl-4 text-sm text-graphite">
-            Prototype sign-in. A USC deployment would use USC sign-in (NetID). This demo only checks that the
-            address ends in @usc.edu and never asks for a password.
+            This sign-in only checks that the address ends in @usc.edu and never asks for a password. Verified
+            USC sign-in is not switched on for this site yet.
           </p>
         </>
       )}

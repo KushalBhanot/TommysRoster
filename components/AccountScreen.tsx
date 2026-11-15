@@ -49,7 +49,7 @@ export function AccountScreen() {
         <p className="mt-1 text-sm text-graphite">
           {verified
             ? "Verified with USC Google sign-in."
-            : "Demo sign-in: this address was typed in, not verified."}
+            : "Guest access: this address was typed in, not verified."}
         </p>
       )}
 
@@ -313,8 +313,8 @@ function DeleteData({ verified }: { verified: boolean }) {
           <p className="mt-3 text-graphite">It can&rsquo;t be undone. Messages already emailed to people stay in their inbox.</p>
           {!verified && (
             <p className="mt-3 text-graphite">
-              You used the demo sign-in, which does not verify your address. So only what was sent from this browser
-              can be removed, not what you sent from another phone or computer.
+              You signed in as a guest, so your address was not verified. Only what was sent from this browser can
+              be removed, not what you sent from another phone or computer.
             </p>
           )}
 

@@ -37,12 +37,12 @@ const MAX_QUERY_CHARS = 60;
 /** How sign-in works on this server right now, so Tommy never describes the wrong one. */
 function signInFact(): string {
   if (!googleConfigured()) {
-    return "Sign-in is a prototype: it only checks that the address ends in @usc.edu and never asks for a password. It is not verified USC sign-in yet.";
+    return "Sign-in only checks that the address ends in @usc.edu and never asks for a password. Verified USC sign-in is not switched on for this site yet.";
   }
   const google =
     "Sign-in uses USC Google sign-in: you log in on USC's own page with your NetID, and this site receives only your USC email address, never your password.";
   return demoSignInAllowed()
-    ? `${google} There is also a demo sign-in for trying the prototype, which does not verify the address typed.`
+    ? `${google} There is also guest access for visitors without a USC account, which does not verify the address typed.`
     : google;
 }
 

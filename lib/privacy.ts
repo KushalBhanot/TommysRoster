@@ -14,7 +14,7 @@ export const PRIVACY_PROMISES = [
 /** What is kept, where, and what leaves this site. */
 export const PRIVACY_DETAILS = [
   "Your onboarding profile (name, major, year, courses) and the list of messages you send are saved in this browser, not in an account on our servers.",
-  "Sign-in: with USC Google sign-in you log in on USC's own page. We receive your USC email address and nothing else, never your password. The demo sign-in does not verify the address you type, so it can only delete what was sent from the same browser.",
+  "Sign-in: with USC Google sign-in you log in on USC's own page. We receive your USC email address and nothing else, never your password. Guest access does not verify the address you type, so it can only delete what was sent from the same browser.",
   "When you search, get a draft message or chat with Tommy, what you typed and your major, level, year and course list are sent to the AI to answer you. We do not store them.",
   "When you ask someone, your message and USC email are stored so the request can be passed on. If it is emailed, the person can reply to your USC address. Your email is never shown on the site.",
   "If you join a course roster, your first name, major, year, and that course, semester and professor are shown to people using the site, and your USC email is stored (never shown) so questions can reach you. Deleting your account removes them.",
