@@ -32,6 +32,11 @@ export interface GenerateJsonOptions {
    * `additionalProperties: false`, and length/size limits are not supported.
    */
   schema: Record<string, unknown>;
+  /**
+   * For the rare large request: wait this long, once, instead of the usual
+   * 10 seconds with one retry. A call that is about to finish is not cut off.
+   */
+  patientMs?: number;
 }
 
 /**
@@ -60,7 +65,9 @@ export async function generateJson(options: GenerateJsonOptions): Promise<unknow
           format: { type: "json_schema", schema: options.schema },
         },
       },
-      { timeout: TIMEOUT_MS, maxRetries: 1 },
+      options.patientMs
+        ? { timeout: options.patientMs, maxRetries: 0 }
+        : { timeout: TIMEOUT_MS, maxRetries: 1 },
     );
   } catch (error) {
     // Most specific first. The messages go to the server log, never the key.

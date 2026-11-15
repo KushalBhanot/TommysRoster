@@ -299,6 +299,24 @@ send is never an error for the asker: the request is still stored, delivery "sav
 POST /api/people also accepts client_id and stores it with the private record.
 Rate limit: 8 per hour per person and IP.
 
+How matching works (lib/match.ts), in order:
+1. Code: text that is obviously not a sentence is "unclear" (no model call).
+2. Code: course codes in the question are read with a pattern and looked up in the
+   catalog ("csci103L" → CSCI 103). If the question names catalog courses and nobody
+   took any of them → no_match (no model call).
+3. Model, small call, only when the question has no course code: given the question and
+   the list of roster courses (code + title, no people), it returns question_type and
+   the courses meant ("organic chemistry" → CHEM 322A). unclear / off_topic end here.
+4. Code: the candidates are the people who took those courses (or the page's course).
+   Only a question about no course in particular gets everyone as candidates.
+5. Model: ranks the candidates for this question and asker, with a one-sentence reason
+   and key phrases. It gets no names and no emails.
+6. Code: every person_id, course code, year, professor and key phrase in the answer is
+   checked against the roster; anything untrue is dropped. If the model fails, the most
+   recent people for the course are shown without reasons ("fallback").
+The model no longer writes a general draft: draft_message is a plain template built in
+code, and the real message is written per person by POST /api/draft.
+
 POST /api/match answers no_match without calling the model when the question names
 catalog courses and nobody on the roster took any of them. The answer then also
 carries nobody_took: string[] (those course codes), so the page can say "No one on the
