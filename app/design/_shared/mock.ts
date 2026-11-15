@@ -80,28 +80,65 @@ export const ROSTER = [
 ];
 
 export const VARIANTS = [
+  // Round two: two design-forward directions, then three deliberately plain ones.
+  {
+    id: 6,
+    round: 2,
+    name: "Portraits",
+    summary: "Design-forward. Every person gets an abstract portrait drawn from their name in the brand colors; everything around it stays quiet.",
+  },
+  {
+    id: 7,
+    round: 2,
+    name: "Two Ink",
+    summary: "Design-forward. Printed in only two inks, cardinal and gold, like a risograph poster: heavy type, halftone dots, offset gold shadows.",
+  },
+  {
+    id: 8,
+    round: 2,
+    name: "One Box",
+    summary: "Simple. Works like a search engine: one box in the middle of the page, and the people come back as a plain list of results.",
+  },
+  {
+    id: 9,
+    round: 2,
+    name: "Plain Note",
+    summary: "Simple. Reads like a short note: one column of text, a numbered list of people written in full sentences, no cards or chips.",
+  },
+  {
+    id: 10,
+    round: 2,
+    name: "Big Type",
+    summary: "Simple. Very large type, one soft grey field and one button; three quiet tiles side by side for the people.",
+  },
+  // Round one.
   {
     id: 1,
+    round: 1,
     name: "Roster Board",
     summary: "A team roster you watch being scanned: a gold bar moves down the rows and the three matches light up and open.",
   },
   {
     id: 2,
+    round: 1,
     name: "Trojan Card",
     summary: "Each match is dealt onto the table as a campus ID card, with the AI's reason printed where the photo caption would be.",
   },
   {
     id: 3,
+    round: 1,
     name: "The Feature",
     summary: "A magazine page: one huge serif headline, a single ruled line to write on, and matches set as numbered pull quotes.",
   },
   {
     id: 4,
+    round: 1,
     name: "Ask Around",
     summary: "A conversation: your question is a chat bubble, and each match arrives as a reply introducing a person.",
   },
   {
     id: 5,
+    round: 1,
     name: "Cardinal",
     summary: "A full-bleed cardinal poster that shrinks to a bar once you ask, with white match cards rising over its edge.",
   },
