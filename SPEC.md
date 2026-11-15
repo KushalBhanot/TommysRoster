@@ -88,10 +88,11 @@ friendly draft message the asker could send.
   course rows.
 - Code validates every person_id the LLM returns and drops any that is not in the list
   it was given. A reason that names a course or a year that is not in that person's
-  rows is replaced by null. Never invent people or facts.
+  rows, or that contains stray markup, is replaced by null. Never invent people or facts.
 - If the LLM call fails, fall back to the most recent semester first, with reason: null
   and a plain draft_message built in code from the question.
-- No people to choose from → matches: [].
+- No people to choose from, or the question is not about a course → matches: [] and
+  draft_message: "".
 
 POST /api/request
 body { person_id: number, code?: string, question: string, from_email: string }
