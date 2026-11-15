@@ -6,7 +6,7 @@
 // says "Ask again" and shows when (read from the Sent list in profile.ts).
 
 import type { Person } from "@/lib/courses";
-import { useSent } from "./profile";
+import { useProfile, useSent } from "./profile";
 
 interface PersonEntryProps {
   person: Person;
@@ -73,6 +73,8 @@ export function PersonEntry({ person, rank, reason, keyPhrases = [], index = 0, 
   // person about this course, if there is one.
   const lastAsked = useSent().find((sent) => sent.person_id === person.person_id && sameCode(sent.code, person.code));
   const askedOn = lastAsked ? shortDate(lastAsked.sent_at) : "";
+  // What the reader ticked about themselves at onboarding or on /account.
+  const mine = useProfile().profile?.about ?? [];
 
   return (
     <li
@@ -97,11 +99,24 @@ export function PersonEntry({ person, rank, reason, keyPhrases = [], index = 0, 
         <p className="mt-2 text-sm text-graphite">{course}</p>
 
         <ul className="mt-3 flex flex-wrap gap-1.5">
-          {[...person.help_tags, ...person.about_tags].map((tag) => (
+          {person.help_tags.map((tag) => (
             <li key={tag} className="border border-ink/25 px-2 py-0.5 text-xs">
               {tag}
             </li>
           ))}
+          {/* Something this person has in common with the reader is lit in
+              gold and says so, so the shared path is seen at a glance. */}
+          {person.about_tags.map((tag) =>
+            mine.includes(tag) ? (
+              <li key={tag} className="border border-ink bg-gold px-2 py-0.5 text-xs font-semibold">
+                {tag}, like you
+              </li>
+            ) : (
+              <li key={tag} className="border border-ink/25 px-2 py-0.5 text-xs">
+                {tag}
+              </li>
+            ),
+          )}
           {person.source === "demo" && (
             <li className="border border-dashed border-ink/40 px-2 py-0.5 text-xs text-graphite">Demo profile</li>
           )}
