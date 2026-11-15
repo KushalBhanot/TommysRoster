@@ -5,9 +5,11 @@
 //   npm run fetch-catalog              uses the disk cache when it has a file
 //   npm run fetch-catalog -- --refresh downloads everything again
 //
-// It makes one request per department per term (plus one per term for the
-// department list), waits between requests, and saves every response under
-// .cache/usc-soc/ so a second run does not touch the network.
+// It asks USC which semesters exist, then makes one request per department
+// per semester (plus one per semester for the department list), waits between
+// requests, and saves every response under .cache/usc-soc/. A second run only
+// downloads what is new, so running it at the start of a semester adds that
+// semester; --refresh also re-downloads the ones already saved.
 //
 // Output:
 //   data/catalog.json      [{ code, title, department }]
@@ -25,14 +27,37 @@ const USER_AGENT = "Mozilla/5.0 (compatible; course-catalog-script)";
 const DELAY_MS = 500;
 const CACHE_DIR = path.resolve(".cache/usc-soc");
 
-// Newest first: the newest title wins when a course was renamed.
-const TERMS = [
-  { code: 20263, semester: "Fall 2026" },
-  { code: 20261, semester: "Spring 2026" },
-  { code: 20253, semester: "Fall 2025" },
-  { code: 20251, semester: "Spring 2025" },
-  { code: 20243, semester: "Fall 2024" },
-];
+// The oldest semester the site lists. Every fall and spring semester from
+// this one up to the one in session now is fetched, so nothing here needs
+// editing when a new semester starts: rerun the script and it is picked up.
+const FIRST_TERM = 20243; // Fall 2024
+
+interface UscTerm {
+  termCode: number;
+  season: string; // "Fall", "Spring" or "Summer"
+  year: number;
+}
+
+/**
+ * A semester counts once it has begun: spring in January, fall in August.
+ * USC publishes the next semester's schedule months ahead for registration,
+ * and nobody can have taken a class in a semester that has not started.
+ */
+function hasStarted(term: UscTerm, today = new Date()): boolean {
+  const firstMonth = term.season === "Spring" ? 0 : 7; // January, August
+  return today >= new Date(term.year, firstMonth, 1);
+}
+
+/** The semesters to fetch, newest first (the newest title wins when a course was renamed). */
+async function findTerms(): Promise<{ code: number; semester: string }[]> {
+  // Always asked fresh, never from the cache: this list is how new semesters are found.
+  const all = await getJson<UscTerm[]>("terms.json", `${BASE}/Terms/All`, false);
+  return all
+    .filter((term) => term.season === "Fall" || term.season === "Spring")
+    .filter((term) => term.termCode >= FIRST_TERM && hasStarted(term))
+    .sort((a, b) => b.termCode - a.termCode)
+    .map((term) => ({ code: term.termCode, semester: `${term.season} ${term.year}` }));
+}
 
 // Undergraduate departments across the schools. ITP was renamed TAC, so both
 // are listed; a prefix that does not exist in a term is skipped for that term.
@@ -75,10 +100,10 @@ const refresh = process.argv.includes("--refresh");
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 let requestsMade = 0;
 
-/** GET a JSON document, from the disk cache when it is there. */
-async function getJson<T>(cacheName: string, url: string): Promise<T> {
+/** GET a JSON document, from the disk cache when it is there (unless useCache is false). */
+async function getJson<T>(cacheName: string, url: string, useCache = true): Promise<T> {
   const file = path.join(CACHE_DIR, cacheName);
-  if (!refresh && fs.existsSync(file)) {
+  if (useCache && !refresh && fs.existsSync(file)) {
     return JSON.parse(fs.readFileSync(file, "utf8")) as T;
   }
 
@@ -109,6 +134,9 @@ function instructorName(first: string | null, last: string | null): string | nul
 }
 
 async function main() {
+  const TERMS = await findTerms();
+  console.log(`Semesters: ${TERMS.map((term) => term.semester).reverse().join(", ")}\n`);
+
   const catalog = new Map<string, { code: string; title: string; department: string }>();
   const instructors: Record<string, Record<string, string[]>> = {};
   const sectionTypes = new Map<string, number>();
