@@ -23,7 +23,13 @@ Try the API:
 ```bash
 curl http://localhost:3000/api/courses
 curl http://localhost:3000/api/courses/writ150/people
+curl -X POST http://localhost:3000/api/match -H 'content-type: application/json' \
+  -d '{"question":"How do I get through the pointers unit?","code":"csci103"}'
 ```
+
+With `GEMINI_API_KEY` and `GEMINI_MODEL` set, each match has a one-sentence `reason`.
+Without them (or if the model call fails) the same request still works and returns the
+most recent people with `"reason": null`; the server log says why.
 
 ### Environment
 

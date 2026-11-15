@@ -102,3 +102,17 @@ export function getPeopleRows(): PersonRow[] {
   }
   return people;
 }
+
+/**
+ * Add someone who signed up while the server is running, so they show up in
+ * the lists right away. Returns the row that was added.
+ */
+export function addPersonRow(row: PersonRow): PersonRow {
+  getPeopleRows().push(row);
+  return row;
+}
+
+/** The next unused person_id. */
+export function nextPersonId(): number {
+  return Math.max(0, ...getPeopleRows().map((row) => row.person_id)) + 1;
+}

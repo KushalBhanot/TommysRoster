@@ -74,16 +74,20 @@ A course nobody has signed up for returns [] (200), so the page can show an empt
 POST /api/match
 body { question: string (max 300 chars), asker_major?: string, asker_year?: string,
        code?: string }
-→ { matches: [{ person: Person, courses: string[], reason: string | null }],
+→ { matches: [{ person: Person, code: string, courses: string[], reason: string | null }],
     draft_message: string }
 One LLM call via lib/llm.ts. Input: the question, the asker info, and the people (for
 that course if code is given, otherwise everyone). Output: up to 3 person_ids ranked,
 each with a one-sentence reason using only facts from that person's rows, plus a short
 friendly draft message the asker could send.
-- person is that person's row for the given course, or their most recent row when no
-  code is given. courses lists every course code that person is signed up for.
+- person is that person's row for the given course. When no code is given it is the
+  row the model based its reason on, or their most recent row. code is the course of
+  that row, and courses lists every course code that person is signed up for.
+- The model is sent no names and no emails, only person_id, major, grad_year and the
+  course rows.
 - Code validates every person_id the LLM returns and drops any that is not in the list
-  it was given. Never invent people or facts.
+  it was given. A reason that names a course or a year that is not in that person's
+  rows is replaced by null. Never invent people or facts.
 - If the LLM call fails, fall back to the most recent semester first, with reason: null
   and a plain draft_message built in code from the question.
 - No people to choose from → matches: [].
