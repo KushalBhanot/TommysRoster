@@ -113,3 +113,21 @@ body:has(.design-root) > main {
     animation: none;
   }
 }
+
+/* The note above every preview. Preview chrome, not part of a design. */
+.design-note {
+  margin: 0;
+  padding: 10px 16px;
+  background: #111;
+  color: #fff;
+  font: 13px/1.45 system-ui, sans-serif;
+  text-align: center;
+}
+.design-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.design-note a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
