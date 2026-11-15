@@ -300,7 +300,9 @@ POST /api/people also accepts client_id and stores it with the private record.
 Rate limit: 8 per hour per person and IP.
 
 POST /api/match answers no_match without calling the model when the question names
-catalog courses and nobody on the roster took any of them. The model is also told
+catalog courses and nobody on the roster took any of them. The answer then also
+carries nobody_took: string[] (those course codes), so the page can say "No one on the
+roster has taken BUAD 306 yet" and link to the join form for it. The model is also told
 which rows are for the semester running now (taking_now), so a reason says "is taking",
 not "took". POST /api/draft gets the same flag.
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Person } from "@/lib/courses";
 import type { MatchResult, MatchStatus } from "@/lib/match";
@@ -216,9 +217,20 @@ export function MatchFinder({ code, heading, headingLevel, intro, examples }: Ma
         {results.status === "done" && results.result.matches.length === 0 && (
           <div className="mt-12 border-t-2 border-ink pt-6">
             <h2 ref={headingRef} tabIndex={-1} className="font-display text-2xl font-bold uppercase focus:outline-none">
-              {noPeopleMessage(results.result.status, code).title}
+              {noPeopleMessage(results.result.status, code, results.result.nobody_took).title}
             </h2>
-            <p className="mt-2 max-w-xl text-graphite">{noPeopleMessage(results.result.status, code).body}</p>
+            <p className="mt-2 max-w-xl text-graphite">
+              {noPeopleMessage(results.result.status, code, results.result.nobody_took).body}
+            </p>
+            {/* Someone who took the course can fix the gap themselves. */}
+            {results.result.status === "no_match" && results.result.nobody_took?.[0] && (
+              <Link
+                href={`/join?code=${encodeURIComponent(results.result.nobody_took[0])}`}
+                className="mt-4 inline-flex min-h-11 items-center font-medium underline underline-offset-4"
+              >
+                Took {results.result.nobody_took[0]}? Join the roster for it
+              </Link>
+            )}
             {results.result.status === "unavailable" && (
               <button
                 type="button"
@@ -280,7 +292,19 @@ export function MatchFinder({ code, heading, headingLevel, intro, examples }: Ma
  * lib/match.ts), so the page can be honest about it: text it could not read
  * and a question nobody can answer yet are different situations.
  */
-function noPeopleMessage(status: MatchStatus, code?: string): { title: string; body: string } {
+function noPeopleMessage(
+  status: MatchStatus,
+  code?: string,
+  nobodyTook: string[] = [],
+): { title: string; body: string } {
+  // The question named real courses, and nobody on the roster has taken them.
+  if (status === "no_match" && nobodyTook.length > 0) {
+    const courses = nobodyTook.length === 1 ? nobodyTook[0] : `${nobodyTook.slice(0, -1).join(", ")} or ${nobodyTook.at(-1)}`;
+    return {
+      title: `No one on the roster has taken ${courses} yet`,
+      body: "The roster only lists students who signed up for a course, and nobody has for this one. You can ask about another course, or browse the courses below.",
+    };
+  }
   switch (status) {
     case "unclear":
       return {

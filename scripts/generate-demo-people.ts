@@ -55,6 +55,7 @@ const PEOPLE: DemoPerson[] = [
     courses: [
       took("WRIT 150", "Fall 2024", [WORKLOAD, CHOOSING], "I rewrote a lot that semester and can tell you how I learned to start earlier."),
       took("BUAD 304", "Fall 2025", [WORKLOAD]),
+      took("BUAD 312", "Spring 2026", [EXAMS, WORKLOAD], "I had never taken statistics before and can share how I kept up week to week."),
     ],
   },
   {
@@ -164,6 +165,7 @@ const PEOPLE: DemoPerson[] = [
     courses: [
       took("BUAD 280", "Fall 2024", [EXAMS, NO_BACKGROUND]),
       took("BUAD 304", "Spring 2025", [WORKLOAD, CHOOSING]),
+      took("BUAD 312", "Fall 2024", [EXAMS, WORKLOAD]),
       took("FBE 421", "Fall 2025", [EXAMS, WORKLOAD], "I took this during recruiting season and can talk about balancing interviews with school."),
     ],
   },
@@ -258,6 +260,7 @@ const PEOPLE: DemoPerson[] = [
     courses: [
       took("BUAD 304", "Fall 2025", [WORKLOAD, CHOOSING], "English is my second language, and I can share how I got comfortable speaking up."),
       took("BUAD 307", "Spring 2026", [WORKLOAD]),
+      took("BUAD 312", "Fall 2025", [EXAMS, CHOOSING], "I can share how studying with a group helped once the material got harder."),
     ],
   },
   {
@@ -308,6 +311,7 @@ const PEOPLE: DemoPerson[] = [
     courses: [
       took("MATH 118", "Fall 2026", [EXAMS, WORKLOAD]),
       took("WRIT 150", "Fall 2026", [CHOOSING, NO_BACKGROUND], "I'm taking it this semester and can share how I picked my section."),
+      took("BUAD 312", "Fall 2026", [WORKLOAD, NO_BACKGROUND], "I'm in it right now and can tell you how the first months have gone."),
     ],
   },
   {
@@ -377,12 +381,12 @@ const PEOPLE: DemoPerson[] = [
 ];
 
 // The "Exams and how to study" tag is only used on courses where exams are a
-// safe assumption (math, science, economics, accounting). Writing, performance
+// safe assumption (math, statistics, science, economics, accounting). Writing, performance
 // and discussion courses never get it, so no row claims an exam that may not exist.
 const EXAM_TAG_COURSES = new Set([
   "BISC 120", "BISC 220", "CHEM 105A", "CHEM 322A", "PHYS 151", "PHYS 135A",
   "MATH 125", "MATH 118", "MATH 226", "ECON 203", "ECON 351", "PSYC 100",
-  "CSCI 103", "CSCI 104", "CSCI 170", "BUAD 280", "FBE 421", "AME 201",
+  "CSCI 103", "CSCI 104", "CSCI 170", "BUAD 280", "BUAD 312", "FBE 421", "AME 201",
 ]);
 
 // Words a note may not contain: they would be a checkable claim about how the

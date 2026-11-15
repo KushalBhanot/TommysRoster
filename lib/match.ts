@@ -55,6 +55,11 @@ export interface MatchResult {
   status: MatchStatus;
   matches: Match[];
   draft_message: string;
+  /**
+   * Only with "no_match": the courses the question is about that are in the
+   * catalog but that nobody on the roster has taken, so the page can say so.
+   */
+  nobody_took?: string[];
 }
 
 const MAX_MATCHES = 3;
@@ -317,7 +322,7 @@ export async function matchPeople(input: MatchInput): Promise<MatchResult> {
   // A question about real courses that nobody on the roster took has no
   // honest match. Say so, instead of asking the model for "the closest people".
   if (!input.code && catalogCoursesIn(input.question).length > 0 && coursesNamedIn(input.question).length === 0) {
-    return { status: "no_match", matches: [], draft_message: "" };
+    return { status: "no_match", matches: [], draft_message: "", nobody_took: catalogCoursesIn(input.question) };
   }
 
   // Rows to choose from, newest first: one course, or everyone.
@@ -325,7 +330,9 @@ export async function matchPeople(input: MatchInput): Promise<MatchResult> {
   const candidates = new Map([...groupByPerson(rows)].slice(0, MAX_PEOPLE_IN_PROMPT));
 
   if (candidates.size === 0) {
-    return { status: "no_match", matches: [], draft_message: "" };
+    // On a course page with an empty roster, name that course.
+    const course = input.code ? findCourse(input.code)?.code : undefined;
+    return { status: "no_match", matches: [], draft_message: "", ...(course ? { nobody_took: [course] } : {}) };
   }
 
   // Only what the model needs to rank: no names, and emails are never loaded.
