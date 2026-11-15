@@ -175,7 +175,7 @@ function Steps({ profile }: { profile: Profile }) {
               className={FIELD}
             />
             <p id="welcome-name-note" className="mt-1 text-sm text-graphite">
-              Shown to people you ask. Never sent to the AI.
+              Used to sign the messages we draft for you. Never sent to the AI.
             </p>
           </div>
         )}
@@ -397,6 +397,16 @@ export function CoursePicker({ selected, onChange }: { selected: string[]; onCha
         {results.state === "done" && results.courses.length === 0 && (
           <p className="text-sm text-graphite">No course in the catalog matches that. Try a prefix like WRIT or a code like WRIT 150.</p>
         )}
+        {/* For screen readers: say how many, without reading the whole list out. */}
+        {results.state === "done" && results.courses.length > 0 && (
+          <p className="sr-only">
+            {results.courses.length} {results.courses.length === 1 ? "course matches" : "courses match"}. The list is
+            below.
+          </p>
+        )}
+      </div>
+
+      <div className="mt-2">
         {results.state === "done" && results.courses.length > 0 && (
           <fieldset>
             <legend className="sr-only">Courses matching &ldquo;{query.trim()}&rdquo;</legend>

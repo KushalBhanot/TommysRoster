@@ -28,8 +28,8 @@ body {
 
 /*
   One visible focus style everywhere, for keyboard users. It sits in the "base"
-  layer so a utility class on an element can change it (the footer is black,
-  so its links use a white ring).
+  layer so a utility class on an element can change it (the footer is cardinal,
+  so its link uses a white ring).
 */
 @layer base {
   :focus-visible {
@@ -38,8 +38,12 @@ body {
   }
 }
 
-/* Stop the page behind an open dialog from scrolling. */
-:root:has(dialog[open]) {
+/*
+  Stop the page behind an open dialog from scrolling. The class is set by
+  useScrollLock() while a dialog is on screen. (A ":has(dialog[open])" rule
+  would also match a dialog left open on a page Next keeps hidden after Back.)
+*/
+:root.dialog-open {
   overflow: hidden;
 }
 

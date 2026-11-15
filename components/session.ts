@@ -56,3 +56,14 @@ export async function endSession(): Promise<void> {
     // The cookie expires on its own; the browser's data is cleared regardless.
   }
 }
+
+// Another tab signed out or deleted the account (the profile is gone from
+// storage). This tab still holds the old session in memory, and Next keeps
+// earlier pages alive in the background, so the only clean way to follow is a
+// full reload onto the sign-in page.
+if (typeof window !== "undefined") {
+  window.addEventListener("storage", (event) => {
+    const profileRemoved = (event.key === "roster.profile" || event.key === null) && event.newValue === null;
+    if (profileRemoved && window.location.pathname !== "/signin") window.location.replace("/signin");
+  });
+}

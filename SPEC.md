@@ -289,6 +289,7 @@ POST /api/request  (changed)
 body { person_id, code?, question, from_email, client_id? } → { ok: true,
   delivery: "emailed" | "saved" }
 The sender is actingEmail(from_email): a verified session wins over from_email.
+Rate limit: 10 per ten minutes per sender and IP (each one can become an email).
 If RESEND_API_KEY is set and an address is known for the person, the request is emailed
 to them (reply-to: the asker) and delivery is "emailed"; otherwise it is only stored
 and delivery is "saved". Addresses come from data/private/person-emails.json
@@ -296,6 +297,15 @@ and delivery is "saved". Addresses come from data/private/person-emails.json
 send is never an error for the asker: the request is still stored, delivery "saved".
 
 POST /api/people also accepts client_id and stores it with the private record.
+Rate limit: 8 per hour per person and IP.
+
+POST /api/match answers no_match without calling the model when the question names
+catalog courses and nobody on the roster took any of them. The model is also told
+which rows are for the semester running now (taking_now), so a reason says "is taking",
+not "took". POST /api/draft gets the same flag.
+
+Signing out removes the profile and sent history from the browser but keeps the browser
+id, so "Delete my account" still finds that browser's records after signing in again.
 
 DELETE /api/me
 body { client_id?: string } → { ok: true, removed: { requests: number, signups: number } }

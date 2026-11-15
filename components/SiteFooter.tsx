@@ -33,7 +33,7 @@ export function SiteFooter() {
             <p>Courses and instructors come from the USC Schedule of Classes.</p>
             <p className="mt-3">
               {/* The padding makes the link a 44px tap target. */}
-              <Link href="/privacy" className="-my-3 inline-block py-3 font-semibold underline underline-offset-4">
+              <Link href="/privacy" className="-my-3 inline-block py-3 font-semibold underline underline-offset-4 focus-visible:outline-paper">
                 How we protect your data
               </Link>
             </p>

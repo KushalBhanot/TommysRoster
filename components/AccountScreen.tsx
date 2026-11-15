@@ -15,7 +15,9 @@ import { useState } from "react";
 import MAJORS from "@/data/majors.json";
 import { CoursePicker, FIELD, LABEL, LevelChoice, PRIMARY_BUTTON, SECONDARY_BUTTON, gradYears } from "./Onboarding";
 import { PrivacyNotice } from "./PrivacyNotice";
-import { clearLocalData, clientId, updateProfile, useProfile, useSent, type Profile, type SentRequest } from "./profile";
+import {
+  clearLocalData, clientId, signOutLocally, updateProfile, useProfile, useSent, type Profile, type SentRequest,
+} from "./profile";
 import { endSession, useSessionInfo } from "./session";
 
 const MAX_NAME_CHARS = 40;
@@ -58,7 +60,7 @@ export function AccountScreen() {
 
       <SignOut />
 
-      <DeleteData />
+      <DeleteData verified={verified} />
 
       {showNotice && <PrivacyNotice mode="read" onClose={() => setShowNotice(false)} />}
     </div>
@@ -99,7 +101,7 @@ function EditProfile({ profile }: { profile: Profile }) {
   return (
     <form onSubmit={save} noValidate className={SECTION} aria-labelledby="profile-heading">
       <h2 id="profile-heading" className={SECTION_HEADING}>Your profile</h2>
-      <p className="mt-2 text-graphite">Your first name is shown to people you ask. It is never sent to the AI.</p>
+      <p className="mt-2 text-graphite">Your first name is used to sign the messages we draft for you. It is never sent to the AI.</p>
 
       <div className="mt-6 grid gap-6">
         <div className="max-w-md">
@@ -225,7 +227,7 @@ function SignOut() {
   async function signOut() {
     // The server forgets its signed cookie first, then the browser its data.
     await endSession();
-    clearLocalData();
+    signOutLocally();
     router.replace("/signin");
   }
 
@@ -251,7 +253,7 @@ type DeleteState = "idle" | "confirm" | "deleting" | "error";
  * server call fails, nothing in the browser is cleared, so the person can try
  * again (the browser id is what tells the server which records are theirs).
  */
-function DeleteData() {
+function DeleteData({ verified }: { verified: boolean }) {
   const router = useRouter();
   const [state, setState] = useState<DeleteState>("idle");
   const [error, setError] = useState("");
@@ -309,6 +311,12 @@ function DeleteData() {
             <li>your profile and sent history from this browser, which signs you out.</li>
           </ul>
           <p className="mt-3 text-graphite">It can&rsquo;t be undone. Messages already emailed to people stay in their inbox.</p>
+          {!verified && (
+            <p className="mt-3 text-graphite">
+              You used the demo sign-in, which does not verify your address. So only what was sent from this browser
+              can be removed, not what you sent from another phone or computer.
+            </p>
+          )}
 
           {state === "error" && (
             <p role="alert" className="mt-4 font-semibold text-cardinal">

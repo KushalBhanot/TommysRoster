@@ -99,7 +99,8 @@ and at `/privacy`). What the code does to back it up:
 ### Known limitations
 
 - Sign-ups and intro requests are stored in memory (plus a local file when the disk is writable), so on a host like Vercel they are lost when the server restarts; a real launch needs a small database behind those two routes.
-- The rate limits on the AI routes (per IP, per minute) are also in memory, so they are counted per server instance.
+- The rate limits (AI routes, intro requests, sign-ups) are also in memory, so they are counted per server instance.
+- With the demo sign-in, deleting an account removes only what was sent from the same browser, because the address is not verified. With USC Google sign-in it removes everything under that address.
 - Intro requests are emailed only when Resend is set up; otherwise they are stored and someone has to forward them.
 - The roster itself (demo people, first names, majors, what they offered to talk about) is not encrypted at rest; it holds no emails.
 

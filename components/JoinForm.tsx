@@ -7,6 +7,7 @@ import MAJORS from "@/data/majors.json";
 import type { CourseSummary } from "@/lib/courses";
 import { ABOUT_TAGS, HELP_TAGS } from "@/lib/tags";
 import { courseHref } from "./CourseSearch";
+import { gradYears } from "./Onboarding";
 import { errorMessage, getJson, postJson } from "./api";
 import { clientId, useProfile, type Profile } from "./profile";
 
@@ -60,9 +61,8 @@ function JoinFields({ profile }: { profile: Profile | null }) {
   const [status, setStatus] = useState<"editing" | "sending" | "done">("editing");
   const [error, setError] = useState("");
 
-  // Graduation years to offer: this year and the next five.
-  const thisYear = new Date().getFullYear();
-  const years = Array.from({ length: 6 }, (_, i) => String(thisYear + i));
+  // The same graduation years onboarding offers, plus the one already saved.
+  const years = gradYears(profile?.grad_year ?? "");
 
   /** Load one course's semesters and professors, and make it the chosen course. */
   function chooseCourse(code: string) {

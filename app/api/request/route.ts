@@ -7,6 +7,7 @@ import { getPeopleRows } from "@/lib/data";
 import { emailConfigured, emailForPerson, sendEmail } from "@/lib/email";
 import { errorJson, json, readJsonObject, textField } from "@/lib/http";
 import { normalizeCode } from "@/lib/normalize";
+import { allowRequest, clientIp } from "@/lib/rate-limit";
 import { SIGN_IN_FIRST, actingEmail, demoSignInAllowed } from "@/lib/session";
 import { clientIdField, saveRecord } from "@/lib/store";
 
@@ -46,6 +47,12 @@ export async function POST(request: Request) {
     return demoSignInAllowed()
       ? errorJson("Please use your @usc.edu email.", 400)
       : errorJson(SIGN_IN_FIRST, 401);
+  }
+
+  // Each request can become an email in someone's inbox, so one sender on one
+  // connection gets 10 in ten minutes.
+  if (!allowRequest(`request:${from_email}:${clientIp(request)}`, 10, 10 * 60_000)) {
+    return errorJson("You have sent several requests in a short time. Please wait a few minutes.", 429);
   }
 
   const question = textField(body.question);

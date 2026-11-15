@@ -4,6 +4,7 @@
 import { findCourse, instructorsFor, semestersOffered } from "@/lib/catalog";
 import { addPersonRow, nextPersonId } from "@/lib/data";
 import { errorJson, json, readJsonObject, textField } from "@/lib/http";
+import { allowRequest, clientIp } from "@/lib/rate-limit";
 import { SIGN_IN_FIRST, actingEmail, demoSignInAllowed } from "@/lib/session";
 import { clientIdField, recordsInMemory, saveRecord } from "@/lib/store";
 import { ABOUT_TAGS, HELP_TAGS, type AboutTag, type HelpTag } from "@/lib/tags";
@@ -54,6 +55,12 @@ export async function POST(request: Request) {
     return demoSignInAllowed()
       ? errorJson("Please use your @usc.edu email.", 400)
       : errorJson(SIGN_IN_FIRST, 401);
+  }
+
+  // Sign-ups add public rows to the roster, so one person on one connection
+  // gets 8 in an hour (enough for every course they took).
+  if (!allowRequest(`people:${email}:${clientIp(request)}`, 8, 60 * 60_000)) {
+    return errorJson("You have signed up for several courses in a short time. Please try again later.", 429);
   }
 
   const major = textField(body.major);

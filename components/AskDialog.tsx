@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Person } from "@/lib/courses";
 import { errorMessage, postJson } from "./api";
 import { addSent, askerContext, clientId, useProfile } from "./profile";
+import { useScrollLock } from "./useScrollLock";
 
 interface AskDialogProps {
   /** Who is being asked, in the course the question is about. */
@@ -75,6 +76,8 @@ export function AskDialog({ person, question, draft, onClose }: AskDialogProps) 
   const [status, setStatus] = useState<Status>("editing");
   const [delivery, setDelivery] = useState<"emailed" | "saved">("saved");
   const [error, setError] = useState("");
+
+  useScrollLock();
 
   // A <dialog> only becomes a real modal when opened with showModal().
   useEffect(() => {
@@ -176,9 +179,14 @@ export function AskDialog({ person, question, draft, onClose }: AskDialogProps) 
     <dialog
       ref={dialogRef}
       onClose={onClose}
+      // While a request is on its way the window stays open, so its result
+      // (sent, or an error) is always seen. Escape fires "cancel" first.
+      onCancel={(event) => {
+        if (status === "sending") event.preventDefault();
+      }}
       // A click on the dimmed area outside the panel lands on the dialog itself.
       onClick={(event) => {
-        if (event.target === dialogRef.current) close();
+        if (event.target === dialogRef.current && status !== "sending") close();
       }}
       aria-labelledby="ask-title"
       // A sheet rising from the bottom on a phone, a centered panel from "sm" up.
@@ -259,7 +267,7 @@ export function AskDialog({ person, question, draft, onClose }: AskDialogProps) 
 
             {/* For screen readers: the suggestion itself, and news of its arrival. */}
             {ghostShowing && (
-              <p id="ask-suggestion" className="sr-only">
+              <p id="ask-suggestion" hidden>
                 Suggested draft: {suggestionText}
               </p>
             )}
@@ -322,7 +330,8 @@ export function AskDialog({ person, question, draft, onClose }: AskDialogProps) 
               <button
                 type="button"
                 onClick={close}
-                className="min-h-12 cursor-pointer px-4 font-medium underline underline-offset-4"
+                disabled={status === "sending"}
+                className="min-h-12 cursor-pointer px-4 font-medium underline underline-offset-4 disabled:cursor-default disabled:text-graphite disabled:no-underline"
               >
                 Cancel
               </button>

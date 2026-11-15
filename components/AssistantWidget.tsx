@@ -142,6 +142,8 @@ export function AssistantWidget() {
   async function send(text: string) {
     const question = text.trim().slice(0, MAX_LENGTH);
     if (!question || waiting) return;
+    // A starter button disappears once it is used: keep focus in the panel.
+    inputRef.current?.focus();
 
     const conversation: ChatMessage[] = [...messages, { role: "user", content: question }];
     setMessages(conversation);
@@ -293,9 +295,12 @@ export function AssistantWidget() {
               maxLength={MAX_LENGTH}
               placeholder="Type a question"
               value={input}
-              disabled={waiting}
+              // Read-only, not disabled, while waiting: a disabled field drops
+              // keyboard focus to the page, and Escape would stop working.
+              readOnly={waiting}
+              aria-disabled={waiting}
               onChange={(event) => setInput(event.target.value)}
-              className="block h-12 min-w-0 flex-1 border-2 border-ink bg-paper px-3 text-base placeholder:text-[#767676] focus:border-cardinal disabled:border-rule disabled:text-graphite"
+              className="block h-12 min-w-0 flex-1 border-2 border-ink bg-paper px-3 text-base placeholder:text-[#767676] focus:border-cardinal aria-disabled:border-rule aria-disabled:text-graphite"
             />
             <button
               type="submit"

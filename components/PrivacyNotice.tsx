@@ -7,6 +7,7 @@
 
 import { useEffect, useRef } from "react";
 import { PRIVACY_DETAILS, PRIVACY_PROMISES } from "@/lib/privacy";
+import { useScrollLock } from "./useScrollLock";
 
 type PrivacyNoticeProps =
   | { mode: "accept"; onAccept: () => void }
@@ -22,6 +23,8 @@ export function PrivacyNotice(props: PrivacyNoticeProps) {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const accepted = useRef(false);
   const mustAccept = props.mode === "accept";
+
+  useScrollLock();
 
   // A <dialog> only becomes a real modal when opened with showModal().
   useEffect(() => {
@@ -51,7 +54,6 @@ export function PrivacyNotice(props: PrivacyNoticeProps) {
     <dialog
       ref={dialogRef}
       aria-labelledby="privacy-title"
-      aria-describedby="privacy-points"
       // Escape fires "cancel" first; stopping it keeps the dialog open.
       onCancel={(event) => {
         if (mustAccept) event.preventDefault();

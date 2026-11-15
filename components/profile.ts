@@ -71,7 +71,7 @@ function write(key: string, value: string | null) {
     if (value === null) window.localStorage.removeItem(key);
     else window.localStorage.setItem(key, value);
   } catch {
-    // Nothing to do: the page still works for this visit.
+    // Storage is blocked. Nothing is saved; the sign-in page tells the person.
   }
   window.dispatchEvent(new Event(CHANGED));
 }
@@ -162,8 +162,18 @@ export function addSent(request: Omit<SentRequest, "id" | "sent_at">) {
 }
 
 /**
- * Sign out and remove everything this site saved in this browser: the
- * profile, the sent history and the browser id.
+ * Sign out: remove the profile and the sent history from this browser. The
+ * browser id stays, because it is what lets "Delete my account" find the
+ * records this browser sent to the server, also after signing in again.
+ */
+export function signOutLocally() {
+  write(PROFILE_KEY, null);
+  write(SENT_KEY, null);
+}
+
+/**
+ * After the server has deleted this person's records: remove everything this
+ * site saved in this browser, the browser id included.
  */
 export function clearLocalData() {
   write(PROFILE_KEY, null);

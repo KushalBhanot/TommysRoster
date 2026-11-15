@@ -30,6 +30,15 @@ const SIGN_IN_ERRORS: Record<string, string> = {
   not_configured: "USC Google sign-in is not set up on this server yet.",
 };
 
+/** True when the profile really reached the browser's storage (it can be blocked). */
+function profileSaved(): boolean {
+  try {
+    return window.localStorage.getItem("roster.profile") !== null;
+  } catch {
+    return false;
+  }
+}
+
 export function SignInForm() {
   const router = useRouter();
   const params = useSearchParams();
@@ -65,6 +74,12 @@ export function SignInForm() {
     // Signing in again with the same address keeps the onboarding answers
     // already saved; a different address starts a fresh profile.
     if (profile?.email !== address) signIn(address);
+    if (!profileSaved()) {
+      setError(
+        "This browser is blocking site storage, which Tommy's Roster needs to keep your profile. Allow site data for this page and try again.",
+      );
+      return;
+    }
     router.push("/welcome");
   }
 
