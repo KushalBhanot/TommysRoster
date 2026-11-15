@@ -4,7 +4,7 @@
 
 import { findCourse } from "@/lib/catalog";
 import { getPeopleRows } from "@/lib/data";
-import { emailConfigured, emailForPerson, sendEmail } from "@/lib/email";
+import { emailConfigured, emailForPerson, introEmailHtml, sendEmail } from "@/lib/email";
 import { errorJson, json, readJsonObject, textField } from "@/lib/http";
 import { normalizeCode } from "@/lib/normalize";
 import { allowRequest, clientIp } from "@/lib/rate-limit";
@@ -13,7 +13,10 @@ import { clientIdField, saveRecord } from "@/lib/store";
 
 const MAX_MESSAGE_CHARS = 1000;
 
-/** The plain-text email the person receives. It never shows the asker's address. */
+/**
+ * The email the person receives, as plain text and as the designed version
+ * with the logo. Neither shows the asker's address in its body.
+ */
 function introEmail(question: string, code: string, title: string) {
   const subject = code
     ? `A USC student has a question about ${code} ${title}`.trim()
@@ -29,7 +32,7 @@ function introEmail(question: string, code: string, title: string) {
     "Reply to this email to answer them directly.",
     why,
   ].join("\n");
-  return { subject, text };
+  return { subject, text, html: introEmailHtml({ message: question, why }) };
 }
 
 // body { person_id, code?, question, from_email, client_id? }
@@ -94,8 +97,8 @@ export async function POST(request: Request) {
   try {
     const to = emailConfigured() ? emailForPerson(person_id) : null;
     if (to) {
-      const { subject, text } = introEmail(question, code, code ? (findCourse(code)?.title ?? "") : "");
-      if (await sendEmail({ to, replyTo: from_email, subject, text })) delivery = "emailed";
+      const { subject, text, html } = introEmail(question, code, code ? (findCourse(code)?.title ?? "") : "");
+      if (await sendEmail({ to, replyTo: from_email, subject, text, html })) delivery = "emailed";
     }
   } catch (error) {
     // Log the error type only: a message could quote an address.
