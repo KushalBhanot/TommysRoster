@@ -115,39 +115,43 @@ can_help_with 300. The person appears in the lists right away. Signing up again 
 the same email for another course keeps the same person_id.
 
 ## Pages
-/  — The main element is a free-text box: "Describe what you're trying to figure out".
-     Submitting it calls POST /api/match and shows the top 3 matches with their reasons.
-     Below it, course search: one input with autocomplete over /api/courses, showing
-     code and "N students", then the most-covered courses as cards. One-line tagline.
-/course/[code] — in this order:
-  1. Header: course code, "N students took this and are open to questions".
-  2. The same question box, scoped to this course (sends code) → top 3 matches.
-  3. Everyone who took it: cards with first name, major, grad year, semester,
-     professor, what they can help with, and a badge for coffee chats.
-  "Ask [name]" on any card opens a modal (message + your USC email) → POST /api/request.
-  The message is prefilled with draft_message when the card came from a match.
-  A link to /join?code=… for people who took the course.
+Every page talks to the real API routes. There are no fixtures.
+
+/  — The main screen.
+  1. A large free-text box labelled "Describe what you're trying to figure out", with up
+     to three clickable example questions under it (built from the courses that have the
+     most people, so an example always leads to someone). Optional fields for the
+     asker's major and grad year. "Find people" → POST /api/match.
+  2. Up to three match entries: first name, major, grad year, the course that makes
+     them relevant with its semester and professor, any other courses they took, their
+     can_help_with line, the AI's one-sentence reason, and a marker if they are open to
+     coffee chats. Each entry has "Ask [name]".
+  3. Below: course search over GET /api/courses, each course showing
+     "N students took this" and linking to its page.
+/course/[code] — the same question box scoped to this course (sends code), then an
+  entry for everyone who took it. A link to /join?code=… for people who took the course.
 /join — the sign-up form (same fields as POST /api/people), course code prefilled from
   a ?code= query param. Success state thanks them and links back to the course.
 
-UX rules: mobile-first, works at 380px. Loading, empty, and error states for every
-fetch. No login. Clean and calm: white background, generous spacing, one accent
-color (USC cardinal #990000) used sparingly, gold only for small highlights.
-When a match has reason: null, show the person without a reason line.
-Footer line: "Everyone listed here is a USC student who opted in. Matches are suggested
-by AI from what they wrote."
+"Ask [name]" opens a dialog with an editable message (prefilled with draft_message when
+the entry came from a match) and a USC email field → POST /api/request → success state.
 
-Fixtures: the frontend may fall back to its mock fixtures only in development
-(NODE_ENV=development), never in a production build. Show a visible "SAMPLE DATA" badge
-whenever fixtures are in use or an API response has the header `X-Sample-Data: true`.
+UX rules: mobile-first, works at 380px. Loading, empty, and error states for every
+request. No login. White background, generous spacing, one accent color (USC cardinal
+#990000) used sparingly: the main action and keyboard focus. Gold only for small
+markers. Serif type is for words a student wrote (the question, can_help_with, the
+message); sans is for the interface and for what the AI wrote.
+When a match has reason: null, show the person without a reason line; when every match
+has reason: null, say that the people shown are the most recent ones.
+A visible "SAMPLE DATA" badge in the header while USE_SAMPLE_DATA is on.
+Footer line: "Matches are suggested by AI from what students wrote about themselves."
 
 ## Out of scope for v1
 Accounts, chat, payments, professor ratings, email sending, scheduling, admin UI,
 AI-written course summaries, content moderation.
 
 ## Order of work
-1. Backend: people data + GET /api/courses + GET /api/courses/[code]/people on sample
-   data. Frontend: the pages against fixtures in the shapes above.
-2. lib/llm.ts + POST /api/match.
-3. POST /api/request and POST /api/people. Frontend: modal and /join wired to them.
-4. Swap in real data, deploy, polish.
+1. Backend: people data, the two GET routes, POST /api/match, /api/request and
+   /api/people. Done.
+2. Home page end to end. Then /course/[code] and /join.
+3. Swap in real data, deploy, polish.
