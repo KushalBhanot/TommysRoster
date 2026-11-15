@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Libre_Caslon_Text } from "next/font/google";
+import { Barlow, Barlow_Condensed } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
-import { usingSampleData } from "@/lib/data";
+import { SiteFooter } from "@/components/SiteFooter";
 import "./globals.css";
 
-// Sans: the interface and anything the AI wrote.
-const hanken = Hanken_Grotesk({
-  variable: "--font-hanken",
+// Everything that is read as a sentence.
+const barlow = Barlow({
+  variable: "--font-barlow",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
-// Serif: words a student wrote. Caslon is the family USC's own wordmark uses.
-const caslon = Libre_Caslon_Text({
-  variable: "--font-caslon",
-  weight: "400",
-  style: ["normal", "italic"],
+// Names, numbers and headings, set in capitals like a team roster.
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
+  weight: ["600", "700"],
   subsets: ["latin"],
 });
 
@@ -26,28 +27,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${hanken.variable} ${caslon.variable} h-full antialiased`}>
+    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
-        <header className="mx-auto flex w-full max-w-2xl items-center gap-3 px-5 pt-5 sm:px-6 sm:pt-8">
-          <Link href="/" className="font-serif text-lg whitespace-nowrap">
-            Tommy&rsquo;s Roster
-          </Link>
-          {usingSampleData() && (
-            <span className="rounded-full border border-gold bg-gold/15 px-2 py-0.5 text-xs font-semibold tracking-wide whitespace-nowrap">
-              SAMPLE DATA
+        <header className="mx-auto flex w-full max-w-3xl items-center gap-3 px-5 pt-5">
+          <Link href="/" className="flex min-h-11 items-center gap-2.5">
+            {/* The roster mark: three people, three rows, the middle row gold. */}
+            <Image src="/roster-mark.png" alt="" width={46} height={36} priority />
+            <span className="font-display text-xl font-semibold tracking-wide whitespace-nowrap uppercase">
+              Tommy&rsquo;s Roster
             </span>
-          )}
-          {/* The short label keeps the header on one line on a 380px phone. */}
-          <Link href="/join" className="ml-auto text-sm whitespace-nowrap underline underline-offset-4">
-            Join<span className="hidden sm:inline"> the roster</span>
+          </Link>
+          <Link
+            href="/join"
+            className="ml-auto inline-flex min-h-11 items-center font-medium whitespace-nowrap underline underline-offset-4"
+          >
+            Join<span className="hidden sm:inline">&nbsp;the roster</span>
           </Link>
         </header>
 
-        <main className="mx-auto w-full max-w-2xl flex-1 px-5 sm:px-6">{children}</main>
+        <main className="mx-auto w-full max-w-3xl flex-1 px-5">{children}</main>
 
-        <footer className="mx-auto w-full max-w-2xl px-5 py-10 text-sm text-graphite sm:px-6">
-          Matches are suggested by AI from what students wrote about themselves.
-        </footer>
+        <SiteFooter />
       </body>
     </html>
   );

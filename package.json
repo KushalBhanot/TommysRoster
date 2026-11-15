@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prepare-data": "tsx scripts/prepare-data.ts",
     "fetch-catalog": "tsx scripts/fetch-catalog.ts",
     "generate-demo": "tsx scripts/generate-demo-people.ts"
   },

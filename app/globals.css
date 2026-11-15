@@ -2,24 +2,23 @@
 
 /*
   Design tokens. Tailwind turns each --color-* and --font-* below into classes,
-  for example text-ink, bg-cardinal, border-rule, font-serif.
+  for example text-ink, bg-cardinal, border-rule, font-display.
 
-  Color: white page, black text, one accent (USC cardinal) for the main action
-  and keyboard focus. Gold is only for small markers.
-  Type: serif (Caslon) is for words a student wrote, such as the question being
-  typed and what a person says they can help with. Sans is for the interface
-  and for anything the AI wrote.
+  The look is a team roster: white page, black type, square corners, ruled
+  rows. Cardinal is the one action color. Gold marks a match and nothing else.
+  Type: Barlow Condensed in capitals for names, numbers and headings
+  (font-display), Barlow for everything that is read as a sentence.
 */
 @theme inline {
   --color-paper: #ffffff;
   --color-ink: #000000;
-  --color-graphite: #5c5c5c;
-  --color-rule: #e5e5e5;
+  --color-graphite: #4a4a4a;
+  --color-rule: #d9d9d9;
   --color-cardinal: #990000;
   --color-gold: #ffcc00;
 
-  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-caslon), Georgia, serif;
+  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow-condensed), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
@@ -29,11 +28,12 @@ body {
 
 /*
   One visible focus style everywhere, for keyboard users. It sits in the "base"
-  layer so a utility class on an element (focus:outline-none) can turn it off.
+  layer so a utility class on an element can change it (the footer is black,
+  so its links use a white ring).
 */
 @layer base {
   :focus-visible {
-    outline: 2px solid var(--color-cardinal);
+    outline: 3px solid var(--color-cardinal);
     outline-offset: 2px;
   }
 }
@@ -44,23 +44,23 @@ body {
 }
 
 /*
-  The only entrance animation: results rise into place after the person asks
-  for them. Each row sets --i (0, 1, 2) so they arrive one after another.
+  The only entrance animation: rows rise into place after the person asks for
+  them. Each row sets --i (0, 1, 2) so they arrive one after another.
 */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
 }
 
 .rise {
-  animation: rise 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  animation-delay: calc(var(--i, 0) * 70ms);
+  animation: rise 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 120ms);
 }
 
 dialog[open] {
-  animation: rise 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: rise 200ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

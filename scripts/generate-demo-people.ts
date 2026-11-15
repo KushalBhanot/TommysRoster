@@ -13,7 +13,12 @@
 
 import fs from "node:fs";
 import { toCsv } from "../lib/csv";
-import { ABOUT_TAGS, HELP_TAGS, SEMESTERS, type AboutTag, type HelpTag, type Semester } from "../lib/tags";
+import { ABOUT_TAGS, HELP_TAGS, type AboutTag, type HelpTag } from "../lib/tags";
+
+// The semesters the demo students can have taken a class in, oldest first.
+// (The app itself reads its semesters from data/instructors.json.)
+const SEMESTERS = ["Fall 2024", "Spring 2025", "Fall 2025", "Spring 2026", "Fall 2026"] as const;
+type Semester = (typeof SEMESTERS)[number];
 
 // Short names for the four help tags, to keep the list below readable.
 const [WORKLOAD, EXAMS, CHOOSING, NO_BACKGROUND] = HELP_TAGS;

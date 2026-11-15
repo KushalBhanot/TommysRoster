@@ -1,24 +1,31 @@
-// Builds the JSON shapes for GET /api/courses and GET /api/courses/[code]/people
-// (see the "API" section of SPEC.md) from the in-memory person rows.
+// Builds the JSON shapes the API returns about courses and the people who took
+// them (see the "API" section of SPEC.md) from the in-memory person rows.
 
+import { courseTitle, findCourse } from "./catalog";
 import { getPeopleRows, type PersonRow } from "./data";
-import { normalizeCode, semesterRank } from "./normalize";
+import { semesterRank } from "./normalize";
 
 export interface CourseSummary {
   code: string;
+  title: string;
   people_count: number;
 }
 
-/** A person as the API returns them: one person in one course. */
+/** A person as the API returns them: one person in one course. Never an email. */
 export interface Person {
   person_id: number;
   first_name: string;
   major: string;
   grad_year: string;
+  code: string;
+  /** The course's official title, from the catalog. */
+  title: string;
   semester: string;
   professor: string;
-  can_help_with: string;
-  open_to: string;
+  help_tags: string[];
+  about_tags: string[];
+  note: string;
+  source: "demo" | "real";
 }
 
 export function toPerson(row: PersonRow): Person {
@@ -27,10 +34,14 @@ export function toPerson(row: PersonRow): Person {
     first_name: row.first_name,
     major: row.major,
     grad_year: row.grad_year,
+    code: row.code,
+    title: courseTitle(row.code),
     semester: row.semester,
     professor: row.professor,
-    can_help_with: row.can_help_with,
-    open_to: row.open_to,
+    help_tags: row.help_tags,
+    about_tags: row.about_tags,
+    note: row.note,
+    source: row.source,
   };
 }
 
@@ -47,7 +58,8 @@ export function newestFirst(rows: PersonRow[]): PersonRow[] {
  * most recent row is kept.
  */
 export function getCourseRows(rawCode: string): PersonRow[] {
-  const code = normalizeCode(rawCode);
+  const code = findCourse(rawCode)?.code;
+  if (!code) return [];
   const seen = new Set<number>();
   return newestFirst(getPeopleRows().filter((row) => row.code === code)).filter((row) => {
     if (seen.has(row.person_id)) return false;
@@ -56,21 +68,42 @@ export function getCourseRows(rawCode: string): PersonRow[] {
   });
 }
 
-/** All courses with at least one person, most people first. */
-export function listCourses(): CourseSummary[] {
+/** How many different people took each course. */
+function peopleCounts(): Map<string, number> {
   // A Set per course, so a person who signed up twice is counted once.
   const peopleByCourse = new Map<string, Set<number>>();
   for (const row of getPeopleRows()) {
     if (!peopleByCourse.has(row.code)) peopleByCourse.set(row.code, new Set());
     peopleByCourse.get(row.code)!.add(row.person_id);
   }
+  return new Map([...peopleByCourse].map(([code, ids]) => [code, ids.size]));
+}
 
-  return [...peopleByCourse.entries()]
-    .map(([code, ids]) => ({ code, people_count: ids.size }))
+export function peopleCount(code: string): number {
+  return peopleCounts().get(code) ?? 0;
+}
+
+/** All courses with at least one person, most people first. */
+export function listCourses(): CourseSummary[] {
+  return [...peopleCounts()]
+    .map(([code, people_count]) => ({ code, title: courseTitle(code), people_count }))
     .sort((a, b) => b.people_count - a.people_count || a.code.localeCompare(b.code));
 }
 
-/** Everyone who took a course and is open to questions, newest first. */
+/** Everyone who took a course, newest first. */
 export function getCoursePeople(rawCode: string): Person[] {
   return getCourseRows(rawCode).map(toPerson);
+}
+
+/** A few people from the roster (name, major, year only), one row per person. */
+export function rosterSample(limit: number): Pick<Person, "first_name" | "major" | "grad_year">[] {
+  const seen = new Set<number>();
+  const sample = [];
+  for (const row of getPeopleRows()) {
+    if (seen.has(row.person_id)) continue;
+    seen.add(row.person_id);
+    sample.push({ first_name: row.first_name, major: row.major, grad_year: row.grad_year });
+    if (sample.length === limit) break;
+  }
+  return sample;
 }

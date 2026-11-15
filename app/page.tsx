@@ -5,7 +5,7 @@ import { HomeFinder } from "@/components/HomeFinder";
 export default function Home() {
   return (
     <>
-      <div className="pt-12 sm:pt-20">
+      <div className="pt-10 sm:pt-16">
         <HomeFinder />
       </div>
       <div className="mt-20 sm:mt-28">

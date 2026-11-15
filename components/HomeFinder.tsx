@@ -14,11 +14,18 @@ export function HomeFinder() {
   // One template per course, most-covered course first. With fewer than three
   // courses there are simply fewer examples.
   const templates = [
-    (code: string) => `What should I know before taking ${code}?`,
+    (code: string) => `I have no background in this. Is ${code} doable?`,
     (code: string) => `How do I keep up with the workload in ${code}?`,
-    (code: string) => `What's the best way to prepare for exams in ${code}?`,
+    (code: string) => `Which ${code} section should I pick?`,
   ];
   const examples = codes.slice(0, templates.length).map((code, i) => templates[i](code));
 
-  return <MatchFinder examples={examples} />;
+  return (
+    <MatchFinder
+      heading="Who on the roster can answer this?"
+      headingLevel="h1"
+      intro="Describe what you're trying to figure out. We'll scan the students who took the class and pull up to three who can help."
+      examples={examples}
+    />
+  );
 }

@@ -10,68 +10,63 @@ hackathon. The full spec is in [SPEC.md](SPEC.md) and the build rules are in
 
 ```bash
 npm install
-cp .env.example .env.local   # keeps USE_SAMPLE_DATA=true, so it runs with no real data
+cp .env.example .env.local   # then put your Claude API key in it
 npm run dev                  # http://localhost:3000
 ```
+
+It runs without a key too: matching then only works for questions that name a course,
+and shows the most recent people from it with no reason.
 
 Try the API:
 
 ```bash
 curl http://localhost:3000/api/courses
-curl http://localhost:3000/api/courses/writ150/people
+curl http://localhost:3000/api/courses/csci103/people
+curl "http://localhost:3000/api/catalog?q=calculus"
 curl -X POST http://localhost:3000/api/match -H 'content-type: application/json' \
-  -d '{"question":"How do I get through the pointers unit?","code":"csci103"}'
+  -d '{"question":"I have never coded before. Is CSCI 103 doable?"}'
 ```
-
-With `ANTHROPIC_API_KEY` set, each match has a one-sentence `reason`.
-Without it (or if the model call fails) the same request still works and returns the
-most recent people with `"reason": null`; the server log says why.
 
 ### Environment
 
 | Variable | What it does |
 | --- | --- |
-| `ANTHROPIC_API_KEY` | Claude API key from the Claude Console. Only `POST /api/match` uses it. Without it, matching falls back to the most recent people with no reason. |
+| `ANTHROPIC_API_KEY` | Claude API key from the Claude Console. Only `POST /api/match` uses it. |
 | `ANTHROPIC_MODEL` | Optional. Defaults to `claude-haiku-5-5`. Set `claude-sonnet-5-5` for higher quality at a higher price. |
-| `USE_SAMPLE_DATA` | `true` loads `data/sample-people.csv` (fake rows, first name `SAMPLE`) and adds the header `X-Sample-Data: true` to every API response. Leave it unset for the real demo. |
 
 `.env.local` is gitignored. Never commit a key.
 
-### Data and privacy
+### Data
 
-The form export has student emails, so it never goes into git.
+| File | What it is | Made by |
+| --- | --- | --- |
+| `data/catalog.json` | 1,595 undergraduate courses (code, title, department) | `npm run fetch-catalog` |
+| `data/instructors.json` | Who taught each course in each semester | `npm run fetch-catalog` |
+| `data/majors.json` | USC bachelor's degree names (USC Catalogue 2023-24) | copied once from the official list |
+| `data/demo-people.csv` | 45 invented students, 99 rows, for the demo | `npm run generate-demo` |
 
-1. Download the form responses as CSV and save them as `data/private/form-export.csv`.
-   The `data/private/` folder is gitignored. Expected columns, in this order: timestamp,
-   first_name, major, grad_year, email, code, semester, professor, can_help_with, open_to.
-2. Run `npm run prepare-data`. It writes `data/people.csv` with no email in it, gives each
-   person a `person_id` (same email, same id), and drops rows with no email or no opt-in.
-   If the header row is the form's question text, it maps columns by position and prints
-   the mapping so you can check it.
-3. Commit `data/people.csv`. Restart the dev server to load it.
+Courses, semesters and professors are never typed by hand: they come from the official
+USC Schedule of Classes. The demo students are invented, but every course, semester and
+professor attached to them is checked against those files before the CSV is written.
 
-The app only reads `data/people.csv`, and the loader has no email field at all, so no API
-response can include one. `data/private/person-emails.csv` maps each `person_id` back to
-an email so a person can forward intro requests by hand. Intro requests and new sign-ups
-are saved under `data/private/` too.
+### A new semester
 
-### Sign-ups and intro requests
+Run `npm run fetch-catalog` and redeploy. The script asks USC which semesters exist and
+adds any fall or spring semester that has started; the site reads its list of semesters
+from the data, so nothing else needs editing. Add `-- --refresh` to download semesters
+it already has again (for example to pick up instructor changes).
 
-`POST /api/people` and `POST /api/request` keep what they receive in memory and also
-try to write it to `data/private/new-people.json` and `data/private/requests.json`.
+### Privacy
+
+An email is collected when someone joins the roster or asks for an intro. It is saved
+only under `data/private/` (gitignored), the people list in memory has no email field at
+all, and no API response includes one. The model is sent no names and no emails.
 
 ### Known limitations
 
 - Sign-ups and intro requests are stored in memory (plus a local file when the disk is writable), so on a host like Vercel they are lost when the server restarts; a real launch needs a small database behind those two routes.
 - The `/api/match` rate limit (10 requests per minute per IP) is also in memory, so it is counted per server instance.
-
-### Rerunning the scripts
-
-| Command | When to run it | Output |
-| --- | --- | --- |
-| `npm run prepare-data` | Every time a new form export is downloaded | `data/people.csv`, `data/private/person-emails.csv` |
-
-Nothing else is precomputed: matching runs at request time.
+- Intro requests are stored, not emailed. Someone has to forward them.
 
 ### Layout
 

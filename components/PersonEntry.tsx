@@ -2,12 +2,12 @@ import type { Person } from "@/lib/courses";
 
 interface PersonEntryProps {
   person: Person;
-  /** The course this entry is about (the semester and professor belong to it). */
-  code: string;
-  /** Every course the person is signed up for; others are listed as "Also took". */
-  courses?: string[];
+  /** Position in a ranked list (1, 2, 3). Left out on pages that are not ranked. */
+  rank?: number;
   /** The AI's one-sentence reason. Left out, or null, when there is none. */
   reason?: string | null;
+  /** Pieces of the reason to show in bold. */
+  keyPhrases?: string[];
   /** Position in the list (0, 1, 2), used to stagger the entrance. */
   index?: number;
   onAsk: () => void;
@@ -18,64 +18,80 @@ function formatGradYear(gradYear: string): string {
   return /^\d{4}$/.test(gradYear) ? `class of ${gradYear}` : gradYear;
 }
 
-// One labelled line of the entry. The label sits above the value on a phone
-// and beside it from the "sm" width up, so values line up like a roster.
-function Row({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="sm:grid sm:grid-cols-[9.5rem_1fr] sm:gap-4">
-      <dt className="text-sm text-graphite sm:pt-0.5">{label}</dt>
-      <dd>{children}</dd>
-    </div>
-  );
+/**
+ * The reason with its key phrases in bold. The sentence is cut at each key
+ * phrase, so only words that are really in the sentence can become bold.
+ */
+function Reason({ text, keyPhrases }: { text: string; keyPhrases: string[] }) {
+  // Find where each phrase sits in the sentence, in reading order.
+  const marks = keyPhrases
+    .map((phrase) => ({ start: text.indexOf(phrase), end: text.indexOf(phrase) + phrase.length }))
+    .filter((mark) => mark.start !== -1)
+    .sort((a, b) => a.start - b.start);
+
+  const parts: React.ReactNode[] = [];
+  let position = 0;
+  for (const mark of marks) {
+    if (mark.start < position) continue; // overlaps the previous phrase
+    parts.push(text.slice(position, mark.start));
+    parts.push(<strong key={mark.start} className="font-bold">{text.slice(mark.start, mark.end)}</strong>);
+    position = mark.end;
+  }
+  parts.push(text.slice(position));
+
+  return <p className="mt-2 text-lg leading-snug">{parts}</p>;
 }
 
 /** One person on the roster: who they are, what they took, and how to ask them. */
-export function PersonEntry({ person, code, courses = [], reason, index = 0, onAsk }: PersonEntryProps) {
-  const otherCourses = courses.filter((c) => c !== code);
+export function PersonEntry({ person, rank, reason, keyPhrases = [], index = 0, onAsk }: PersonEntryProps) {
   const details = [person.major, formatGradYear(person.grad_year)].filter(Boolean).join(", ");
+  const course = [`${person.code} ${person.title}`.trim(), person.semester, person.professor]
+    .filter(Boolean)
+    .join(", ");
 
   return (
     <li
-      className="rise border-t border-rule py-8"
+      className={`rise border-b border-rule py-6 ${rank ? "sm:grid sm:grid-cols-[4.5rem_1fr] sm:gap-4" : ""}`}
       style={{ "--i": index } as React.CSSProperties}
     >
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 className="text-xl font-semibold">{person.first_name}</h3>
-        {person.open_to === "questions+coffee" && (
-          <span className="inline-flex items-center gap-2 text-sm">
-            <span aria-hidden="true" className="size-2 rounded-full bg-gold" />
-            Open to coffee chats
-          </span>
-        )}
+      {/* The gold block is the lit roster row: it marks a match. */}
+      {rank && (
+        <div className="mb-3 inline-flex h-11 w-14 items-center justify-center bg-gold font-display text-2xl font-bold tabular-nums sm:mb-0">
+          {String(rank).padStart(2, "0")}
+        </div>
+      )}
+
+      <div>
+        <p className="flex flex-wrap items-baseline gap-x-3">
+          <span className="font-display text-2xl font-bold uppercase">{person.first_name}</span>
+          {details && <span className="text-graphite">{details}</span>}
+        </p>
+
+        {reason && <Reason text={reason} keyPhrases={keyPhrases} />}
+
+        <p className="mt-2 text-sm text-graphite">{course}</p>
+
+        <ul className="mt-3 flex flex-wrap gap-1.5">
+          {[...person.help_tags, ...person.about_tags].map((tag) => (
+            <li key={tag} className="border border-ink/25 px-2 py-0.5 text-xs">
+              {tag}
+            </li>
+          ))}
+          {person.source === "demo" && (
+            <li className="border border-dashed border-ink/40 px-2 py-0.5 text-xs text-graphite">Demo profile</li>
+          )}
+        </ul>
+
+        {person.note && <p className="mt-3 text-sm text-graphite">&ldquo;{person.note}&rdquo;</p>}
+
+        <button
+          type="button"
+          onClick={onAsk}
+          className="mt-4 min-h-11 cursor-pointer border-2 border-ink px-5 font-display text-lg font-semibold tracking-wide uppercase transition-colors duration-150 hover:bg-ink hover:text-paper"
+        >
+          Ask {person.first_name}
+        </button>
       </div>
-      {details && <p className="mt-1 text-graphite">{details}</p>}
-
-      <dl className="mt-5 space-y-4">
-        <Row label="Took">
-          <span className="font-semibold">{code}</span>
-          {person.semester && ` in ${person.semester}`}
-          {person.professor && ` with ${person.professor}`}
-        </Row>
-
-        {otherCourses.length > 0 && <Row label="Also took">{otherCourses.join(", ")}</Row>}
-
-        {person.can_help_with && (
-          <Row label="Can help with">
-            {/* Serif: these are the student's own words. */}
-            <span className="font-serif text-lg leading-snug">{person.can_help_with}</span>
-          </Row>
-        )}
-
-        {reason && <Row label="Why this match">{reason}</Row>}
-      </dl>
-
-      <button
-        type="button"
-        onClick={onAsk}
-        className="mt-6 h-11 rounded-full border border-ink px-5 text-sm font-semibold transition-colors hover:bg-ink hover:text-paper"
-      >
-        Ask {person.first_name}
-      </button>
     </li>
   );
 }

@@ -1,7 +1,4 @@
-// Cleaning rules for raw form answers. Used by the data loader, the
-// prepare-data script and POST /api/people, so all paths normalize the same way.
-
-export type OpenTo = "no" | "questions" | "questions+coffee";
+// Small helpers for cleaning what people type: course codes and semesters.
 
 /**
  * "writ150", " Writ-150 ", "WRIT 150" → "WRIT 150".
@@ -12,18 +9,6 @@ export function normalizeCode(raw: string): string {
   const compact = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
   const match = compact.match(/^([A-Z]+)(\d+[A-Z]*)$/);
   return match ? `${match[1]} ${match[2]}` : compact;
-}
-
-/**
- * Map the form's wording to the three allowed values. Anything unclear
- * becomes "no": we never list a person who did not clearly opt in.
- */
-export function normalizeOpenTo(raw: string): OpenTo {
-  const answer = raw.trim().toLowerCase();
-  if (answer === "" || answer.startsWith("no")) return "no";
-  if (answer.includes("coffee")) return "questions+coffee";
-  if (answer.includes("question") || answer.startsWith("yes")) return "questions";
-  return "no";
 }
 
 /**

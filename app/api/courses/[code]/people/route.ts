@@ -1,10 +1,13 @@
 import { connection } from "next/server";
+import { findCourse } from "@/lib/catalog";
 import { getCoursePeople } from "@/lib/courses";
 import { errorJson, json } from "@/lib/http";
 
-// GET /api/courses/[code]/people → Person[], most recent semester first.
-// The code can be written any way: "WRIT%20150", "writ150" and "writ-150"
-// all resolve to "WRIT 150". A course with nobody signed up returns [].
+// GET /api/courses/[code]/people → { code, title, people: Person[] }
+// People are listed most recent semester first. The code can be written any
+// way ("writ150", "WRIT%20150"). A course that is in the catalog but that
+// nobody has signed up for returns an empty people list; a code that is not
+// in the catalog at all is a 404.
 export async function GET(
   _request: Request,
   ctx: RouteContext<"/api/courses/[code]/people">,
@@ -13,7 +16,9 @@ export async function GET(
   const { code } = await ctx.params;
 
   try {
-    return json(getCoursePeople(code));
+    const course = findCourse(code);
+    if (!course) return errorJson("We don't have a course with that code.", 404);
+    return json({ code: course.code, title: course.title, people: getCoursePeople(course.code) });
   } catch (error) {
     console.error("[api/courses/[code]/people]", error);
     return errorJson("Could not load the people for this course.", 500);

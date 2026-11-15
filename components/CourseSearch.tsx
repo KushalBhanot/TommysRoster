@@ -1,140 +1,163 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import type { CourseSummary } from "@/lib/courses";
+import { errorMessage, getJson } from "./api";
 import { useCourses } from "./useCourses";
 
 // How many courses to list before the person has typed anything.
 const TOP_COURSES = 8;
 
-/** "writ 150", "WRIT-150" → "WRIT150", so spacing and case don't matter. */
-function compact(text: string): string {
-  return text.toUpperCase().replace(/[^A-Z0-9]/g, "");
-}
-
 /** "WRIT 150" → "/course/writ150" (the course page accepts any spelling). */
-function courseHref(code: string): string {
-  return `/course/${compact(code).toLowerCase()}`;
+export function courseHref(code: string): string {
+  return `/course/${code.replace(/[^A-Za-z0-9]/g, "").toLowerCase()}`;
 }
 
-/** Search box over GET /api/courses, with the most-covered courses listed first. */
+type Search =
+  | { status: "idle" }
+  | { status: "loading" }
+  | { status: "error"; message: string }
+  | { status: "ready"; courses: CourseSummary[] };
+
+/**
+ * Course search. With nothing typed it lists the courses with the most people
+ * (GET /api/courses). Typing searches the whole official catalog by code or
+ * title (GET /api/catalog), so a course nobody has joined yet can still be found.
+ */
 export function CourseSearch() {
-  const { state, retry } = useCourses();
+  const top = useCourses();
   const [query, setQuery] = useState("");
+  const [search, setSearch] = useState<Search>({ status: "idle" });
+
+  // Search a moment after the person stops typing, and ignore an answer that
+  // arrives after they have typed something else.
+  useEffect(() => {
+    const text = query.trim();
+    if (!text) return;
+    let cancelled = false;
+    const timer = setTimeout(() => {
+      getJson<CourseSummary[]>(`/api/catalog?q=${encodeURIComponent(text)}`)
+        .then((courses) => {
+          if (!cancelled) setSearch({ status: "ready", courses });
+        })
+        .catch((error) => {
+          if (!cancelled) setSearch({ status: "error", message: errorMessage(error) });
+        });
+    }, 200);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [query]);
+
+  const typing = query.trim() !== "";
 
   return (
     <section aria-labelledby="courses-title">
-      <h2 id="courses-title" className="text-2xl font-semibold">
+      <h2 id="courses-title" className="font-display text-4xl font-bold uppercase">
         Browse by course
       </h2>
 
-      <label htmlFor="course-search" className="mt-5 block text-sm text-graphite">
-        Course code
+      <label htmlFor="course-search" className="mt-4 block text-sm text-graphite">
+        Course code or title
       </label>
       <input
         id="course-search"
         type="search"
         value={query}
-        onChange={(event) => setQuery(event.target.value)}
-        placeholder="WRIT 150"
+        onChange={(event) => {
+          setQuery(event.target.value);
+          setSearch(event.target.value.trim() ? { status: "loading" } : { status: "idle" });
+        }}
+        placeholder="WRIT 150, or Calculus"
         autoComplete="off"
-        className="mt-2 block h-12 w-full rounded-2xl border border-ink/30 px-4 text-base caret-cardinal placeholder:text-ink/35 sm:max-w-xs"
+        className="mt-2 block h-12 w-full border-2 border-ink px-4 text-base placeholder:text-[#767676] focus:border-cardinal sm:max-w-sm"
       />
 
       <div className="mt-6" aria-live="polite">
-        {state.status === "loading" && (
-          <div role="status">
-            <span className="sr-only">Loading courses…</span>
-            {[0, 1, 2].map((row) => (
-              <div key={row} className="border-t border-rule py-4 motion-safe:animate-pulse">
-                <div className="h-5 w-40 rounded bg-rule" />
+        {typing ? (
+          <>
+            {search.status === "loading" && <Placeholder label="Searching the catalog…" />}
+            {search.status === "error" && <p role="alert" className="border-t-2 border-ink pt-4 text-graphite">{search.message}</p>}
+            {search.status === "ready" && search.courses.length === 0 && (
+              <p className="border-t-2 border-ink pt-4 text-graphite">
+                No course in the catalog matches &ldquo;{query.trim()}&rdquo;. Try the code, like CSCI 103.
+              </p>
+            )}
+            {search.status === "ready" && search.courses.length > 0 && <CourseRows courses={search.courses} />}
+          </>
+        ) : (
+          <>
+            {top.state.status === "loading" && <Placeholder label="Loading courses…" />}
+            {top.state.status === "error" && (
+              <div role="alert" className="border-t-2 border-ink pt-4">
+                <p className="font-semibold">Couldn&rsquo;t load the courses.</p>
+                <p className="mt-1 text-graphite">{top.state.message}</p>
+                <button
+                  type="button"
+                  onClick={top.retry}
+                  className="mt-4 min-h-11 cursor-pointer border-2 border-ink px-5 font-display text-lg font-semibold tracking-wide uppercase transition-colors duration-150 hover:bg-ink hover:text-paper"
+                >
+                  Try again
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+            {top.state.status === "ready" && top.state.courses.length === 0 && (
+              <p className="border-t-2 border-ink pt-4 text-graphite">
+                No one has joined the roster yet.{" "}
+                <Link href="/join" className="text-ink underline underline-offset-4">Be the first</Link>.
+              </p>
+            )}
+            {top.state.status === "ready" && top.state.courses.length > 0 && (
+              <>
+                <CourseRows courses={top.state.courses.slice(0, TOP_COURSES)} />
+                {top.state.courses.length > TOP_COURSES && (
+                  <p className="mt-3 text-sm text-graphite">
+                    The {TOP_COURSES} courses with the most students. Search to find any other course.
+                  </p>
+                )}
+              </>
+            )}
+          </>
         )}
-
-        {state.status === "error" && (
-          <div role="alert" className="border-t border-rule pt-6">
-            <p className="font-semibold">Couldn&rsquo;t load the courses.</p>
-            <p className="mt-1 text-graphite">{state.message}</p>
-            <button
-              type="button"
-              onClick={retry}
-              className="mt-5 h-11 rounded-full border border-ink px-5 text-sm font-semibold transition-colors hover:bg-ink hover:text-paper"
-            >
-              Try again
-            </button>
-          </div>
-        )}
-
-        {state.status === "ready" && <CourseList courses={state.courses} query={query} />}
       </div>
     </section>
   );
 }
 
-function CourseList({
-  courses,
-  query,
-}: {
-  courses: { code: string; people_count: number }[];
-  query: string;
-}) {
-  if (courses.length === 0) {
-    return (
-      <p className="border-t border-rule pt-6 text-graphite">
-        No one has joined the roster yet.{" "}
-        <Link href="/join" className="text-ink underline underline-offset-4">
-          Be the first
-        </Link>
-        .
-      </p>
-    );
-  }
-
-  const wanted = compact(query);
-  const matching = wanted
-    ? courses.filter((course) => compact(course.code).includes(wanted))
-    : courses.slice(0, TOP_COURSES);
-
-  if (matching.length === 0) {
-    return (
-      <p className="border-t border-rule pt-6 text-graphite">
-        No one has signed up for &ldquo;{query.trim()}&rdquo; yet. Took it?{" "}
-        <Link
-          href={`/join?code=${encodeURIComponent(query.trim())}`}
-          className="text-ink underline underline-offset-4"
-        >
-          Join the roster
-        </Link>
-        .
-      </p>
-    );
-  }
-
+function CourseRows({ courses }: { courses: CourseSummary[] }) {
   return (
-    <>
-      <ul className="border-b border-rule">
-        {matching.map((course) => (
-          <li key={course.code} className="border-t border-rule">
-            <Link
-              href={courseHref(course.code)}
-              className="flex items-baseline justify-between gap-4 py-4 transition-colors hover:bg-ink/[0.03]"
-            >
-              <span className="text-lg font-semibold">{course.code}</span>
-              <span className="text-graphite">
-                {course.people_count} {course.people_count === 1 ? "student" : "students"} took this
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      {!wanted && courses.length > TOP_COURSES && (
-        <p className="mt-4 text-sm text-graphite">
-          Showing the {TOP_COURSES} courses with the most students. Search to find the other{" "}
-          {courses.length - TOP_COURSES}.
-        </p>
-      )}
-    </>
+    <ul className="border-t-2 border-ink">
+      {courses.map((course) => (
+        <li key={course.code} className="border-b border-rule">
+          <Link
+            href={courseHref(course.code)}
+            className="grid grid-cols-[5.5rem_1fr] items-baseline gap-x-3 px-3 py-3 transition-colors duration-150 hover:bg-gold sm:grid-cols-[6.5rem_1fr_auto]"
+          >
+            <span className="font-display text-xl font-semibold uppercase">{course.code}</span>
+            <span>{course.title}</span>
+            <span className="col-start-2 text-sm text-graphite sm:col-start-3">
+              {course.people_count === 0
+                ? "No one yet"
+                : `${course.people_count} ${course.people_count === 1 ? "student" : "students"} took this`}
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Placeholder({ label }: { label: string }) {
+  return (
+    <div role="status" className="border-t-2 border-ink">
+      <span className="sr-only">{label}</span>
+      {[0, 1, 2].map((row) => (
+        <div key={row} className="border-b border-rule px-3 py-4 motion-safe:animate-pulse">
+          <div className="h-5 w-2/3 bg-rule" />
+        </div>
+      ))}
+    </div>
   );
 }

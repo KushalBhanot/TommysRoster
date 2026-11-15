@@ -1,10 +1,15 @@
-// Loads data/people.csv into memory, once per server process. There is no
-// database: everything the API serves comes from here.
+// Loads the people on the roster into memory, once per server process. There
+// is no database: everything the API serves about people comes from here.
+//
+// The file is data/demo-people.csv, written by scripts/generate-demo-people.ts.
+// People who sign up while the server is running are added to the same list
+// in memory (see addPersonRow).
 
 import fs from "node:fs";
 import path from "node:path";
 import { parseCsv } from "./csv";
-import { normalizeCode, normalizeOpenTo, type OpenTo } from "./normalize";
+import { normalizeCode } from "./normalize";
+import { ABOUT_TAGS, HELP_TAGS, type AboutTag, type HelpTag } from "./tags";
 
 /**
  * One person in one course (a person who took three courses has three rows
@@ -19,40 +24,35 @@ export interface PersonRow {
   code: string;
   semester: string;
   professor: string;
-  can_help_with: string;
-  open_to: Exclude<OpenTo, "no">;
+  /** What they can talk about for this course (from the fixed list). */
+  help_tags: HelpTag[];
+  /** Optional things they said about themselves (from the fixed list). */
+  about_tags: AboutTag[];
+  /** One sentence in their own words. Only demo profiles have one. */
+  note: string;
+  /** "demo" = an invented profile for the prototype, "real" = someone who signed up. */
+  source: "demo" | "real";
 }
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const PEOPLE_FILE = path.join(process.cwd(), "data", "demo-people.csv");
 
-export function usingSampleData(): boolean {
-  return process.env.USE_SAMPLE_DATA === "true";
+/** "A;B" → ["A", "B"], keeping only values that are on the allowed list. */
+function parseTags<T extends string>(cell: string, allowed: readonly T[]): T[] {
+  return cell
+    .split(";")
+    .map((tag) => tag.trim())
+    .filter((tag): tag is T => (allowed as readonly string[]).includes(tag));
 }
 
-export function dataPath(fileName: string): string {
-  return path.join(DATA_DIR, fileName);
-}
-
-/**
- * Turn CSV text into person rows. A row is skipped when it has no person_id,
- * first_name or code, or when open_to is not a clear opt-in.
- */
+/** Turn CSV text into person rows. A row with no person_id, name or code is skipped. */
 export function parsePeopleCsv(text: string): PersonRow[] {
   const [header, ...rows] = parseCsv(text);
   if (!header) return [];
 
   const columns = header.map((name) => name.trim().toLowerCase());
-  const missing = ["person_id", "first_name", "code", "open_to"].filter(
-    (c) => !columns.includes(c),
-  );
+  const missing = ["person_id", "first_name", "code"].filter((c) => !columns.includes(c));
   if (missing.length > 0) {
     throw new Error(`People CSV is missing column(s): ${missing.join(", ")}`);
-  }
-  if (columns.includes("email")) {
-    console.warn(
-      "[data] The people CSV has an email column. It is ignored, but the file " +
-        "must not be committed like this. Run `npm run prepare-data`.",
-    );
   }
 
   // Read a cell by column name; a column that is absent reads as "".
@@ -66,9 +66,7 @@ export function parsePeopleCsv(text: string): PersonRow[] {
     const person_id = Number(cell(row, "person_id"));
     const first_name = cell(row, "first_name");
     const code = normalizeCode(cell(row, "code"));
-    const open_to = normalizeOpenTo(cell(row, "open_to"));
-    if (!Number.isInteger(person_id) || person_id <= 0) continue;
-    if (!first_name || !code || open_to === "no") continue;
+    if (!Number.isInteger(person_id) || person_id <= 0 || !first_name || !code) continue;
 
     people.push({
       person_id,
@@ -78,8 +76,10 @@ export function parsePeopleCsv(text: string): PersonRow[] {
       code,
       semester: cell(row, "semester"),
       professor: cell(row, "professor"),
-      can_help_with: cell(row, "can_help_with"),
-      open_to,
+      help_tags: parseTags(cell(row, "help_tags"), HELP_TAGS),
+      about_tags: parseTags(cell(row, "about_tags"), ABOUT_TAGS),
+      note: cell(row, "note"),
+      source: cell(row, "source") === "real" ? "real" : "demo",
     });
   }
   return people;
@@ -88,22 +88,30 @@ export function parsePeopleCsv(text: string): PersonRow[] {
 // Rows from the CSV plus people who signed up while the server is running.
 // Kept on globalThis, not in a module variable: Next.js can load this file
 // once per API route, and every route must see the same list.
-const shared = globalThis as typeof globalThis & { __people?: PersonRow[] };
+const shared = globalThis as typeof globalThis & {
+  __people?: PersonRow[];
+  /** Which version of the file __people was read from (its last-changed time). */
+  __peopleVersion?: number;
+};
 
-/** Every person row. Loaded from disk on first use, then kept in memory. */
+/**
+ * Every person row. Read from disk on first use, then kept in memory. If the
+ * file is replaced while the server is running (the demo data is regenerated),
+ * it is read again, so nobody has to remember to restart the server.
+ */
 export function getPeopleRows(): PersonRow[] {
-  if (shared.__people) return shared.__people;
-  let people: PersonRow[];
+  const version = fs.existsSync(PEOPLE_FILE) ? fs.statSync(PEOPLE_FILE).mtimeMs : 0;
+  if (shared.__people && shared.__peopleVersion === version) return shared.__people;
 
-  const fileName = usingSampleData() ? "sample-people.csv" : "people.csv";
-  const file = dataPath(fileName);
-  if (fs.existsSync(file)) {
-    people = parsePeopleCsv(fs.readFileSync(file, "utf8"));
+  let people: PersonRow[];
+  if (version) {
+    people = parsePeopleCsv(fs.readFileSync(PEOPLE_FILE, "utf8"));
   } else {
-    console.warn(`[data] data/${fileName} not found, serving no people.`);
+    console.warn("[data] data/demo-people.csv not found, serving no people.");
     people = [];
   }
   shared.__people = people;
+  shared.__peopleVersion = version;
   return people;
 }
 

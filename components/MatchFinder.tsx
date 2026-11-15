@@ -1,19 +1,29 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { Match, MatchResult, MatchStatus } from "@/lib/match";
+import type { Person } from "@/lib/courses";
+import type { MatchResult, MatchStatus } from "@/lib/match";
 import { AskDialog } from "./AskDialog";
-import { errorMessage, postJson } from "./api";
+import { errorMessage, getJson, postJson } from "./api";
 import { PersonEntry } from "./PersonEntry";
 
 interface MatchFinderProps {
   /** When set, only people who took this course are searched. */
   code?: string;
+  /** The heading over the box. On the home page this is the page's main heading. */
+  heading: string;
+  /** "h1" on the home page; "h2" on a page that already has a main heading. */
+  headingLevel: "h1" | "h2";
+  /** The sentence under the heading. */
+  intro: string;
   /** Example questions shown under the box. Clicking one fills the box. */
   examples: string[];
 }
 
 const MAX_QUESTION_CHARS = 300; // same limit as POST /api/match
+const STEP_MS = 200; // how long the gold bar rests on each roster row
+
+type RosterRow = Pick<Person, "first_name" | "major" | "grad_year">;
 
 // What the results area is showing right now.
 type Results =
@@ -24,19 +34,37 @@ type Results =
 
 /**
  * The question box and its results: type what you are trying to figure out,
- * get up to three people from POST /api/match, and ask one of them.
+ * watch the roster being scanned, get up to three people from POST /api/match,
+ * and ask one of them.
  */
-export function MatchFinder({ code, examples }: MatchFinderProps) {
+export function MatchFinder({ code, heading, headingLevel, intro, examples }: MatchFinderProps) {
   const [question, setQuestion] = useState("");
-  const [major, setMajor] = useState("");
-  const [year, setYear] = useState("");
   const [results, setResults] = useState<Results>({ status: "idle" });
-  // The match whose "Ask" window is open, if any.
-  const [asking, setAsking] = useState<Match | null>(null);
+  // The person whose "Ask" window is open, if any.
+  const [asking, setAsking] = useState<Person | null>(null);
+  // A few names from the roster, shown while a search runs.
+  const [roster, setRoster] = useState<RosterRow[]>([]);
+  // Which roster row the gold bar is on while scanning.
+  const [scanRow, setScanRow] = useState(0);
 
   const questionRef = useRef<HTMLTextAreaElement>(null);
   const resultsRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+
+  // The scan is decoration: if these names fail to load, the search still works.
+  useEffect(() => {
+    getJson<RosterRow[]>("/api/roster")
+      .then(setRoster)
+      .catch(() => {});
+  }, []);
+
+  // While searching, move the gold bar down one row at a time, round and round.
+  useEffect(() => {
+    if (results.status !== "loading" || roster.length === 0) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => setScanRow((row) => (row + 1) % roster.length), STEP_MS);
+    return () => clearInterval(id);
+  }, [results.status, roster.length]);
 
   // Results appear below the form, which on a phone is below the screen edge,
   // so bring them into view when a search starts. When they arrive, move
@@ -52,14 +80,10 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
   }, [results.status]);
 
   async function findPeople() {
+    setScanRow(0);
     setResults({ status: "loading" });
     try {
-      const result = await postJson<MatchResult>("/api/match", {
-        question,
-        asker_major: major,
-        asker_year: year,
-        code,
-      });
+      const result = await postJson<MatchResult>("/api/match", { question, code });
       setResults({ status: "done", result });
     } catch (error) {
       setResults({ status: "error", message: errorMessage(error) });
@@ -71,6 +95,7 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
     questionRef.current?.focus();
   }
 
+  const Heading = headingLevel;
   const charsLeft = MAX_QUESTION_CHARS - question.length;
   const loading = results.status === "loading";
 
@@ -82,21 +107,20 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
           findPeople();
         }}
       >
-        <h1 className="text-3xl leading-tight font-semibold text-balance sm:text-4xl">
-          <label htmlFor="question">Describe what you&rsquo;re trying to figure out</label>
-        </h1>
-        <p className="mt-3 max-w-xl text-graphite">
-          {code
-            ? `We'll match you with up to three students who took ${code} and offered to answer questions.`
-            : "We'll match you with up to three USC students who already took the course and offered to answer questions."}
-        </p>
+        <Heading
+          className={`font-display leading-[0.95] font-bold uppercase ${
+            headingLevel === "h1" ? "text-5xl sm:text-7xl" : "text-3xl sm:text-4xl"
+          }`}
+        >
+          <label htmlFor="question">{heading}</label>
+        </Heading>
+        <p className="mt-4 max-w-xl text-lg text-graphite">{intro}</p>
 
-        {/* The one bold element on the page: your question, set large in serif. */}
         <textarea
           id="question"
           ref={questionRef}
           required
-          rows={4}
+          rows={3}
           maxLength={MAX_QUESTION_CHARS}
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
@@ -107,7 +131,7 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
             }
           }}
           placeholder="I'm taking the class next semester and I'm worried about…"
-          className="mt-8 block min-h-40 w-full resize-none field-sizing-content rounded-3xl border-[1.5px] border-ink px-5 py-4 font-serif text-2xl leading-snug caret-cardinal placeholder:text-ink/30 focus:border-cardinal focus:outline-none sm:px-6 sm:py-5 sm:text-[1.75rem]"
+          className="mt-7 block w-full resize-none field-sizing-content border-2 border-ink bg-paper px-4 py-3 text-xl leading-snug placeholder:text-[#767676] focus:border-cardinal"
         />
         {charsLeft <= 60 && (
           <p className="mt-2 text-right text-sm text-graphite" aria-live="polite">
@@ -116,75 +140,66 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
         )}
 
         {examples.length > 0 && (
-          <div className="mt-5">
-            <p className="text-sm text-graphite">Or start from one of these</p>
-            <ul className="mt-2 space-y-1">
-              {examples.map((example) => (
-                <li key={example}>
-                  <button
-                    type="button"
-                    onClick={() => fillExample(example)}
-                    className="py-1.5 text-left font-serif leading-snug text-graphite underline decoration-ink/20 underline-offset-4 transition-colors hover:text-ink hover:decoration-ink"
-                  >
-                    {example}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {examples.map((example) => (
+              <li key={example}>
+                <button
+                  type="button"
+                  onClick={() => fillExample(example)}
+                  className="min-h-11 cursor-pointer border border-ink/30 px-3 text-left text-sm transition-colors duration-150 hover:border-ink"
+                >
+                  {example}
+                </button>
+              </li>
+            ))}
+          </ul>
         )}
 
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:max-w-md">
-          <div>
-            <label htmlFor="asker-major" className="block text-sm text-graphite">
-              Your major (optional)
-            </label>
-            <input
-              id="asker-major"
-              value={major}
-              maxLength={60}
-              onChange={(event) => setMajor(event.target.value)}
-              placeholder="Economics"
-              className="mt-2 block h-12 w-full rounded-2xl border border-ink/30 px-4 text-base caret-cardinal placeholder:text-ink/35"
-            />
-          </div>
-          <div>
-            <label htmlFor="asker-year" className="block text-sm text-graphite">
-              Grad year (optional)
-            </label>
-            <input
-              id="asker-year"
-              value={year}
-              maxLength={10}
-              inputMode="numeric"
-              onChange={(event) => setYear(event.target.value)}
-              placeholder="2029"
-              className="mt-2 block h-12 w-full rounded-2xl border border-ink/30 px-4 text-base caret-cardinal placeholder:text-ink/35"
-            />
-          </div>
+        <div className="mt-6">
+          <button
+            type="submit"
+            disabled={loading}
+            className="min-h-12 w-full cursor-pointer bg-cardinal px-8 font-display text-xl font-semibold tracking-wide text-paper uppercase transition-opacity duration-150 disabled:cursor-default disabled:opacity-70 sm:w-auto"
+          >
+            {loading ? "Scanning…" : "Scan the roster"}
+          </button>
         </div>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="mt-8 h-13 w-full rounded-full bg-cardinal px-8 text-lg font-semibold text-paper transition-opacity disabled:opacity-60 sm:w-auto"
-        >
-          {loading ? "Finding people…" : "Find people"}
-        </button>
       </form>
 
       {/* scroll-mt leaves a little air above the results after scrolling to them. */}
       <section ref={resultsRef} aria-live="polite" className="scroll-mt-6">
-        {results.status === "loading" && <LoadingRows />}
+        {results.status === "loading" && (
+          <div role="status" className="mt-12">
+            <p className="font-display text-lg font-semibold tracking-wide uppercase">Scanning the roster</p>
+            <ol className="mt-3 border-t-2 border-ink">
+              {roster.map((person, row) => (
+                <li
+                  key={person.first_name + row}
+                  className={`flex items-baseline gap-4 border-b border-rule px-3 py-2.5 transition-colors duration-200 ${
+                    row === scanRow ? "bg-gold" : ""
+                  }`}
+                >
+                  <span className="w-7 font-display text-lg font-semibold tabular-nums">
+                    {String(row + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-xl font-semibold uppercase">{person.first_name}</span>
+                  <span className="ml-auto truncate text-sm">
+                    {person.major}, {person.grad_year}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
 
         {results.status === "error" && (
-          <div role="alert" className="mt-12 border-t border-rule pt-8">
-            <p className="font-semibold">Couldn&rsquo;t find people for that.</p>
+          <div role="alert" className="mt-12 border-t-2 border-ink pt-6">
+            <p className="font-display text-2xl font-bold uppercase">Couldn&rsquo;t scan the roster</p>
             <p className="mt-1 text-graphite">{results.message}</p>
             <button
               type="button"
               onClick={findPeople}
-              className="mt-5 h-11 rounded-full border border-ink px-5 text-sm font-semibold transition-colors hover:bg-ink hover:text-paper"
+              className="mt-5 min-h-11 cursor-pointer border-2 border-ink px-5 font-display text-lg font-semibold tracking-wide uppercase transition-colors duration-150 hover:bg-ink hover:text-paper"
             >
               Try again
             </button>
@@ -192,8 +207,8 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
         )}
 
         {results.status === "done" && results.result.matches.length === 0 && (
-          <div className="mt-12 border-t border-rule pt-8">
-            <h2 ref={headingRef} tabIndex={-1} className="text-xl font-semibold focus:outline-none">
+          <div className="mt-12 border-t-2 border-ink pt-6">
+            <h2 ref={headingRef} tabIndex={-1} className="font-display text-2xl font-bold uppercase focus:outline-none">
               {noPeopleMessage(results.result.status, code).title}
             </h2>
             <p className="mt-2 max-w-xl text-graphite">{noPeopleMessage(results.result.status, code).body}</p>
@@ -201,7 +216,7 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
               <button
                 type="button"
                 onClick={findPeople}
-                className="mt-5 h-11 rounded-full border border-ink px-5 text-sm font-semibold transition-colors hover:bg-ink hover:text-paper"
+                className="mt-5 min-h-11 cursor-pointer border-2 border-ink px-5 font-display text-lg font-semibold tracking-wide uppercase transition-colors duration-150 hover:bg-ink hover:text-paper"
               >
                 Try again
               </button>
@@ -211,29 +226,29 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
 
         {results.status === "done" && results.result.matches.length > 0 && (
           <div className="mt-12">
-            <h2 ref={headingRef} tabIndex={-1} className="text-xl font-semibold focus:outline-none">
-              People who can help
+            <h2 ref={headingRef} tabIndex={-1} className="font-display text-lg font-semibold tracking-wide uppercase focus:outline-none">
+              {results.result.matches.length === 1 ? "One person who can help" : "People who can help"}
             </h2>
             {/* The model was unavailable: these are simply the latest people from the course. */}
             {results.result.status === "fallback" && (
               <p className="mt-2 max-w-xl text-graphite">
                 We couldn&rsquo;t read your question with AI just now, so these are the most
-                recent people who took {results.result.matches[0].code}.
+                recent people who took {results.result.matches[0].person.code}.
               </p>
             )}
-            <ul className="mt-6 border-b border-rule">
+            <ol className="mt-3 border-t-2 border-ink">
               {results.result.matches.map((match, index) => (
                 <PersonEntry
                   key={match.person.person_id}
                   person={match.person}
-                  code={match.code}
-                  courses={match.courses}
+                  rank={index + 1}
                   reason={match.reason}
+                  keyPhrases={match.key_phrases}
                   index={index}
-                  onAsk={() => setAsking(match)}
+                  onAsk={() => setAsking(match.person)}
                 />
               ))}
-            </ul>
+            </ol>
           </div>
         )}
       </section>
@@ -241,9 +256,8 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
       {asking && results.status === "done" && (
         <AskDialog
           // A new key gives each person a fresh window (message, email, state).
-          key={asking.person.person_id}
-          person={asking.person}
-          code={asking.code}
+          key={asking.person_id}
+          person={asking}
           draft={results.result.draft_message}
           onClose={() => setAsking(null)}
         />
@@ -278,25 +292,8 @@ function noPeopleMessage(status: MatchStatus, code?: string): { title: string; b
       return {
         title: "No one on the roster fits that yet",
         body: code
-          ? `Try asking about a specific part of ${code}, like the exams, the workload or a project.`
+          ? `Try asking about a specific part of ${code}, like the workload, the exams, or which section to take.`
           : "Try naming the course you're asking about, or pick a course below to see everyone who took it.",
       };
   }
-}
-
-/** Three grey placeholder rows shown while the matches are being found. */
-function LoadingRows() {
-  return (
-    <div className="mt-12" role="status">
-      <p className="mb-6 text-xl font-semibold">Finding people who can help…</p>
-      {[0, 1, 2].map((row) => (
-        <div key={row} className="border-t border-rule py-8 motion-safe:animate-pulse">
-          <div className="h-5 w-32 rounded bg-rule" />
-          <div className="mt-3 h-4 w-56 max-w-full rounded bg-rule" />
-          <div className="mt-6 h-4 w-full rounded bg-rule" />
-          <div className="mt-3 h-4 w-4/5 rounded bg-rule" />
-        </div>
-      ))}
-    </div>
-  );
 }

@@ -21,14 +21,3 @@ export const ABOUT_TAGS = [
 
 export type HelpTag = (typeof HELP_TAGS)[number];
 export type AboutTag = (typeof ABOUT_TAGS)[number];
-
-/** The semesters the app knows about, oldest first. */
-export const SEMESTERS = [
-  "Fall 2024",
-  "Spring 2025",
-  "Fall 2025",
-  "Spring 2026",
-  "Fall 2026",
-] as const;
-
-export type Semester = (typeof SEMESTERS)[number];
