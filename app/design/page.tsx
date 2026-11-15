@@ -4,6 +4,7 @@ import { VARIANTS } from "./_shared/mock";
 export const metadata = { title: "Design options" };
 
 const ROUNDS = [
+  { round: 3, title: "Round three", note: "One design, pushed further." },
   { round: 2, title: "Round two", note: "Two design-forward directions (6, 7) and three deliberately plain ones (8, 9, 10)." },
   { round: 1, title: "Round one", note: "The first five." },
 ];

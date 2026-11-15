@@ -168,7 +168,7 @@ export function TrojanCard() {
         </section>
 
         <p className="d-display mt-14 text-center text-sm">
-          <Link href="/design" className="inline-flex min-h-11 items-center underline underline-offset-4">All ten designs</Link>
+          <Link href="/design" className="inline-flex min-h-11 items-center underline underline-offset-4">All designs</Link>
         </p>
       </main>
     </div>

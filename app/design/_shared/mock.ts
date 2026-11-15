@@ -80,6 +80,13 @@ export const ROSTER = [
 ];
 
 export const VARIANTS = [
+  // Round three: one design, pushed further.
+  {
+    id: 11,
+    round: 3,
+    name: "Shortlist",
+    summary: "White page, black stage. The three people arrive in one black panel as a shortlist; the logo's three bars are the loader, and a gold bar marks the row you are reading.",
+  },
   // Round two: two design-forward directions, then three deliberately plain ones.
   {
     id: 6,
