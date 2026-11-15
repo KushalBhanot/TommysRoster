@@ -23,6 +23,8 @@ export interface DraftInput {
   asker_year: string;
   /** Catalog codes, already checked (see askerCourses in lib/match.ts). */
   asker_courses: string[];
+  /** What the asker said about themselves (see askerAbout in lib/match.ts). */
+  asker_about: string[];
 }
 
 export interface DraftResult {
@@ -36,7 +38,7 @@ const SYSTEM_PROMPT = `You write a short first message from one USC student (the
 
 You get a JSON object with:
 - "question": what the asker wants to know. It may be empty.
-- "asker": the asker's major, level ("undergraduate", "graduate" or ""), graduation year and "courses" (codes of courses they have taken). Any of these may be empty.
+- "asker": the asker's major, level ("undergraduate", "graduate" or ""), graduation year, "courses" (codes of courses they have taken) and "about" (things they said about themselves, such as "Transfer student"). Any of these may be empty.
 - "person": the person's major, grad_year, "about" (things they said about themselves, may be empty) and "course": { code, title, semester, taking_now, professor, can_talk_about, note }. "can_talk_about" is what they offered to discuss; "note" is one sentence in their own words and may be empty. "taking_now" is true when they are in the course this semester and have not finished it.
 
 Return "body": the body of the message, written by the asker to the person.
@@ -45,6 +47,7 @@ Return "body": the body of the message, written by the asker to the person.
 - When taking_now is true, write about the course in the present ("you're taking", "so far"), never as finished ("you took").
 - Say what the asker wants to know, based on the question. If the question is empty, ask about what the person offered to talk about.
 - An empty field means the asker did not say. Never conclude anything from it, such as that they have not taken any courses.
+- When the asker's "about" has something in common with the person's "about", you may say so in a natural way ("I'm a transfer student too"). Never claim it otherwise.
 - You may mention the asker's major or graduation year only as given. Write a year such as 2029 as "class of 2029"; never turn it into "freshman", "first year" or similar.
 - Name only the person's course, or a course that appears in the question or in the asker's courses.
 - Never write that the asker is taking, will take or is thinking about taking any course or professor, unless the question says so. Write about what they want to know instead.
@@ -140,6 +143,7 @@ export async function draftMessage(row: PersonRow, input: DraftInput): Promise<D
       level: input.asker_level,
       year: input.asker_year,
       courses: input.asker_courses,
+      about: input.asker_about,
     },
     person: {
       major: row.major,

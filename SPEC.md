@@ -296,7 +296,15 @@ and delivery is "saved". Addresses come from data/private/person-emails.json
 ({ "<person_id>": "<email>" }, gitignored) or from that person's own sign-up. A failed
 send is never an error for the asker: the request is still stored, delivery "saved".
 
-POST /api/people also accepts client_id and stores it with the private record.
+POST /api/people also accepts client_id and stores it with the private record, and
+note: an optional sentence about the person's own experience (at most 140 characters;
+lib/note.ts refuses markup, contact details and words about a professor or TA). It is
+shown on the roster and read by the model like the notes in the sample data.
+
+Profile.about (optional, up to 2 tags from ABOUT_TAGS) is asked at onboarding step 2
+and editable on /account. It is sent as asker_about to POST /api/match and /api/draft:
+a person who shares an "about" with the asker is preferred among people who can
+equally speak to the question, and the reason says what they share.
 Rate limit: 8 per hour per person and IP.
 
 How matching works (lib/match.ts), in order:

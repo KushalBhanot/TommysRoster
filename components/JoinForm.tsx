@@ -5,7 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import MAJORS from "@/data/majors.json";
 import type { CourseSummary } from "@/lib/courses";
+import { MAX_NOTE_CHARS } from "@/lib/note";
 import { ABOUT_TAGS, HELP_TAGS } from "@/lib/tags";
+import { Chips } from "./Chips";
 import { courseHref } from "./CourseSearch";
 import { gradYears } from "./Onboarding";
 import { errorMessage, getJson, postJson } from "./api";
@@ -52,7 +54,9 @@ function JoinFields({ profile }: { profile: Profile | null }) {
   const [semester, setSemester] = useState("");
   const [professor, setProfessor] = useState("");
   const [helpTags, setHelpTags] = useState<string[]>([]);
-  const [aboutTags, setAboutTags] = useState<string[]>([]);
+  // What they said about themselves at onboarding is already ticked.
+  const [aboutTags, setAboutTags] = useState<string[]>(() => (profile?.about ?? []).slice(0, MAX_ABOUT_TAGS));
+  const [note, setNote] = useState("");
 
   // Course search: what is typed, and what the catalog answered.
   const [query, setQuery] = useState("");
@@ -137,6 +141,7 @@ function JoinFields({ profile }: { profile: Profile | null }) {
         professor,
         help_tags: helpTags,
         about_tags: aboutTags,
+        note,
         // Lets "Delete my data" on the Account page remove this sign-up later.
         client_id: clientId(),
       });
@@ -334,6 +339,26 @@ function JoinFields({ profile }: { profile: Profile | null }) {
         onToggle={(tag) => toggle(tag, setAboutTags, MAX_ABOUT_TAGS)}
       />
 
+      {/* The one thing here that is typed freely. It is what lets a match say
+          why this person fits a question, so it is worth a sentence. */}
+      <div className="mt-8">
+        <label htmlFor="join-note" className="font-medium">
+          One sentence about your experience <span className="font-normal text-graphite">Optional.</span>
+        </label>
+        <input
+          id="join-note"
+          maxLength={MAX_NOTE_CHARS}
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          aria-describedby="join-note-hint"
+          placeholder="I had never coded before and can share how I caught up."
+          className={`${FIELD} placeholder:text-[#767676]`}
+        />
+        <p id="join-note-hint" className="mt-1 text-sm text-graphite">
+          Shown with your name on the roster. Write about yourself, not about a professor.
+        </p>
+      </div>
+
       {error && (
         <p role="alert" className="mt-6 font-semibold text-cardinal">
           {error}
@@ -350,49 +375,5 @@ function JoinFields({ profile }: { profile: Profile | null }) {
         </button>
       </div>
     </form>
-  );
-}
-
-/** A group of chips that can each be switched on or off. */
-function Chips({
-  legend,
-  hint,
-  tags,
-  chosen,
-  onToggle,
-}: {
-  legend: string;
-  hint: string;
-  tags: readonly string[];
-  chosen: string[];
-  onToggle: (tag: string) => void;
-}) {
-  return (
-    <fieldset className="mt-8">
-      <legend className="font-medium">
-        {legend} <span className="font-normal text-graphite">{hint}</span>
-      </legend>
-      <div className="mt-2 flex flex-wrap gap-2">
-        {tags.map((tag) => {
-          const on = chosen.includes(tag);
-          return (
-            <button
-              key={tag}
-              type="button"
-              aria-pressed={on}
-              onClick={() => onToggle(tag)}
-              // A chosen chip is filled black and gains a check mark, so the
-              // state is not shown by color alone.
-              className={`min-h-11 cursor-pointer border-2 border-ink px-3 text-left text-sm font-medium transition-colors duration-150 ${
-                on ? "bg-ink text-paper" : "hover:bg-gold/40"
-              }`}
-            >
-              {on && <span aria-hidden="true">✓ </span>}
-              {tag}
-            </button>
-          );
-        })}
-      </div>
-    </fieldset>
   );
 }

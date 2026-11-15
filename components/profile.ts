@@ -25,6 +25,8 @@ export interface Profile {
   grad_year: string;
   /** Codes of courses they have taken, for example ["CSCI 103", "WRIT 150"]. */
   courses: string[];
+  /** Optional: things they said about themselves, such as "Transfer student". Missing in older profiles. */
+  about?: string[];
   /** True once the three onboarding steps are finished. */
   onboarded: boolean;
   /** True once they have read and accepted the privacy notice. */
@@ -137,6 +139,7 @@ export function signIn(email: string) {
     level: "",
     grad_year: "",
     courses: [],
+    about: [],
     onboarded: false,
     privacy_seen: false,
     tour_done: false,
@@ -196,8 +199,8 @@ export function clientId(): string {
 }
 
 /**
- * What the AI may know about the person asking: their major, level, year and
- * courses. Never their name or email. Spread this into a POST /api/match or
+ * What the AI may know about the person asking: their major, level, year,
+ * courses and what they said about themselves. Never their name or email. Spread this into a POST /api/match or
  * POST /api/draft body.
  */
 export function askerContext(profile: Profile | null) {
@@ -207,5 +210,6 @@ export function askerContext(profile: Profile | null) {
     asker_level: profile.level,
     asker_year: profile.grad_year,
     asker_courses: profile.courses,
+    asker_about: profile.about ?? [],
   };
 }

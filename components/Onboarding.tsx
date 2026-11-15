@@ -14,6 +14,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import MAJORS from "@/data/majors.json";
 import type { CourseSummary } from "@/lib/courses";
+import { ABOUT_TAGS } from "@/lib/tags";
+import { Chips, toggleTag } from "./Chips";
 import { PrivacyNotice } from "./PrivacyNotice";
 import { getJson, errorMessage } from "./api";
 import { signOutLocally, updateProfile, useProfile, type Profile } from "./profile";
@@ -29,6 +31,8 @@ export const SECONDARY_BUTTON =
   "min-h-12 cursor-pointer border-2 border-ink px-6 font-display text-lg font-semibold tracking-wide uppercase transition-colors duration-150 hover:bg-ink hover:text-paper";
 
 const MAX_NAME_CHARS = 40;
+/** How many "about you" tags a person may pick. */
+export const MAX_ABOUT = 2;
 
 /**
  * Graduation years to offer: this year through six years from now. A year
@@ -131,6 +135,7 @@ function Steps({ profile }: { profile: Profile }) {
   const [level, setLevel] = useState(profile.level);
   const [gradYear, setGradYear] = useState(profile.grad_year);
   const [courses, setCourses] = useState(profile.courses);
+  const [about, setAbout] = useState(profile.about ?? []);
   const [error, setError] = useState("");
 
   // Move keyboard and screen reader focus to the new heading when the step
@@ -162,7 +167,7 @@ function Steps({ profile }: { profile: Profile }) {
       if (!major) return setError("Choose your major.");
       if (!level) return setError("Choose undergraduate or graduate.");
       if (!gradYear) return setError("Choose your graduation year.");
-      updateProfile({ major, level, grad_year: gradYear });
+      updateProfile({ major, level, grad_year: gradYear, about });
       return goTo(3);
     }
     // Step 3 is optional. Finishing it marks onboarding done, which makes
@@ -232,6 +237,17 @@ function Steps({ profile }: { profile: Profile }) {
                 ))}
               </select>
             </div>
+            {/* Optional. Lets a match prefer people on a path like theirs
+                without them having to say so in every question. */}
+            <div className="-mt-8">
+              <Chips
+                legend="Any of these describe you?"
+                hint="Optional. Helps us find people on a path like yours."
+                tags={ABOUT_TAGS}
+                chosen={about}
+                onToggle={(tag) => setAbout((chosen) => toggleTag(chosen, tag, MAX_ABOUT))}
+              />
+            </div>
           </div>
         )}
 
@@ -293,7 +309,7 @@ export function LevelChoice({
             key={option.value}
             // The chosen one is tinted gold and its radio dot is filled, so the
             // state is not shown by color alone.
-            className="flex min-h-14 cursor-pointer items-center gap-3 border-2 border-ink px-4 font-display text-xl font-semibold uppercase transition-colors duration-150 hover:bg-gold/40 has-checked:bg-gold/25"
+            className="flex min-h-14 cursor-pointer items-center gap-2 border-2 border-ink px-3 font-display text-lg font-semibold uppercase transition-colors duration-150 hover:bg-gold/40 has-checked:bg-gold/25 sm:gap-3 sm:px-4 sm:text-xl"
           >
             <input
               type="radio"

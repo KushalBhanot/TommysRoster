@@ -13,7 +13,9 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import MAJORS from "@/data/majors.json";
-import { CoursePicker, FIELD, LABEL, LevelChoice, PRIMARY_BUTTON, SECONDARY_BUTTON, gradYears } from "./Onboarding";
+import { ABOUT_TAGS } from "@/lib/tags";
+import { Chips, toggleTag } from "./Chips";
+import { CoursePicker, FIELD, LABEL, LevelChoice, MAX_ABOUT, PRIMARY_BUTTON, SECONDARY_BUTTON, gradYears } from "./Onboarding";
 import { PrivacyNotice } from "./PrivacyNotice";
 import {
   clearLocalData, clientId, signOutLocally, updateProfile, useProfile, useSent, type Profile, type SentRequest,
@@ -74,6 +76,7 @@ function EditProfile({ profile }: { profile: Profile }) {
   const [level, setLevel] = useState(profile.level);
   const [gradYear, setGradYear] = useState(profile.grad_year);
   const [courses, setCourses] = useState(profile.courses);
+  const [about, setAbout] = useState(profile.about ?? []);
   const [error, setError] = useState("");
   const [saved, setSaved] = useState(false);
 
@@ -93,7 +96,7 @@ function EditProfile({ profile }: { profile: Profile }) {
     if (!level) return setError("Choose undergraduate or graduate.");
     if (!gradYear) return setError("Choose your graduation year.");
     setError("");
-    updateProfile({ first_name: name, major, level, grad_year: gradYear, courses });
+    updateProfile({ first_name: name, major, level, grad_year: gradYear, courses, about });
     setFirstName(name);
     setSaved(true);
   }
@@ -139,6 +142,16 @@ function EditProfile({ profile }: { profile: Profile }) {
               <option key={year}>{year}</option>
             ))}
           </select>
+        </div>
+
+        <div className="-mt-8">
+          <Chips
+            legend="Any of these describe you?"
+            hint="Optional. Helps us find people on a path like yours."
+            tags={ABOUT_TAGS}
+            chosen={about}
+            onToggle={(tag) => edited(setAbout)(toggleTag(about, tag, MAX_ABOUT))}
+          />
         </div>
 
         <div>

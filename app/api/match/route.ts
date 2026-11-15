@@ -1,7 +1,7 @@
 // The match endpoint: checks the request, then hands it to lib/match.ts.
 
 import { errorJson, json, readJsonObject, textField } from "@/lib/http";
-import { askerCourses, askerLevel, matchPeople } from "@/lib/match";
+import { askerAbout, askerCourses, askerLevel, matchPeople } from "@/lib/match";
 import { normalizeCode } from "@/lib/normalize";
 import { allowRequest, clientIp } from "@/lib/rate-limit";
 import { SIGN_IN_FIRST, mayUseSite } from "@/lib/session";
@@ -20,7 +20,7 @@ function optionalText(value: unknown): string {
 }
 
 // POST /api/match
-// body { question, asker_major?, asker_level?, asker_year?, asker_courses?, code? }
+// body { question, asker_major?, asker_level?, asker_year?, asker_courses?, asker_about?, code? }
 // → { status, matches: [{ person, reason, key_phrases }], draft_message }
 // asker_level is "undergraduate" or "graduate" (anything else is ignored);
 // asker_courses is a list of course codes (unknown ones are dropped, at most 40).
@@ -49,6 +49,7 @@ export async function POST(request: Request) {
       asker_level: askerLevel(body.asker_level),
       asker_year: optionalText(body.asker_year),
       asker_courses: askerCourses(body.asker_courses),
+      asker_about: askerAbout(body.asker_about),
       code: typeof body.code === "string" ? normalizeCode(body.code) : "",
     });
     return json(result);

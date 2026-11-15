@@ -18,6 +18,7 @@ import { getCourseRows, newestFirst, toPerson, type Person } from "./courses";
 import { getPeopleRows, type PersonRow } from "./data";
 import { generateJson } from "./llm";
 import { normalizeCode } from "./normalize";
+import { ABOUT_TAGS, type AboutTag } from "./tags";
 
 /** "" = the asker did not say. */
 export type AskerLevel = "undergraduate" | "graduate" | "";
@@ -29,6 +30,8 @@ export interface MatchInput {
   asker_year: string;
   /** Catalog codes of courses the asker has taken, already checked (see askerCourses). */
   asker_courses: string[];
+  /** What the asker said about themselves at onboarding (see askerAbout). May be empty. */
+  asker_about: AboutTag[];
   /** "" = search everyone. */
   code: string;
 }
@@ -69,6 +72,12 @@ const MAX_PEOPLE_IN_PROMPT = 150;
 const MAX_REASON_CHARS = 300;
 const MAX_ASKER_COURSES = 40;
 
+/** What the asker said about themselves, from a request body: only tags from the fixed list, each once. */
+export function askerAbout(value: unknown): AboutTag[] {
+  if (!Array.isArray(value)) return [];
+  return ABOUT_TAGS.filter((tag) => value.includes(tag));
+}
+
 /** The asker's level from a request body; anything other than the two known values reads as "". */
 export function askerLevel(value: unknown): AskerLevel {
   return value === "undergraduate" || value === "graduate" ? value : "";
@@ -95,7 +104,7 @@ const SYSTEM_PROMPT = `You match a USC student who has a question about a course
 You get a JSON object with:
 - "question": what the asker is trying to figure out
 - "course": the course code the asker is asking about, or "" when they are searching all courses
-- "asker": their major, level ("undergraduate", "graduate" or ""), graduation year and "courses" (codes of courses they have already taken). Any of these may be empty.
+- "asker": their major, level ("undergraduate", "graduate" or ""), graduation year, "courses" (codes of courses they have already taken) and "about" (things they said about themselves, such as "Transfer student"). Any of these may be empty.
 - "people": the only people you may choose from. Each has a person_id, major, grad_year, "about" (things they said about themselves, may be empty) and "courses", a list of { code, title, semester, taking_now, professor, can_talk_about, note }. "can_talk_about" is what they offered to discuss for that course; "note" is one sentence in their own words and may be empty; "taking_now" is true when they are in that course this semester and have not finished it.
 
 Return:
@@ -114,6 +123,7 @@ Rules:
 - Do not use outside knowledge about USC, its courses or its professors.
 - Prefer people whose note or can_talk_about is close to the question; then a similar major or path to the asker (the same major, or a course in common with the asker's "courses"); then a more recent semester.
 - When the question is general and points to no particular topic (for example "What is this course like?"), the asker's own path is the best signal: put a person with the same major as the asker first, and say in the reason that they share that major.
+- When the asker's "about" and a person's "about" have an entry in common (both international students, both transfer students, and so on), that person is on a path like the asker's: prefer them among people who can equally speak to the question, and say what they share in the reason.
 - A reason may mention something the person shares with the asker, such as the same major or a course they both took, ONLY when it is true of that person's own entry. The asker's courses are not the person's courses: never say the person took a course unless it is in their own "courses" list.
 - If the question names a professor, prefer people who took the course with that professor, and say so in the reason. A professor's name counts only if it appears in that person's entry.
 - Never give an opinion about a professor.
@@ -450,6 +460,7 @@ export async function matchPeople(input: MatchInput): Promise<MatchResult> {
           level: input.asker_level,
           year: input.asker_year,
           courses: input.asker_courses,
+          about: input.asker_about,
         },
         people,
       }),

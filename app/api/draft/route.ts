@@ -2,7 +2,7 @@
 
 import { draftMessage, findPersonRow } from "@/lib/draft";
 import { errorJson, json, readJsonObject, textField } from "@/lib/http";
-import { askerCourses, askerLevel } from "@/lib/match";
+import { askerAbout, askerCourses, askerLevel } from "@/lib/match";
 import { allowRequest, clientIp } from "@/lib/rate-limit";
 import { SIGN_IN_FIRST, mayUseSite } from "@/lib/session";
 
@@ -31,7 +31,7 @@ function firstName(value: unknown): string {
 
 // POST /api/draft
 // body { person_id, code, question?, asker_first_name?, asker_major?,
-//        asker_level?, asker_year?, asker_courses? }
+//        asker_level?, asker_year?, asker_courses?, asker_about? }
 // → { draft, source: "ai" | "template" }
 export async function POST(request: Request) {
   // The AI costs money per call: when only USC Google sign-in is accepted,
@@ -68,6 +68,7 @@ export async function POST(request: Request) {
       asker_level: askerLevel(body.asker_level),
       asker_year: optionalText(body.asker_year),
       asker_courses: askerCourses(body.asker_courses),
+      asker_about: askerAbout(body.asker_about),
     });
     return json(result);
   } catch (error) {

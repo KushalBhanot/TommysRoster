@@ -6,6 +6,7 @@ import { addPersonRow, nextPersonId } from "@/lib/data";
 import { errorJson, json, readJsonObject, textField } from "@/lib/http";
 import { allowRequest, clientIp } from "@/lib/rate-limit";
 import { SIGN_IN_FIRST, actingEmail, demoSignInAllowed } from "@/lib/session";
+import { checkNote } from "@/lib/note";
 import { clientIdField, recordsInMemory, saveRecord } from "@/lib/store";
 import { ABOUT_TAGS, HELP_TAGS, type AboutTag, type HelpTag } from "@/lib/tags";
 import MAJORS from "@/data/majors.json";
@@ -32,9 +33,9 @@ function chosenFrom<T extends string>(value: unknown, allowed: readonly T[]): T[
 
 // POST /api/people: sign up as someone who took a course.
 // body { first_name, email, major, grad_year, code, semester, professor,
-//        help_tags, about_tags?, client_id? } → { ok: true }
-// Apart from the first name and the email, every value must be one the form
-// offered: a major from the official list, a course from the catalog, a
+//        help_tags, about_tags?, note?, client_id? } → { ok: true }
+// Apart from the first name, the email and the optional one-sentence note
+// (checked by lib/note.ts), every value must be one the form offered: a major from the official list, a course from the catalog, a
 // semester the course ran in, a professor listed for it then, and tags from
 // the two fixed lists. That is why nothing here needs moderating.
 export async function POST(request: Request) {
@@ -91,6 +92,10 @@ export async function POST(request: Request) {
   const help_tags: HelpTag[] = chosenFrom(body.help_tags, HELP_TAGS);
   if (help_tags.length === 0) return errorJson("Please pick at least one thing you can talk about.", 400);
   const about_tags: AboutTag[] = chosenFrom(body.about_tags, ABOUT_TAGS);
+  // The one free-text field: an optional sentence about their own experience.
+  // It is shown on the roster and read by the AI, so it is checked first.
+  const checked = checkNote(body.note);
+  if ("error" in checked) return errorJson(checked.error, 400);
   // Optional browser id, kept in the private record only, so DELETE /api/me
   // can take this sign-up off the roster later.
   const client_id = clientIdField(body.client_id);
@@ -101,7 +106,7 @@ export async function POST(request: Request) {
     // The public row has no email; the private record does.
     const row = addPersonRow({
       person_id, first_name, major, grad_year, code: course.code, semester, professor,
-      help_tags, about_tags, note: "", source: "real",
+      help_tags, about_tags, note: checked.note, source: "real",
     });
     saveRecord("new-people.json", {
       created_at: new Date().toISOString(),
