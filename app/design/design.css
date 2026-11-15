@@ -1,0 +1,74 @@
+/*
+  Styles for the /design previews only. Nothing here affects the real pages:
+  every rule is scoped to .design-root or to a page that contains one.
+*/
+
+/* Hide the site's own header and footer and let a preview use the full width. */
+body:has(.design-root) > header,
+body:has(.design-root) > footer {
+  display: none;
+}
+body:has(.design-root) > main {
+  max-width: none;
+  padding: 0;
+}
+
+/* Each preview page sets --d-display and --d-text to its two typefaces. */
+.design-root {
+  font-family: var(--d-text);
+  min-height: 100dvh;
+}
+.design-root .d-display {
+  font-family: var(--d-display);
+}
+.design-root .d-text {
+  font-family: var(--d-text);
+}
+
+/* One focus ring per preview; a preview on a dark background overrides --ring. */
+.design-root :focus-visible {
+  outline: 3px solid var(--ring, #990000);
+  outline-offset: 2px;
+}
+
+/* Shared, calm entrances (150–250ms). --i staggers items that arrive in order. */
+@keyframes d-rise {
+  from { opacity: 0; transform: translateY(10px); }
+}
+@keyframes d-fade {
+  from { opacity: 0; }
+}
+@keyframes d-deal {
+  from { opacity: 0; transform: translateY(18px) rotate(var(--tilt, -3deg)); }
+}
+@keyframes d-draw {
+  from { transform: scaleX(0); }
+}
+@keyframes d-pop {
+  from { opacity: 0; transform: scale(0.96); }
+}
+@keyframes d-dot {
+  0%, 60%, 100% { opacity: 0.25; }
+  30% { opacity: 1; }
+}
+@keyframes d-sweep {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.d-rise { animation: d-rise 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--i, 0) * 120ms); }
+.d-fade { animation: d-fade 200ms ease-out both; animation-delay: calc(var(--i, 0) * 120ms); }
+.d-deal { animation: d-deal 240ms cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--i, 0) * 140ms); }
+.d-draw { transform-origin: left; animation: d-draw 250ms ease-out both; animation-delay: calc(var(--i, 0) * 160ms); }
+.d-pop { animation: d-pop 180ms ease-out both; animation-delay: calc(var(--i, 0) * 200ms); }
+.d-dot { animation: d-dot 1200ms ease-in-out infinite; animation-delay: calc(var(--i, 0) * 160ms); }
+.d-sweep { animation: d-sweep 1100ms ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .d-rise, .d-fade, .d-deal, .d-draw, .d-pop, .d-dot, .d-sweep {
+    animation: none;
+  }
+  .design-root * {
+    transition-duration: 0ms !important;
+  }
+}
