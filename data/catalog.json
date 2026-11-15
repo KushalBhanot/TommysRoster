@@ -1,0 +1,7977 @@
+[
+  {
+    "code": "ACCT 370",
+    "title": "External Financial Reporting Issues",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 371",
+    "title": "Introduction to Accounting Systems",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 405",
+    "title": "Introduction to Sustainability Reporting",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 410",
+    "title": "Foundations of Accounting",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 416",
+    "title": "Financial Statement Analysis",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 430",
+    "title": "Accounting Ethics",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 451",
+    "title": "Tax Analysis with Data Analytics",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 456",
+    "title": "Auditing with Data Analytics",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 470",
+    "title": "Advanced External Financial Reporting Issues",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 490",
+    "title": "Directed Research",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 493",
+    "title": "Leventhal Honors Research Seminar",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 494",
+    "title": "Marshall Honors Research and Thesis",
+    "department": "Accounting"
+  },
+  {
+    "code": "ACCT 499",
+    "title": "Special Topics",
+    "department": "Accounting"
+  },
+  {
+    "code": "AME 101",
+    "title": "Introduction to Mechanical Engineering",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 105",
+    "title": "Introduction to Aerospace Engineering",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 201",
+    "title": "Statics",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 204",
+    "title": "Mechanics of Materials and Structures",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 208",
+    "title": "Computational Methods in Engineering",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 261",
+    "title": "Basic Flight Mechanics",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 291",
+    "title": "Undergraduate Design Projects I",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 301",
+    "title": "Dynamics",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 302",
+    "title": "Dynamic Systems",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 302A",
+    "title": "Modeling and Analysis of Dynamic Systems",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 302B",
+    "title": "Modeling and Analysis of Dynamic Systems",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 305",
+    "title": "Mechanical Design",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 308",
+    "title": "Computer-Aided Engineering",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 309",
+    "title": "Dynamics of Fluids",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 310",
+    "title": "Engineering Thermodynamics I",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 341A",
+    "title": "Mechoptronics Laboratory",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 341B",
+    "title": "Mechoptronics Laboratory",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 403",
+    "title": "Stress Analysis",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 404",
+    "title": "Computational Solutions to Engineering Problems",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 405",
+    "title": "Functional Approach to Computational Methods",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 408",
+    "title": "Computer-Aided Design of Mechanical Systems",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 409",
+    "title": "Senior Design Project",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 410",
+    "title": "Engineering Design Theory and Methodology",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 415",
+    "title": "Turbine Design and Analysis",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 416",
+    "title": "Mechanics and Transport in Medicine and Biology",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 420",
+    "title": "Engineering Vibrations I",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 430",
+    "title": "Thermal Systems Design",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 431",
+    "title": "Heat Transfer",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 436",
+    "title": "Automotive and Flight Propulsion",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 441A",
+    "title": "Senior Projects Laboratory",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 441B",
+    "title": "Senior Projects Laboratory",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 443",
+    "title": "Control Systems Laboratory",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 451",
+    "title": "Linear Control Systems I",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 455",
+    "title": "Introduction to Microelectromechanical Systems",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 456",
+    "title": "Bio-inspired Robotics",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 459",
+    "title": "Flight Mechanics",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 460",
+    "title": "Aerodynamic Theory",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 481",
+    "title": "Aircraft Design",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 485",
+    "title": "Aerospace Structures I",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 486",
+    "title": "Mechanics of Composite Materials for Modern Structures",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 490",
+    "title": "Directed Research",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 491",
+    "title": "Undergraduate Design Projects II",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AME 499",
+    "title": "Special Topics",
+    "department": "Aerospace and Mechanical Engineering"
+  },
+  {
+    "code": "AMST 101",
+    "title": "Race and Class in Los Angeles",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 135",
+    "title": "Peoples and Cultures of the Americas",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 150",
+    "title": "The American War in Viet Nam",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 200",
+    "title": "Introduction to American Studies and Ethnicity",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 201",
+    "title": "LGBTQ America",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 204",
+    "title": "Introduction to Native Studies",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 205",
+    "title": "Introduction to American Popular Culture",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 206",
+    "title": "The Politics and Culture of the 1960s",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 211",
+    "title": "Sex in America",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 215",
+    "title": "Race and Mixed Race",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 220",
+    "title": "The Making of Asian America",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 230",
+    "title": "Introduction to African American Studies",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 250",
+    "title": "The African Diaspora",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 252",
+    "title": "Black Social Movements in the U.S.",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 274",
+    "title": "Exploring Ethnicity through Film",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 301",
+    "title": "America, the Frontier, and the New West",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 320",
+    "title": "Social Construction of Race and Citizenship",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 325",
+    "title": "The Middle East in Hollywood",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 330",
+    "title": "Black Music and the Political Imagination",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 331",
+    "title": "The Black Atlantic: Narratives of Migration and Travel",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 337",
+    "title": "Islam in Black America: From Slavery to Hip Hop",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 340",
+    "title": "Latina/o LA",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 342",
+    "title": "Law and Identities",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 343",
+    "title": "Food, Health and Culture in Los Angeles",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 345",
+    "title": "Law and American Indian Studies",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 348",
+    "title": "Race and the Environment",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 350",
+    "title": "Junior Seminar in American Studies and Ethnicity: Theories and Methods",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 357",
+    "title": "Latino Social Movements",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 365",
+    "title": "Leadership in the Community -- Internship",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 373",
+    "title": "History of the Mexican American",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 378",
+    "title": "Introduction to Asian American History",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 379",
+    "title": "Arabs in America",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 389",
+    "title": "Carceral Geographies",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 392",
+    "title": "Undergraduate Research Methods",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 395",
+    "title": "African American Humor and Culture",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 446",
+    "title": "Latinx Music in the Americas",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 448",
+    "title": "Chicano and Latino Literature",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 449",
+    "title": "Asian American Literature",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 452",
+    "title": "Race, Gender and Sexuality",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 466",
+    "title": "Psychological Dynamics of the African American Experience",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 490",
+    "title": "Directed Research",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 492",
+    "title": "Research Methods in American Studies and Ethnicity",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 493",
+    "title": "Senior Capstone Experience in American Studies and Ethnicity",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "AMST 498",
+    "title": "Senior Seminar in American Studies and Ethnicity",
+    "department": "American Studies and Ethnicity"
+  },
+  {
+    "code": "ARCH 100",
+    "title": "A-LAB Architecture Development Program",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 102A",
+    "title": "Architectural Design I",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 102B",
+    "title": "Architectural Design I",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 104",
+    "title": "History and Theory of Architecture, Technology, Innovation",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 105A",
+    "title": "Fundamentals of Design Communication",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 105B",
+    "title": "Fundamentals of Design Communication",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 106",
+    "title": "Workshop in Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 108",
+    "title": "Idea to Reality",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 114",
+    "title": "Architecture: Culture and Community",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 202A",
+    "title": "Architectural Design II",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 202B",
+    "title": "Architectural Design II",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 203",
+    "title": "Visualizing and Experiencing the Built Environment",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 205A",
+    "title": "Building Science I",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 205B",
+    "title": "Building Science I",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 207",
+    "title": "Computer Applications in Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 211",
+    "title": "Materials and Methods of Building Construction",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 213A",
+    "title": "Building Structures and Seismic Design",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 213B",
+    "title": "Building Structures and Seismic Design",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 214A",
+    "title": "World History of Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 214B",
+    "title": "World History of Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 215",
+    "title": "Design for the Thermal and Atmospheric Environment",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 218",
+    "title": "Resilient Design",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 219",
+    "title": "Design at the Scale of the Human Body Workshop",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 220",
+    "title": "The Architect's Sketchbook",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 228",
+    "title": "Social Environments",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 229",
+    "title": "Shelter Design Workshop",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 302A",
+    "title": "Architectural Design III",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 302B",
+    "title": "Architectural Design III",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 303",
+    "title": "Principles of Spatial Design I",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 304",
+    "title": "Intensive Survey: Prehistory to the Present",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 305A",
+    "title": "Building Science II",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 305B",
+    "title": "Building Science II",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 307",
+    "title": "Digital Tools for Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 313",
+    "title": "Design of Building Structures",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 314",
+    "title": "History of Architecture: Contemporary Issues",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 315",
+    "title": "Design for the Luminous and Sonic Environment",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 316",
+    "title": "Place and Culture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 318",
+    "title": "Experimental Futures",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 319",
+    "title": "Architectural Product Design Workshop",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 328",
+    "title": "Entrepreneurial Practices for Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 329",
+    "title": "Professional Practicum Workshop",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 370",
+    "title": "Architectural Studies- Expanding the Field",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 402A",
+    "title": "Architectural Design IV",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 402B",
+    "title": "Architectural Design IV",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 403",
+    "title": "Principles of Spatial Design II",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 404",
+    "title": "Topics in Modern Architecture in Southern California",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 405A",
+    "title": "Building Science III",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 405B",
+    "title": "Building Science III",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 406",
+    "title": "Global Studies: Topics in                        Architecture, Urbanism, History and Art",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 409",
+    "title": "Design Foundation",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 410",
+    "title": "Computer Transformations",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 411",
+    "title": "Architectural Technology",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 414",
+    "title": "Perspectives in History and Theory in Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 417",
+    "title": "Computer Programming in Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 420",
+    "title": "Visual Communication and Graphic Expression",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 421",
+    "title": "Digital Architectural Photography",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 422",
+    "title": "Architectural Photography- Film and Digital",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 423",
+    "title": "Light, Color and the Character of Material",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 424",
+    "title": "Field Studies in Architecture",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 425",
+    "title": "Field Studies in Urbanism",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 426",
+    "title": "Field Studies in Tectonics",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 431",
+    "title": "Nonconventional Materials for the Built Environment",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 439",
+    "title": "Landscape Architecture Foundations Workshop",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 442",
+    "title": "Women's Spaces in History: 'Hussies,' 'Harems,' and 'Housewi",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 444",
+    "title": "Great Houses of Los Angeles",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 468",
+    "title": "Walking the City",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 470A",
+    "title": "Architectural Studies Capstone",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 470B",
+    "title": "Architectural Studies Capstone",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 472",
+    "title": "Building Skins: Materials and Methods for        Facades and Enclosures",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 480",
+    "title": "Conversations on the Expanded Role of the Architect",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 481",
+    "title": "Furniture Design",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 490",
+    "title": "Directed Research",
+    "department": "Architecture"
+  },
+  {
+    "code": "ARCH 499",
+    "title": "Special Topics",
+    "department": "Architecture"
+  },
+  {
+    "code": "ASTR 100",
+    "title": "The Universe",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 104",
+    "title": "Special Laboratory",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 110",
+    "title": "The Universe for Astronomy Majors",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 200",
+    "title": "Life in the Universe",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 400",
+    "title": "The Solar System",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 422",
+    "title": "Galaxies and Large-Scale Structures in the Universe",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 424",
+    "title": "Cosmology",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 450",
+    "title": "Stellar Astrophysics",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 490",
+    "title": "Directed Research",
+    "department": "Astronomy"
+  },
+  {
+    "code": "ASTR 499",
+    "title": "Special Topics",
+    "department": "Astronomy"
+  },
+  {
+    "code": "BISC 100",
+    "title": "Island Life",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 101",
+    "title": "Cellular and Molecular Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 102",
+    "title": "Humans and Their Environment",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 103",
+    "title": "General Biology for the Environment and Life",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 104",
+    "title": "How the Body Works",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 108",
+    "title": "Special Laboratory I",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 109",
+    "title": "Special Laboratory II",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 110",
+    "title": "Good Genes, Bad Genes",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 115",
+    "title": "The Biology of Food",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 120",
+    "title": "General Biology: Organismal Biology and Evolution",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 121",
+    "title": "Advanced General Biology: Organismal Biology and Evolution",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 150",
+    "title": "The Nature of Human Health and Disease",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 180",
+    "title": "Evolution",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 193",
+    "title": "Introduction to Research I",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 194",
+    "title": "Introduction to Research II",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 199",
+    "title": "Neuroscience Colloquium",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 220",
+    "title": "General Biology: Cell Biology and Physiology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 221",
+    "title": "Advanced General Biology: Cell Biology and Physiology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 230",
+    "title": "The Biology of the Brain",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 290",
+    "title": "Introduction to Biological Research",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 300",
+    "title": "Introduction to Microbiology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 303",
+    "title": "The Kingdom Plantae: An Introduction to Botany",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 307",
+    "title": "General Physiology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 312",
+    "title": "Molecular Biochemistry",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 313",
+    "title": "Evolution and Population Genetics",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 314",
+    "title": "Cell Culture",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 315",
+    "title": "Introduction to Ecology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 320",
+    "title": "Molecular Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 321",
+    "title": "Multidisciplinary Seminar: Science, Technology and Society",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 325",
+    "title": "Genetics",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 330",
+    "title": "Biochemistry",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 350",
+    "title": "Bioethics",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 363",
+    "title": "Mammalogy",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 364",
+    "title": "Advanced Techniques in Field Mammalogy",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 365",
+    "title": "Phylogenetics and Evolution",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 372",
+    "title": "Cell Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 402",
+    "title": "RNA Biology and Biotechnology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 403",
+    "title": "Advanced Molecular Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 404",
+    "title": "Ecology and Biodiversity",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 406",
+    "title": "Biotechnology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 407",
+    "title": "Cellular and Molecular Neuroscience",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 408",
+    "title": "Systems Neuroscience: From Synapses to Perception",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 410",
+    "title": "Applications of Molecular Biology to Medicine",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 411",
+    "title": "Advanced Cell Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 414",
+    "title": "Biology of Cancer",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 421",
+    "title": "Neurobiology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 423",
+    "title": "Epilepsy to Ecstasy: Biological Basis of Neurological Disord",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 424",
+    "title": "Brain Architecture",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 427",
+    "title": "The Global Environment",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 429",
+    "title": "Cancer Immunology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 431",
+    "title": "Aquatic Microbiology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 435",
+    "title": "Advanced Biochemistry",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 438",
+    "title": "Nutritional Biochemistry",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 444",
+    "title": "Practical Analysis of Biological Data in R",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 450",
+    "title": "Principles of Immunology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 451",
+    "title": "Protein Engineering",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 457",
+    "title": "Methods in Marine Biology and Biological Oceanography",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 460",
+    "title": "Seminar in Marine and Environmental Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 461",
+    "title": "Seminar in Molecular and Computational Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 462",
+    "title": "Seminar in Neurobiology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 466",
+    "title": "Neuroimmunology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 469",
+    "title": "Marine Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 473",
+    "title": "Biological Oceanography",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 480",
+    "title": "Developmental Biology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 483",
+    "title": "Geobiology and Astrobiology",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 485",
+    "title": "Advanced Seminar in Bacterial Survival and Evolution",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 490",
+    "title": "Directed Research",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 493",
+    "title": "Honors Seminar",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 494",
+    "title": "Honors Thesis",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BISC 499",
+    "title": "Special Topics",
+    "department": "Biological Sciences"
+  },
+  {
+    "code": "BME 101",
+    "title": "Introduction to Biomedical Engineering",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 201",
+    "title": "Biomedical Engineering Practice",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 202",
+    "title": "Control and Communication in the Nervous System",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 210",
+    "title": "Biomedical Computer Simulation Methods",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 302",
+    "title": "Medical Electronics",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 403",
+    "title": "Physiological Systems",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 404",
+    "title": "Orthopaedic Biomechanics",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 405",
+    "title": "Senior Projects: Measurements and Instrumentation",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 406",
+    "title": "Introduction to Bioengineering in Medicine",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 408",
+    "title": "Rehabilitation Engineering and Assistive Technologies",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 410",
+    "title": "Introduction to Biomaterials and Tissue Engineering",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 413",
+    "title": "Bioengineering Signals and Systems",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 415",
+    "title": "Regulation of Medical Products",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 423",
+    "title": "Statistical and Data Science Methods in Biomedical Engineeri",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 426",
+    "title": "Basics of Biomedical Imaging: Ionizing Radiation",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 427",
+    "title": "Basics of Biomedical Imaging: Non-Ionizing Radiation",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 430",
+    "title": "Principles and Applications of Systems Biology",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 445A",
+    "title": "Senior Design Project",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 445B",
+    "title": "Senior Design Project",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 450",
+    "title": "Introduction to Biosensors and Diagnostics Devices",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 451",
+    "title": "Fundamentals of Biomedical Microdevices",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 452",
+    "title": "Introduction to Biomimetic Neural Engineering",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 459",
+    "title": "Introduction to Nanomedicine and Drug Delivery",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 490",
+    "title": "Directed Research",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BME 499",
+    "title": "Special Topics",
+    "department": "Biomedical Engineering"
+  },
+  {
+    "code": "BUAD 100",
+    "title": "Foundations of Finance and Accounting",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 101",
+    "title": "Freshman Leadership Seminar",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 102",
+    "title": "Global Leadership Seminar",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 104",
+    "title": "Learning About International Commerce",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 105",
+    "title": "The Marshall Difference: Human-Centric Problem Solving",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 111",
+    "title": "World Bachelor in Business Program Freshman Academy",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 112",
+    "title": "AI for Business Freshman Academy",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 113",
+    "title": "Real Estate Finance and Development Freshman Seminar",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 200",
+    "title": "Economic Foundations for Business",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 201",
+    "title": "Introduction to Business for Non-Majors",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 206",
+    "title": "Transfer International Experience",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 252",
+    "title": "Choosing and Planning a Future Career in Business",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 280",
+    "title": "Introduction to Financial Accounting",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 281",
+    "title": "Introduction to Managerial Accounting",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 301",
+    "title": "Technology Entrepreneurship",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 302",
+    "title": "Communication Strategy in Business",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 304",
+    "title": "Organizational Behavior and Leadership",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 305",
+    "title": "Abridged Core Concepts of Accounting Information",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 306",
+    "title": "Business Finance",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 307",
+    "title": "Marketing Fundamentals",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 308",
+    "title": "Advanced Business Finance",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 310",
+    "title": "Applied Business Statistics",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 311",
+    "title": "Operations Management",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 312",
+    "title": "Statistics and Data Science for Business",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 313",
+    "title": "Advanced Operations Management and Analytics",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 315",
+    "title": "Basics of Project and Operations Management for Non-Majors",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 425",
+    "title": "Introduction to Business Analytics",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 427",
+    "title": "Advanced Introduction to Business Analytics with AI",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 489",
+    "title": "Practicum",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 490",
+    "title": "Directed Research",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 493",
+    "title": "Marshall Honors Research Seminar",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 494",
+    "title": "Marshall Honors Research and Thesis",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 495",
+    "title": "Practicum in Business Issues (Internship)",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 497",
+    "title": "Strategic Management",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 498",
+    "title": "Special Topics",
+    "department": "Business Administration"
+  },
+  {
+    "code": "CHEM 102",
+    "title": "The Molecular World",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 103",
+    "title": "General Chemistry for the Environment and Life",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 105A",
+    "title": "General Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 105B",
+    "title": "General Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 107",
+    "title": "General Chemistry for Chemistry Majors",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 108",
+    "title": "General Chemistry for Chemistry Majors: Kinetics and Equilib",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 115A",
+    "title": "Advanced General Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 115B",
+    "title": "Advanced General Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 204",
+    "title": "Pandemics Shaping Our World: Past, Present and Future",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 205",
+    "title": "Chemical Forensics: The Science, and Its Impact",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 250",
+    "title": "Organic Chemistry Tutorial A",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 251",
+    "title": "Organic Chemistry Tutorial B",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 290A",
+    "title": "Special Laboratory",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 290B",
+    "title": "Special Laboratory",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 290C",
+    "title": "Special Laboratory",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 290D",
+    "title": "Special Laboratory",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 292",
+    "title": "Supervised Research",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 294",
+    "title": "Undergraduate Research Seminar",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 300",
+    "title": "Analytical Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 322A",
+    "title": "Organic Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 322B",
+    "title": "Organic Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 325A",
+    "title": "Organic Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 325B",
+    "title": "Organic Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 332",
+    "title": "Physical Chemical Measurements",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 350",
+    "title": "Molecular Principles of Biochemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 423",
+    "title": "Advanced Laboratory Techniques in Organic and    Inorganic Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 426",
+    "title": "Advanced Organic Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 430",
+    "title": "Physical Chemistry: Thermodynamics and Kinetics",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 431",
+    "title": "Physical Chemistry:  Quantum Mechanics",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 432",
+    "title": "Physical Chemistry for the Life Sciences",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 453",
+    "title": "Advanced Inorganic Chemistry",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 455",
+    "title": "Chemical Nanotechnology",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 462",
+    "title": "Properties and Sustainability of Polymers",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 463",
+    "title": "Chemical Nanotechnology Laboratory",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 467",
+    "title": "Advanced Chemical Biology Laboratory",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 488",
+    "title": "Introduction to Theory & Practice of X-Ray Crystallography",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 490",
+    "title": "Directed Research",
+    "department": "Chemistry"
+  },
+  {
+    "code": "CHEM 494",
+    "title": "Advanced Research Experience",
+    "department": "Chemistry"
+  },
+  {
+    "code": "COMM 200",
+    "title": "Communication and Social Science",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 204",
+    "title": "Public Speaking",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 205",
+    "title": "Communication Practicum",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 206",
+    "title": "Communication and Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 209",
+    "title": "Communication and Media Economics",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 300",
+    "title": "Entertainment, Communication and Society",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 301",
+    "title": "Empirical Research in Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 302",
+    "title": "Persuasion",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 304",
+    "title": "Interpersonal Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 305",
+    "title": "Understanding Social Science Research",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 306",
+    "title": "Innovation, Entertainment, and the Arts",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 307",
+    "title": "Sound Clash: Popular Music and American Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 308",
+    "title": "Communication and Conflict",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 309",
+    "title": "Communication and Technology",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 310",
+    "title": "Media and Society",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 311",
+    "title": "Communication and Publics",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 312",
+    "title": "The Business and Culture of Celebrity",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 313",
+    "title": "Screen time: How Media Shapes Us",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 314",
+    "title": "The Evolution of K-Pop",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 315",
+    "title": "Health Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 320",
+    "title": "Small Group and Team Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 321",
+    "title": "Communication and Social Media",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 322",
+    "title": "Argumentation and Advocacy",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 324",
+    "title": "Intercultural Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 326",
+    "title": "Latinx Media Studies",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 330",
+    "title": "Rhetoric in Classical Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 337",
+    "title": "The LGBTQ Revolution and the Media",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 339",
+    "title": "Communication Technology and Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 340",
+    "title": "The Cultures of New Media",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 345",
+    "title": "Social and Economic Implications of Communication Technologies",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 350",
+    "title": "Video Games: Business, Science and Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 355",
+    "title": "Advertising and Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 360",
+    "title": "Los Angeles: Communication and Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 363",
+    "title": "Media Consumption",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 364",
+    "title": "Comparative Media: United States and the United Kingdom",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 365",
+    "title": "The Rhetoric of London",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 366",
+    "title": "Designing Media for Social Change",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 367",
+    "title": "Community Engagement and Service Learning",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 373",
+    "title": "Media Technologies and Free Speech",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 375",
+    "title": "Business and Professional Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 380",
+    "title": "Forensics Laboratory",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 381",
+    "title": "Issues in Contemporary Sport",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 383",
+    "title": "Sports, Communication and Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 384",
+    "title": "Interpreting Popular Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 385",
+    "title": "Organizational Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 387",
+    "title": "Sports and Social Change",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 388",
+    "title": "Ethics in Human Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 391",
+    "title": "Made in Italy: The Marketing of an Ideal",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 392",
+    "title": "Media and Migration in Times of European Crisis",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 393",
+    "title": "The Rhetoric of Rome",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 395",
+    "title": "Gender, Media and Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 396",
+    "title": "Fashion, Media and Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 400",
+    "title": "Seminar in Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 402",
+    "title": "Public Communication Campaigns",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 403",
+    "title": "Canceled, Shamed, Accused: Contemporary Crisis Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 405",
+    "title": "From the Ground Up: Communicating About Food",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 406",
+    "title": "Communicating About Sex",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 412",
+    "title": "Communication and Social Movements",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 422",
+    "title": "Legal Issues and New Media",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 426",
+    "title": "Religion, Media and Hollywood: Faith in TV",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 429",
+    "title": "The Internet, Economy and Society",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 430",
+    "title": "Global Entertainment",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 434",
+    "title": "Italian Media: Popes, Politicians, and Popular Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 440",
+    "title": "Music as Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 443",
+    "title": "Communicating Better Health: What Works and Why",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 444",
+    "title": "Critical Theories of Sport",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 445",
+    "title": "Global Networks of Sport",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 449",
+    "title": "Perspectives on the Networked Press",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 450",
+    "title": "Visual Culture and Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 451",
+    "title": "Visual Communication and Social Change",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 456",
+    "title": "Entertainment, Marketing and Culture",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 457",
+    "title": "Youth and Media",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 458",
+    "title": "Race and Ethnicity in Entertainment and the Arts",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 465",
+    "title": "Gender in Media Industries and Products",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 489",
+    "title": "Campaign Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 490",
+    "title": "Directed Research",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 494",
+    "title": "Research Practicum",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 495",
+    "title": "Honors Seminar",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 497",
+    "title": "Honors Thesis",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 498",
+    "title": "Ethical Issues in Entertainment and Communication",
+    "department": "Communication"
+  },
+  {
+    "code": "COMM 499",
+    "title": "Special Topics",
+    "department": "Communication"
+  },
+  {
+    "code": "CSCI 100",
+    "title": "Explorations in Computing",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 102",
+    "title": "Introduction to Programming",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 103",
+    "title": "Object Oriented Programming",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 104",
+    "title": "Data Structures",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 113",
+    "title": "Programming Fundamentals for Computing",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 114",
+    "title": "Programming for Applications of Computing",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 170",
+    "title": "Discrete Methods in Computer Science",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 201",
+    "title": "Principles of Software Development",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 270",
+    "title": "Introduction to Algorithms and Theory of Computing",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 299",
+    "title": "Special Topics",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 310",
+    "title": "Software Engineering",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 350",
+    "title": "Fundamentals of Operating Systems",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 353",
+    "title": "Internetworking",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 356",
+    "title": "Computer Systems",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 360",
+    "title": "Artificial Intelligence: Principles and Foundations",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 401",
+    "title": "Capstone: Design and Construction of Large       Software Systems",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 402",
+    "title": "Operating Systems",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 420",
+    "title": "Computer Graphics",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 426",
+    "title": "Game Prototyping",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 430",
+    "title": "Computer and Network Security",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 431",
+    "title": "Principles of Functional Programming",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 444",
+    "title": "Natural Language Processing",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 445",
+    "title": "Foundations of Robotics",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 455",
+    "title": "Introduction to Programming Systems Design",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 461",
+    "title": "Artificial Intelligence for Sustainable Development",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 467",
+    "title": "Foundations of Machine Learning",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 475",
+    "title": "Theory of Computation",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 476",
+    "title": "Cryptography: Secure Communication and Computation",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 490",
+    "title": "Directed Research",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 491A",
+    "title": "Advanced Game Project",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 491B",
+    "title": "Advanced Game Project",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CSCI 499",
+    "title": "Special Topics",
+    "department": "Computer Science"
+  },
+  {
+    "code": "CTCS 150",
+    "title": "The Cinematic Arts in Society",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 190",
+    "title": "Introduction to Cinema",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 191",
+    "title": "Introduction to Television and Video",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 192",
+    "title": "Race, Class, and Gender in American Film",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 200",
+    "title": "History of the International Cinema I",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 201",
+    "title": "History of the International Cinema II",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 300",
+    "title": "Introduction to Theories of Cinema and Media",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 367",
+    "title": "Global Media",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 392",
+    "title": "History of American Cinema to 1960",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 394",
+    "title": "History of American Cinema since 1960",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 395",
+    "title": "Topics in Contemporary Cinema and Media",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 400",
+    "title": "Documentary Film and Media",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 402",
+    "title": "Practicum in Film/Television Criticism",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 403",
+    "title": "Studies in National and Regional Media",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 404",
+    "title": "Television and Cultural Criticism",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 406",
+    "title": "History of American Television",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 407",
+    "title": "African American Cinema",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 409",
+    "title": "Censorship in Cinema",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 411",
+    "title": "Film, Television and Cultural Studies",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 412",
+    "title": "Gender, Sexuality and Media",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 413",
+    "title": "Studies in Refugee, Migrant and Diasporic Media",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 414",
+    "title": "Latina/o Screen Cultures",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 464",
+    "title": "Film and/or Television Genres",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 465",
+    "title": "Media Industry Symposium",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 466",
+    "title": "Theatrical Film Symposium",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 467",
+    "title": "Television Symposium",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 468",
+    "title": "Media Industry Studies",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 469",
+    "title": "Film and/or Television Style Analysis",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 473",
+    "title": "Topics in Cinema and Media Theory",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 478",
+    "title": "Culture, Technology and Communications",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 482",
+    "title": "Transmedia Entertainment",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "DANC 101",
+    "title": "Colloquium I: Joining the Creative Community",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 103",
+    "title": "Conditioning for Dancers",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 107",
+    "title": "World Perspective on Dance Performance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 110",
+    "title": "Dance Technique I",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 120",
+    "title": "Repertory and Performance I",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 130",
+    "title": "Composition: Improvisation and Exploration",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 131",
+    "title": "Composition: Movement Invention and Syntax",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 140",
+    "title": "Dance and Health",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 155",
+    "title": "Iconic Dance Films",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 160",
+    "title": "Sound and Music Studies for Dancers",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 170",
+    "title": "Choreography and Performance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 175",
+    "title": "Choreography for the Screen",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 180",
+    "title": "African Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 181A",
+    "title": "Contemporary Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 181B",
+    "title": "Contemporary Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 183A",
+    "title": "Ballet",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 183B",
+    "title": "Ballet",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 183C",
+    "title": "Ballet",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 183D",
+    "title": "Ballet",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 184A",
+    "title": "Jazz Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 184C",
+    "title": "Jazz Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 185A",
+    "title": "Hip Hop Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 185B",
+    "title": "Hip Hop Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 187",
+    "title": "Bollywood Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 188A",
+    "title": "International Style Ballroom Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 188B",
+    "title": "International Style Ballroom Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 189A",
+    "title": "Tap Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 189B",
+    "title": "Tap Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 190",
+    "title": "Gaga: People",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 201",
+    "title": "Colloquium II: Investing in the Collaboratory",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 210",
+    "title": "Dance Technique II",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 212",
+    "title": "Dance in Popular Culture",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 218",
+    "title": "Introduction to Dance Media Composition",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 220",
+    "title": "Repertory and Performance II",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 230",
+    "title": "Composition: Collaborative Foundations",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 231",
+    "title": "Composition: Collaborative Creation",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 280",
+    "title": "Introduction to Dance as an Art Form",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 285",
+    "title": "Elements of Dance Production",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 301",
+    "title": "Colloquium III: Clarifying Personal Pathways",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 302",
+    "title": "Hip Hop Don't Stop: Black Social Dance Culture and Media",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 305",
+    "title": "Dance Science: Analysis of Dance Movement",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 308",
+    "title": "Dance and Feminine Sexuality",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 310",
+    "title": "Dance Technique III",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 312",
+    "title": "African American Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 320",
+    "title": "Repertory and Performance III",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 333",
+    "title": "Origins of Jazz Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 342",
+    "title": "International and Historical Perspectives on Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 347",
+    "title": "Artist Collaborative",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 349",
+    "title": "Expert Series",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 350",
+    "title": "Advanced Composition",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 355",
+    "title": "Performance Lab",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 362",
+    "title": "Pilates Mat Training",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 363",
+    "title": "Dancing on the Screen",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 372",
+    "title": "Intermediate/Advanced Commercial Dance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 378",
+    "title": "Intermediate/Advanced Musical Theater Dance Technique",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 401",
+    "title": "Colloquium IV: Establishing a Professional Practice",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 410",
+    "title": "Dance Technique IV",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 420",
+    "title": "Repertory and Performance IV",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 470",
+    "title": "Dance Leadership",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 480",
+    "title": "Fourth-Year Seminar",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 482",
+    "title": "Improvisational Strategies in Movement and Materiality",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 483",
+    "title": "Dance Performance",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 485",
+    "title": "Fourth-Year Project",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 490",
+    "title": "Directed Research",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 495",
+    "title": "Dance Internship",
+    "department": "Dance"
+  },
+  {
+    "code": "ECON 203",
+    "title": "Principles of Microeconomics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 205",
+    "title": "Principles of Macroeconomics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 303",
+    "title": "Intermediate Microeconomic Theory",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 305",
+    "title": "Intermediate Macroeconomic Theory",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 317",
+    "title": "Introduction to Statistics for Economists",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 318",
+    "title": "Introduction to Econometrics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 340",
+    "title": "Economics of Less Developed Countries",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 343",
+    "title": "Economic Development of East Asia",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 344",
+    "title": "Economic Development of Sub-Saharan Africa",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 346",
+    "title": "Economics of Transition and Development: China",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 351",
+    "title": "Microeconomics for Business",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 352",
+    "title": "Macroeconomics for Business",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 357",
+    "title": "Money, Credit, and Banking",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 361",
+    "title": "Understanding Financial Crises",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 366",
+    "title": "Urban Economics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 379",
+    "title": "Economic Policy Analysis",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 395",
+    "title": "Economic Policy Issues",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 404",
+    "title": "Games and Economics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 405",
+    "title": "Neuroeconomics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 415",
+    "title": "Behavioral Economics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 420",
+    "title": "Experimental Economics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 434",
+    "title": "Economic Analysis of Law",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 438",
+    "title": "Values and Social Analysis",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 450",
+    "title": "International Trade",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 452",
+    "title": "International Finance",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 457",
+    "title": "Financial Markets",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 460",
+    "title": "Economic Applications of Machine Learning",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 464",
+    "title": "The Principles of Market Design",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 470",
+    "title": "Professional Research in Economics and Data Science",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 474",
+    "title": "Economic Consulting and Applied Managerial Economics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 480",
+    "title": "Economics of Industrial Organization",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 487",
+    "title": "Resource and Environmental Economics",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 490",
+    "title": "Directed Research",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 495",
+    "title": "Honors Thesis",
+    "department": "Economics"
+  },
+  {
+    "code": "ECON 499",
+    "title": "Special Topics",
+    "department": "Economics"
+  },
+  {
+    "code": "EE 105",
+    "title": "Introduction to Electrical Engineering",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 109",
+    "title": "Introduction to Embedded Systems",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 141",
+    "title": "Applied Linear Algebra for Engineering",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 155",
+    "title": "Introduction to Computer Programming for         Electrical Engineers",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 202",
+    "title": "Linear Circuits",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 250",
+    "title": "Distributed Systems for the Internet of Things",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 301",
+    "title": "Linear Systems",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 338",
+    "title": "Physical Electronics",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 348",
+    "title": "Electronic Circuits",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 354",
+    "title": "Digital Circuits",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 355",
+    "title": "Software Design for Electrical Engineers",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 364",
+    "title": "Probability and Statistics for Engineers and Computer Scient",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 370",
+    "title": "Electromagnetics for Engineering Systems",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 434",
+    "title": "Digital Signal Processing Design Laboratory",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 443",
+    "title": "Power Systems",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 444",
+    "title": "Power Systems Technology",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 447",
+    "title": "Mixed Signal Electronic Circuits",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 450",
+    "title": "Foundations of Computer Networks",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 451",
+    "title": "Parallel and Distributed Computation",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 454",
+    "title": "System-on-Chip",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 457",
+    "title": "Computer Systems Organization",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 459",
+    "title": "Embedded Systems Design Laboratory",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 460",
+    "title": "Machine Learning for Engineers",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 467",
+    "title": "Introduction to Communication Systems",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 477",
+    "title": "MOS VLSI Circuit Design",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 482",
+    "title": "Linear Control Systems",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 483",
+    "title": "Digital Signal Processing",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 490",
+    "title": "Directed Research",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 494A",
+    "title": "Undergraduate Thesis",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 494B",
+    "title": "Undergraduate Thesis",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "EE 496",
+    "title": "Capstone Design",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
+    "code": "ENGL 105",
+    "title": "Creative Writing for Non-Majors",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 172",
+    "title": "The Art of Poetry",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 174",
+    "title": "Reading the Heart: Emotional Intelligence and the Humanities",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 176",
+    "title": "Los Angeles: the City, the Novel, the Movie",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 230",
+    "title": "Shakespeare and His Times",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 240",
+    "title": "Literary Arts",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 261",
+    "title": "English Literature to 1800",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 262",
+    "title": "English Literature since 1800",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 263",
+    "title": "American Literature",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 270",
+    "title": "Studying Narrative",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 280",
+    "title": "Introduction to Narrative Medicine",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 296",
+    "title": "Introduction to Dramatic Literature",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 297",
+    "title": "Introduction to the Genre of Nonfiction",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 298",
+    "title": "Introduction to the Genre of Fiction",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 299",
+    "title": "Introduction to the Genre of Poetry",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 300",
+    "title": "The Art and Craft of the Essay",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 302",
+    "title": "Writing Narrative",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 303",
+    "title": "Introduction to Fiction Writing",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 304",
+    "title": "Introduction to Poetry Writing",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 305",
+    "title": "Introduction to Creative Nonfiction",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 310",
+    "title": "Editing for Writers",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 325",
+    "title": "Pre-Modern Wonders: Magic, Monsters and Marvels",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 342",
+    "title": "Women in English and American Literature after 1800",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 343",
+    "title": "Images of Women in Contemporary Culture",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 344",
+    "title": "Sexual/Textual Diversity",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 350",
+    "title": "Literature of California",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 352",
+    "title": "Bookpacking",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 360",
+    "title": "Modern Poetry",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 361",
+    "title": "Contemporary Prose",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 362",
+    "title": "Contemporary Poetry",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 363",
+    "title": "Contemporary Drama",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 364",
+    "title": "The Modern Novel",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 371",
+    "title": "Literary Genres and Film",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 372",
+    "title": "Literature and Related Arts",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 373",
+    "title": "Literature and Society",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 375",
+    "title": "Science Fiction",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 376",
+    "title": "Comics and Graphic Novels",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 392",
+    "title": "Visual and Popular Culture",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 403",
+    "title": "Creative Nonfiction Writing",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 405",
+    "title": "Fiction Writing",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 406",
+    "title": "Poetry Writing",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 407",
+    "title": "Advanced Fiction Writing",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 408",
+    "title": "Advanced Poetry Writing",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 420",
+    "title": "English Literature of the Middle Ages (1100-1500)",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 421",
+    "title": "English Literature of the 16th Century",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 422",
+    "title": "English Literature of the 17th Century",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 424",
+    "title": "English Literature of the Romantic Age (1800-1832)",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 426",
+    "title": "Modern English Literature (1890-1945)",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 430",
+    "title": "Shakespeare",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 440",
+    "title": "American Literature to 1865",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 441",
+    "title": "American Literature, 1865 to 1920",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 442",
+    "title": "American Literature, 1920 to the Present",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 444",
+    "title": "Native American Literature",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 445",
+    "title": "The Literatures of America: Cross-Cultural Perspectives",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 446",
+    "title": "Contemporary African American Literature",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 447",
+    "title": "African-American Narrative",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 451",
+    "title": "Black British Literature",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 461",
+    "title": "English Drama to 1800",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 490",
+    "title": "Directed Research",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 491",
+    "title": "Senior Seminar in Literary Studies",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 492",
+    "title": "Narrative Studies Capstone Seminar",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 496",
+    "title": "Senior Honors Thesis",
+    "department": "English"
+  },
+  {
+    "code": "ENGL 499",
+    "title": "Special Topics",
+    "department": "English"
+  },
+  {
+    "code": "FBE 206",
+    "title": "The Power of Personal Finance",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 299",
+    "title": "Special Topics",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 391",
+    "title": "Real Estate Finance and Investment",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 400",
+    "title": "Introduction to Real Estate Finance and Development",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 402",
+    "title": "Government and Business",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 403",
+    "title": "Introduction to the Legal Environment of Business",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 405",
+    "title": "Behavioral Finance",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 421",
+    "title": "Financial Analysis and Valuation",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 423",
+    "title": "Introduction to Venture Capital and Private Equity",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 424",
+    "title": "Financial Institutions and Capital Markets",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 427",
+    "title": "Real Estate Law",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 428",
+    "title": "Introduction to Employment Law",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 429",
+    "title": "International Business Law",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 430",
+    "title": "Introduction to Decentralized Finance - DeFi",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 432",
+    "title": "Corporate Financial Strategy",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 435",
+    "title": "Applied Finance in Fixed Income Securities",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 437",
+    "title": "Entrepreneurial Finance: Financial Management    for Developing Firms",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 440",
+    "title": "Trading and Exchanges",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 441",
+    "title": "Investments",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 445",
+    "title": "Applied Financial Modeling: Principles and Concepts",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 453",
+    "title": "Practicum in Investment Management - Security Selection",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 454",
+    "title": "Practicum in Investment Management - Portfolio Management",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 458",
+    "title": "Law of Forming, Financing and Managing Businesses",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 459",
+    "title": "Financial Derivatives",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 460",
+    "title": "Mergers, Acquisitions and Restructuring",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 462",
+    "title": "International Trade, Finance and Commercial Policy",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 465",
+    "title": "Real Estate Analysis and Computer Modeling",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 466",
+    "title": "Management of Real Estate Development: Feasibility Studies",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 467",
+    "title": "Real Estate Investment Trust (REIT) Analysis",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 470",
+    "title": "Advanced Real Estate Analysis",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 489",
+    "title": "Real Estate Capital Markets",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 491",
+    "title": "Real Estate Finance Colloquium",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 499",
+    "title": "Special Topics",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "HBIO 120",
+    "title": "Introduction to Human and Evolutionary Biology",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 200",
+    "title": "The Human Animal",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 202",
+    "title": "Nutrition for Life",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 205",
+    "title": "The Science of Sport",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 210",
+    "title": "Mediterranean and Healthy Lifestyles in the World",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 250",
+    "title": "The Pharmacology of Performance-Enhancing Drugs",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 300",
+    "title": "Evolution, Ecology, and Culture",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 301",
+    "title": "Human Anatomy",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 302",
+    "title": "Nutrition and Metabolism",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 306",
+    "title": "Biology of the Non-Human Primates",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 308",
+    "title": "Origins and Evolution of Human Behavior",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 309",
+    "title": "The Human Machine",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 320",
+    "title": "Muscle Physiology",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 324",
+    "title": "Integrative Pathophysiology",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 360",
+    "title": "Nutrition and Disease",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 370",
+    "title": "Genetics and Disease",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 400",
+    "title": "Motor Control and Learning",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 401",
+    "title": "Physiology of Movement",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 405",
+    "title": "Evolutionary Medicine",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 406",
+    "title": "Theory and Method in Human Evolutionary Biology",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 407",
+    "title": "Endocrinology and Metabolism",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 408",
+    "title": "Biomechanics",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 409",
+    "title": "Metabolic Diseases",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 420",
+    "title": "Applied Human Physiology",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 435",
+    "title": "Neurobiology of Feeding Behavior and Obesity",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 441",
+    "title": "Prevention of Athletic Injuries",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 442",
+    "title": "Evaluation and Rehabilitation of Athletic Injuries",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 491",
+    "title": "Laboratory Experience in Kinesiology",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HBIO 499",
+    "title": "Special Topics",
+    "department": "Human Biology"
+  },
+  {
+    "code": "HIST 101",
+    "title": "State and Society in the Ancient World",
+    "department": "History"
+  },
+  {
+    "code": "HIST 102",
+    "title": "The Worlds of Medieval Europe",
+    "department": "History"
+  },
+  {
+    "code": "HIST 103",
+    "title": "The Emergence of Modern Europe",
+    "department": "History"
+  },
+  {
+    "code": "HIST 104",
+    "title": "Modern Europe",
+    "department": "History"
+  },
+  {
+    "code": "HIST 105",
+    "title": "The Korean Past",
+    "department": "History"
+  },
+  {
+    "code": "HIST 107",
+    "title": "Introduction to the History of Japan",
+    "department": "History"
+  },
+  {
+    "code": "HIST 108",
+    "title": "Histories of South Asia",
+    "department": "History"
+  },
+  {
+    "code": "HIST 109",
+    "title": "The Latin American Experience",
+    "department": "History"
+  },
+  {
+    "code": "HIST 110",
+    "title": "History of Early Africa",
+    "department": "History"
+  },
+  {
+    "code": "HIST 111",
+    "title": "African History Since 1880",
+    "department": "History"
+  },
+  {
+    "code": "HIST 201",
+    "title": "Approaches to History",
+    "department": "History"
+  },
+  {
+    "code": "HIST 210",
+    "title": "How to Be An American: Global Histories of U.S. Citizenship",
+    "department": "History"
+  },
+  {
+    "code": "HIST 211",
+    "title": "Race in America",
+    "department": "History"
+  },
+  {
+    "code": "HIST 225",
+    "title": "Film, Power, and American History",
+    "department": "History"
+  },
+  {
+    "code": "HIST 237",
+    "title": "Fascism",
+    "department": "History"
+  },
+  {
+    "code": "HIST 240",
+    "title": "History of California",
+    "department": "History"
+  },
+  {
+    "code": "HIST 241",
+    "title": "Introduction to the American West",
+    "department": "History"
+  },
+  {
+    "code": "HIST 250",
+    "title": "Climate Change:  Science, History and Solutions",
+    "department": "History"
+  },
+  {
+    "code": "HIST 251",
+    "title": "History of Science, Technology and Medicine",
+    "department": "History"
+  },
+  {
+    "code": "HIST 266",
+    "title": "Business and East Asian Culture, 1800-Present",
+    "department": "History"
+  },
+  {
+    "code": "HIST 272",
+    "title": "Women and Gender in the Ancient and Spanish Americas",
+    "department": "History"
+  },
+  {
+    "code": "HIST 278",
+    "title": "Ottomans and Empire: Anatolia, the Middle East,  and the Mediterranean World",
+    "department": "History"
+  },
+  {
+    "code": "HIST 306",
+    "title": "The Early Middle Ages",
+    "department": "History"
+  },
+  {
+    "code": "HIST 314",
+    "title": "Rome Through its Monuments from Antiquity to the Middle Ages",
+    "department": "History"
+  },
+  {
+    "code": "HIST 316",
+    "title": "The Renaissance",
+    "department": "History"
+  },
+  {
+    "code": "HIST 323",
+    "title": "The Holocaust in 20th Century Europe",
+    "department": "History"
+  },
+  {
+    "code": "HIST 326",
+    "title": "The Victorians",
+    "department": "History"
+  },
+  {
+    "code": "HIST 331",
+    "title": "The British Empire: 1588-1834",
+    "department": "History"
+  },
+  {
+    "code": "HIST 334",
+    "title": "History of the Samurai",
+    "department": "History"
+  },
+  {
+    "code": "HIST 336",
+    "title": "History of Japan, 1550-1945",
+    "department": "History"
+  },
+  {
+    "code": "HIST 337",
+    "title": "Japan Since 1945",
+    "department": "History"
+  },
+  {
+    "code": "HIST 340",
+    "title": "History of China Since 1800",
+    "department": "History"
+  },
+  {
+    "code": "HIST 351",
+    "title": "The American Revolution",
+    "department": "History"
+  },
+  {
+    "code": "HIST 352",
+    "title": "The American Civil War",
+    "department": "History"
+  },
+  {
+    "code": "HIST 354",
+    "title": "Mexican Migration to the United States",
+    "department": "History"
+  },
+  {
+    "code": "HIST 355",
+    "title": "The African-American Experience",
+    "department": "History"
+  },
+  {
+    "code": "HIST 361",
+    "title": "20th Century U.S. History",
+    "department": "History"
+  },
+  {
+    "code": "HIST 362",
+    "title": "Authenticity in Twentieth Century Popular Music",
+    "department": "History"
+  },
+  {
+    "code": "HIST 364",
+    "title": "Religion and Difference in the Modern Middle East",
+    "department": "History"
+  },
+  {
+    "code": "HIST 372",
+    "title": "Modern Latin America",
+    "department": "History"
+  },
+  {
+    "code": "HIST 374",
+    "title": "History of Mexico",
+    "department": "History"
+  },
+  {
+    "code": "HIST 377",
+    "title": "Law and Society in Premodern China and Japan",
+    "department": "History"
+  },
+  {
+    "code": "HIST 386",
+    "title": "American Legal History",
+    "department": "History"
+  },
+  {
+    "code": "HIST 391",
+    "title": "Feminist Histories of South Asia",
+    "department": "History"
+  },
+  {
+    "code": "HIST 395",
+    "title": "Sex and the City: Constructing Gender in London, 1700-1900",
+    "department": "History"
+  },
+  {
+    "code": "HIST 397",
+    "title": "Gender, Madness and Modernism in Freud's Vienna",
+    "department": "History"
+  },
+  {
+    "code": "HIST 398",
+    "title": "The History of Waste",
+    "department": "History"
+  },
+  {
+    "code": "HIST 407",
+    "title": "Europe in the 10th Century",
+    "department": "History"
+  },
+  {
+    "code": "HIST 411",
+    "title": "Early Modern European Cultural History",
+    "department": "History"
+  },
+  {
+    "code": "HIST 427",
+    "title": "The German Question: Nation and Identity in Modern Central Europe",
+    "department": "History"
+  },
+  {
+    "code": "HIST 430",
+    "title": "Migration and Displacement in the Indian Ocean World",
+    "department": "History"
+  },
+  {
+    "code": "HIST 431",
+    "title": "Histories of the Apocalypse",
+    "department": "History"
+  },
+  {
+    "code": "HIST 433",
+    "title": "The History of Drink",
+    "department": "History"
+  },
+  {
+    "code": "HIST 438",
+    "title": "War and Peace in Medieval Japan",
+    "department": "History"
+  },
+  {
+    "code": "HIST 439",
+    "title": "Tea Culture in Premodern East Asia: Politics, Art and Trade",
+    "department": "History"
+  },
+  {
+    "code": "HIST 456",
+    "title": "Race, Slavery, and the Making of the Atlantic World",
+    "department": "History"
+  },
+  {
+    "code": "HIST 460",
+    "title": "War, Race, and the Constitution",
+    "department": "History"
+  },
+  {
+    "code": "HIST 467",
+    "title": "Defeat and Occupation in Modern Japan",
+    "department": "History"
+  },
+  {
+    "code": "HIST 470",
+    "title": "The Spanish Inquisition in the Early Modern Hispanic World",
+    "department": "History"
+  },
+  {
+    "code": "HIST 487",
+    "title": "The United States since 1939",
+    "department": "History"
+  },
+  {
+    "code": "HIST 490",
+    "title": "Directed Research",
+    "department": "History"
+  },
+  {
+    "code": "HIST 492",
+    "title": "Honors Thesis",
+    "department": "History"
+  },
+  {
+    "code": "HIST 493",
+    "title": "Law, History and Culture Honors Thesis Seminar",
+    "department": "History"
+  },
+  {
+    "code": "IR 101",
+    "title": "International Relations",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 210",
+    "title": "International Relations: Introductory Analysis",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 211",
+    "title": "International Relations: Approaches to Research",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 212",
+    "title": "Historical Approaches to International Relations",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 213",
+    "title": "The Global Economy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 304",
+    "title": "National Intelligence and the Shaping of Policy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 305",
+    "title": "Managing New Global Challenges",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 306",
+    "title": "International Organizations",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 307",
+    "title": "Contemporary International Politics",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 308",
+    "title": "Economic Globalization",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 310",
+    "title": "Peace and Conflict Studies",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 312",
+    "title": "Introduction to Data Analysis",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 313",
+    "title": "Religions and Political Violence",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 315",
+    "title": "Ethnicity and Nationalism in World Politics",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 316",
+    "title": "Gender and Global Issues",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 317",
+    "title": "The Political Economy of Africa",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 318",
+    "title": "Violent Conflict",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 319",
+    "title": "Human Security and Humanitarian Intervention",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 320",
+    "title": "Technology and International Relations",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 321",
+    "title": "Civil War, Peace Building and International Intervention",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 323",
+    "title": "Politics of Global Environment",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 324",
+    "title": "Multinational Enterprises and World Politics",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 325",
+    "title": "North-South Relations in the Global Economy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 329",
+    "title": "The Global Finance and Monetary Regime",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 330",
+    "title": "Politics of the World Economy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 331",
+    "title": "The Global Economy 2040",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 332",
+    "title": "Money, Guns and Oil",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 333",
+    "title": "China in International Affairs",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 339",
+    "title": "Public Health and International Relations",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 340",
+    "title": "The Political Economy of China",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 341",
+    "title": "Foreign Policy Analysis",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 342",
+    "title": "The Politics and Strategy of Weapons of Mass Destruction",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 343",
+    "title": "U.S. Foreign Policy Since World War II",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 344",
+    "title": "The Global South in World Politics",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 345",
+    "title": "Russian and Post-Soviet Foreign Policy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 347",
+    "title": "Human Rights in Post-Soviet Eurasia",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 360",
+    "title": "International Relations of the Pacific Rim",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 362",
+    "title": "The International Relations of the Contemporary Middle East",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 364",
+    "title": "The Political Economy of Latin American Development",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 365",
+    "title": "Politics and Democracy in Latin America",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 366",
+    "title": "Mexico and its Relations with the United States",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 367",
+    "title": "Africa in International Affairs",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 368",
+    "title": "French Foreign Policy: 1945 to the Present",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 371",
+    "title": "Global Civil Society: Non-State Actors in World Politics",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 381",
+    "title": "Introduction to International Security",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 384",
+    "title": "Asian Security Issues",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 386",
+    "title": "Terrorism and Counterterrorism",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 389",
+    "title": "Islam in France",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 391",
+    "title": "Directed International Relations Field Study",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 401",
+    "title": "The United Nations and World Order",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 402",
+    "title": "Theories of War",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 407",
+    "title": "Chinese Foreign Policy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 412",
+    "title": "Applied Data Science for International Relations 1",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 413",
+    "title": "Applied Data Science for International Relations 2",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 420",
+    "title": "Political Economy of Corruption",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 422",
+    "title": "Ecological Security and Global Politics",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 425",
+    "title": "The New Triangle: China, the U.S. and Latin America",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 427",
+    "title": "Seminar on Economics and Security",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 430",
+    "title": "The Politics of International Trade",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 431",
+    "title": "Commercial and Financial Globalization-Trends,   Challenges",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 436",
+    "title": "Historical Memory, Identity, and International Politics",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 437",
+    "title": "Comparative Genocide",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 442",
+    "title": "Japanese Foreign Policy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 443",
+    "title": "Formulation of U.S. Foreign Policy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 445",
+    "title": "U.S. Defense and Foreign Policy: Nonproliferation and Weapons of Mass Destruction",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 454",
+    "title": "The International Political Economy of Development",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 455",
+    "title": "The Political Economy of Autocracy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 462",
+    "title": "State-Building, Institutions in Middle East and North Africa",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 490",
+    "title": "Directed Research",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 494",
+    "title": "Honors Thesis Seminar",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 499",
+    "title": "Special Topics",
+    "department": "International Relations"
+  },
+  {
+    "code": "ITP 101",
+    "title": "Introduction to Business Information Technologies",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 104",
+    "title": "Introduction to Web Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 115",
+    "title": "Programming in Python",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 116",
+    "title": "Accelerated Programming in Python",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 124",
+    "title": "How Not to Get Hacked -- Personal Cyber Security",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 125",
+    "title": "From Hackers to CEOs: Introduction to            Information Security",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 165",
+    "title": "Introduction to C++ Programming",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 168",
+    "title": "Introduction to MATLAB",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 180",
+    "title": "Video Game Production",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 190",
+    "title": "Introduction to Adobe Photoshop",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 215",
+    "title": "Introduction to 3D Modeling, Animation, and Visual Effects",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 216",
+    "title": "Applied Python",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 228",
+    "title": "Computer-Aided Modeling for 3D Product Design",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 249",
+    "title": "Introduction to Data Analytics",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 256",
+    "title": "Blockchain",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 259",
+    "title": "Basics of Artificial Intelligence",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 265",
+    "title": "Object-Oriented Programming",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 301",
+    "title": "Front-End Web Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 303",
+    "title": "Full-Stack Web Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 304",
+    "title": "Back-End Web Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 308",
+    "title": "Computer-Aided Design for Bio-Mechanical Systems",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 310",
+    "title": "Design for User Experience",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 325",
+    "title": "Ethical Hacking",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 342",
+    "title": "iOS App Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 348",
+    "title": "Making Smart Devices: Introduction to Electronics/Wearables",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 349",
+    "title": "Enterprise Data Analytics",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 351",
+    "title": "3D Character Modeling for Games",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 356",
+    "title": "Blockchain: Decentralized Applications",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 357",
+    "title": "Enterprise Networks: Design and Architecture",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 359",
+    "title": "Applied Neural Networks",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 361",
+    "title": "Character Rigging for Games",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 365",
+    "title": "Managing Data in C++",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 366",
+    "title": "Blockchain: Advances and Use Cases",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 368",
+    "title": "Cross-Platform App Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 370",
+    "title": "Cybersecurity Management and Operations",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 371",
+    "title": "Technical Character Animation for Games",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 375",
+    "title": "Digital Forensics and Cybersecurity Investigations",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 380",
+    "title": "Video Game Programming",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 382",
+    "title": "Mobile Game Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 388",
+    "title": "Developing Connected Devices",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 393",
+    "title": "Video Game Project Management",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 404",
+    "title": "Advanced Front-End Web Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 405",
+    "title": "Advanced Back-End Web Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 419",
+    "title": "Advanced Cloud Analytics",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 425",
+    "title": "Web Application Security",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 435",
+    "title": "Professional C++",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 438",
+    "title": "Advanced Gameplay Programming",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 445",
+    "title": "Apple Forensics and Security (macOS and iOS)",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 449",
+    "title": "Applications of Machine Learning",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 450",
+    "title": "High Performance Computing in Applied Machine Learning",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 456",
+    "title": "Blockchain: Capstone",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 457",
+    "title": "Network Security",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 459",
+    "title": "Applied Machine Learning for Natural Language Processing",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 460",
+    "title": "Web Application Project",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 466",
+    "title": "Building the High Tech Startup",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 470",
+    "title": "Information Technology Practicum",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 471",
+    "title": "Consultancy Skills for Cyber Security Risk Management",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 475",
+    "title": "Advanced Digital Forensics and Incident Response",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 476",
+    "title": "Technologies for Interactive Marketing",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 479",
+    "title": "Cyber Law and Privacy",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 480",
+    "title": "Information Technology Internship",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 481",
+    "title": "Game Programming Professional Development",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 485",
+    "title": "Programming Game Engines",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 489",
+    "title": "In-Memory Data Modeling and Analytics",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "ITP 499",
+    "title": "Special Topics",
+    "department": "Information Technology Program"
+  },
+  {
+    "code": "JOUR 200",
+    "title": "The Power and Responsibility of the Press",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 201",
+    "title": "Culture of Journalism: Past, Present and Future",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 205",
+    "title": "Journalism Practicum",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 206",
+    "title": "Reporting and Writing Practicum",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 207",
+    "title": "Reporting and Writing I",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 210",
+    "title": "Basics of News Production for Non-Majors",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 300",
+    "title": "Journalism and Society",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 307",
+    "title": "Reporting and Writing II",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 320",
+    "title": "Introduction to Coding for Storytelling",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 321",
+    "title": "Visual Journalism",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 322",
+    "title": "Introduction to Investigative and Data Journalism",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 323",
+    "title": "Journalism and the Audience",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 330",
+    "title": "Photojournalism",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 340",
+    "title": "Rewriting History: Reporting Rome",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 350",
+    "title": "Introduction to Sports Media",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 372",
+    "title": "Engaging Diverse Communities",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 380",
+    "title": "Sports, Business and Media in Today's Society",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 381",
+    "title": "Entertainment, Business and Media in Today's Society",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 402",
+    "title": "Advanced Video Reporting",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 403",
+    "title": "Television News and Sports Production",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 404",
+    "title": "Produce and Host Sports Content in Studio A",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 405",
+    "title": "Non-Fiction Television",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 406",
+    "title": "Social Media Storytelling for Latinx Audiences",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 407",
+    "title": "The World of Podcasting",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 409",
+    "title": "Radio Storytelling and Podcasts",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 412",
+    "title": "Podcasting: Origin Stories",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 414",
+    "title": "Advanced Digital Media Storytelling",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 425",
+    "title": "Advanced Radio News Production",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 430",
+    "title": "Writing the Film Review",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 431",
+    "title": "Feature Writing",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 432",
+    "title": "Sports Commentary",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 435",
+    "title": "Writing Magazine Non-Fiction",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 441",
+    "title": "Sports Reporting",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 445",
+    "title": "Reporting on Race",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 446",
+    "title": "Entertainment Reporting",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 447",
+    "title": "Arts Reporting",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 448",
+    "title": "Government and Public Affairs Reporting",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 457",
+    "title": "Food of Our Families",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 458",
+    "title": "Media, Food and Culture",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 461",
+    "title": "Spanish Language News Media Production",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 462",
+    "title": "Law of Mass Communication",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 464",
+    "title": "Experiential Journalism in Latin America",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 465",
+    "title": "Latino News Media in the United States",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 467",
+    "title": "Gender and the News Media",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 469",
+    "title": "Money, Markets and Media",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 475",
+    "title": "Print and Digital Design for 21st Century Storytelling",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 479",
+    "title": "Storytelling for Action Sports",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 480",
+    "title": "Sports and Media Technology",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 481",
+    "title": "The Athlete, Sports Media and Popular Culture",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 486",
+    "title": "Multiplatform Olympic and Paralympic Storytelling",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 487",
+    "title": "Power, Players & Platforms in Global Sports",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 490",
+    "title": "Directed Research",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 491",
+    "title": "News Leadership",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 494",
+    "title": "Python Coding for Data Journalism",
+    "department": "Journalism"
+  },
+  {
+    "code": "JOUR 499",
+    "title": "Special Topics",
+    "department": "Journalism"
+  },
+  {
+    "code": "MATH 040",
+    "title": "Basic Mathematical Skills",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 108",
+    "title": "Contemporary Precalculus",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 114",
+    "title": "Foundations of Statistics",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 117",
+    "title": "Introduction to Mathematics for Business and Economics",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 118",
+    "title": "Calculus for Business and Economics",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 125",
+    "title": "Calculus I",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 126",
+    "title": "Calculus II",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 129",
+    "title": "Calculus II for Engineers and Scientists",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 208",
+    "title": "Elementary Probability and Statistics",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 225",
+    "title": "Linear Algebra and Linear Differential Equations",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 226",
+    "title": "Calculus III",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 229",
+    "title": "Calculus III for Engineers and Scientists",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 235",
+    "title": "Linear Algebra and Applications",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 245",
+    "title": "Mathematics of Physics and Engineering I",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 290",
+    "title": "Mathematical Reasoning and Problem Solving",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 307",
+    "title": "Statistical Inference and Data Analysis I",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 308",
+    "title": "Statistical Inference and Data Analysis II",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 395",
+    "title": "Seminar in Problem Solving",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 407",
+    "title": "Probability Theory",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 408",
+    "title": "Mathematical Statistics",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 410",
+    "title": "Fundamental Concepts of Modern Algebra",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 425A",
+    "title": "Fundamental Concepts of Analysis",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 425B",
+    "title": "Fundamental Concepts of Analysis",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 430",
+    "title": "Theory of Numbers",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 432",
+    "title": "Applied Combinatorics",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 434",
+    "title": "Euclidean and Non-Euclidean Geometries",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 435",
+    "title": "Introduction to Differential Geometry",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 440",
+    "title": "Topology",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 445",
+    "title": "Mathematics of Physics and Engineering II",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 446",
+    "title": "Data Science with Python",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 447",
+    "title": "Mathematics of Machine Learning",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 450",
+    "title": "History of Mathematics",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 454",
+    "title": "Game Theory",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 458",
+    "title": "Numerical Methods",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 466",
+    "title": "Dynamic Modeling",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 467",
+    "title": "Theory and Computational Methods for Optimization",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 471",
+    "title": "Topics in Linear Algebra",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 475",
+    "title": "Introduction to Theory of Complex Variables",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 490",
+    "title": "Directed Research",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MATH 499",
+    "title": "Special Topics",
+    "department": "Mathematics"
+  },
+  {
+    "code": "MUSC 102",
+    "title": "World Music",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 105",
+    "title": "Exploring Our Musical Campus",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 115",
+    "title": "Western Music as Sounding History",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 200",
+    "title": "The Broadway Musical: Reflections of American Diversity",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 210",
+    "title": "Electronic Music and Dance Culture",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 250",
+    "title": "The Music of Black Americans",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 255",
+    "title": "Songwriting I",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 320",
+    "title": "Hip-hop Music and Culture",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 355",
+    "title": "Songwriting II",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 372",
+    "title": "Music and Politics",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 373",
+    "title": "Writing About Popular Music",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 374",
+    "title": "Beatles, Stones, Bowie: Empire and Masculinity",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 424",
+    "title": "Iconic Figures of Popular Music",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 455",
+    "title": "Songwriting III: The Performing Songwriter",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 460",
+    "title": "Film Music: History and Function From 1930 to the Present",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 470",
+    "title": "The Contemporary Musician: A Global Perspective",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 475",
+    "title": "Musicians Health and Wellness",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 480",
+    "title": "Young Artist Project I",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 481",
+    "title": "Young Artist Project II",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 496",
+    "title": "Careers in Music",
+    "department": "Music"
+  },
+  {
+    "code": "MUSC 498",
+    "title": "Internship in Music",
+    "department": "Music"
+  },
+  {
+    "code": "PHIL 100",
+    "title": "Central Problems of Philosophy",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 101",
+    "title": "Free People, Free Thought and Free Markets",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 103",
+    "title": "Philosophy, Politics and Economics in Europe, from Renaissan",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 104",
+    "title": "Ancient Foundations of Western Thought",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 122A",
+    "title": "Reasoning and Argument",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 122B",
+    "title": "Reasoning and Argument",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 141",
+    "title": "The Professions and the Public Interest in American Life",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 166",
+    "title": "Current Moral and Social Issues",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 168",
+    "title": "The Meaning of Life",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 170",
+    "title": "Introduction to Philosophy, Politics and Economics and Law",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 176",
+    "title": "Introduction to Feminist Philosophy",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 178",
+    "title": "Moral Dilemmas in the Legal Domain",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 220",
+    "title": "Introduction to Logic",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 236",
+    "title": "Issues in Space and Time",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 240",
+    "title": "Mind, Self, and Consciousness",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 246",
+    "title": "Foundations of Cognitive Science",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 252",
+    "title": "The Ways of Paradox",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 255",
+    "title": "Existentialism in Philosophy, Literature and Film",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 256",
+    "title": "Science, Religion, and the Making of the Modern Mind",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 258",
+    "title": "Probability and Rational Choice",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 260",
+    "title": "Ethical Theory and Practice",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 265",
+    "title": "Ethics, Technology and Value",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 270",
+    "title": "Conceptual Foundations of Conflict",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 284",
+    "title": "Ideas on Trial",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 288",
+    "title": "Love and its Representation in Western           Literature, Film, and Philosophy",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 315",
+    "title": "History of Western Philosophy: Ancient Period",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 317",
+    "title": "History of Western Philosophy: Medieval Period",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 336",
+    "title": "Philosophy of Mind and Language",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 337",
+    "title": "Political Philosophy",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 339",
+    "title": "Philosophy of Economics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 340",
+    "title": "Ethics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 347",
+    "title": "Philosophy in Literature",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 350",
+    "title": "Intermediate Logic",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 360",
+    "title": "Epistemology and Metaphysics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 362",
+    "title": "Possible Worlds",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 363",
+    "title": "Philosophy of Perception",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 415",
+    "title": "Aristotle",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 416",
+    "title": "The Ancient Stoics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 422",
+    "title": "British Empiricism",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 427",
+    "title": "Twentieth Century Anglo-American Philosophy",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 430",
+    "title": "Philosophy of Law",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 431",
+    "title": "Law, Society, and Politics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 437",
+    "title": "Social and Political Philosophy",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 442",
+    "title": "History of Ethics to 1900",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 450",
+    "title": "The Limits of Logic",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 451",
+    "title": "Higher-order Logic",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 452",
+    "title": "Modal Logic",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 460",
+    "title": "Metaphysics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 462",
+    "title": "Philosophy of Mind",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 463",
+    "title": "Theories of Action",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 467",
+    "title": "Language, Linguistics and Mind",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 470",
+    "title": "Theory of Knowledge",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 473",
+    "title": "Wittgenstein",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 475",
+    "title": "Topics in Philosophy, Politics and Economics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 480",
+    "title": "Philosophy of Mathematics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 484",
+    "title": "Philosophy of Physics",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 490",
+    "title": "Directed Research",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 494",
+    "title": "Senior Thesis",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 495",
+    "title": "Honors Capstone",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHYS 100",
+    "title": "The Physical World",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 120",
+    "title": "Music, Numbers and the Cosmos",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 125",
+    "title": "Physics for Architects",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 126",
+    "title": "AI and Quantum Computing",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 135A",
+    "title": "Physics for the Life Sciences",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 135B",
+    "title": "Physics for the Life Sciences",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 141",
+    "title": "Special Laboratory I",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 142",
+    "title": "Special Laboratory II",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 143",
+    "title": "Special Laboratory III",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 151",
+    "title": "Fundamentals of Physics I: Mechanics, Oscillations and Waves",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 152",
+    "title": "Fundamentals of Physics II: Electricity and Magnetism",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 153",
+    "title": "Fundamentals of Physics III: Optics, Thermo, Modern Physics",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 161",
+    "title": "Advanced Principles of Physics I",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 162",
+    "title": "Advanced Principles of Physics II",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 163",
+    "title": "Advanced Principles of Physics III",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 171",
+    "title": "Applied Physics I: Mechanics",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 172",
+    "title": "Applied Physics II: Electricity, Magnetism and Optics",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 173",
+    "title": "Applied Physics III: Topics in Modern Physics",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 190",
+    "title": "Physics Discovery Series",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 200",
+    "title": "The Physics and Technology of Energy",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 304",
+    "title": "Mechanics",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 316",
+    "title": "Thermodynamics and Statistical Mechanics",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 408A",
+    "title": "Electricity and Magnetism",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 408B",
+    "title": "Electricity and Magnetism",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 430",
+    "title": "General Relativity and Gravitation",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 438A",
+    "title": "Introduction to Quantum Mechanics and its Applications",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 438B",
+    "title": "Introduction to Quantum Mechanics and its Applications",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 440",
+    "title": "Introduction to Condensed Matter Physics",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 444",
+    "title": "Physical Biology: From Molecules to Cells",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 484",
+    "title": "Introduction to String Theory",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 490",
+    "title": "Directed Research",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 492",
+    "title": "Senior Lab",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 493",
+    "title": "Advanced Experimental Techniques",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 495",
+    "title": "Senior Project",
+    "department": "Physics"
+  },
+  {
+    "code": "PHYS 499",
+    "title": "Special Topics",
+    "department": "Physics"
+  },
+  {
+    "code": "POSC 100",
+    "title": "Theory and Practice of American Democracy",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 110",
+    "title": "Ideology and Political Conflict",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 120",
+    "title": "Comparative Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 130",
+    "title": "Law, Politics and Public Policy",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 248",
+    "title": "Human Rights",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 265",
+    "title": "Environmental Challenges",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 311",
+    "title": "Political Analysis",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 320",
+    "title": "Urban Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 323",
+    "title": "Applied Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 325",
+    "title": "State Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 328",
+    "title": "Asian American Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 334",
+    "title": "Interest Groups and Elite Behavior",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 335",
+    "title": "Political Parties, Campaigns, and Elections",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 340",
+    "title": "Constitutional Law",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 345",
+    "title": "International Law",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 347",
+    "title": "Environmental Law",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 350",
+    "title": "Politics of Latin America",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 351",
+    "title": "Middle East Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 355",
+    "title": "Politics of East Asia",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 356",
+    "title": "Politics in the People's Republic of China",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 357",
+    "title": "Urban Politics in the Global South",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 358",
+    "title": "Politics of Sub-Sahara Africa",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 360",
+    "title": "Comparative Political Institutions",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 363",
+    "title": "Cities and Regions in World Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 366",
+    "title": "Terrorism and Genocide",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 370",
+    "title": "European Political Thought I",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 371",
+    "title": "European Political Thought II",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 380",
+    "title": "Political Theories and Social Reform",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 381",
+    "title": "Sex, Power, and Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 390",
+    "title": "Special Problems",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 391",
+    "title": "Honors I: Undergraduate Seminar",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 392",
+    "title": "Honors II: Undergraduate Thesis",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 395",
+    "title": "Directed Governmental and Political Leadership Internship",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 396",
+    "title": "California Policy Research Internship",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 398",
+    "title": "Trial Advocacy: Theory and Practice",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 421",
+    "title": "Ethnic Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 422",
+    "title": "Political Attitudes and Behavior",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 424",
+    "title": "Political Participation and American Diversity",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 428",
+    "title": "Latino Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 430",
+    "title": "Political Economy of Mexico",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 432",
+    "title": "Politics of Local Criminal Justice",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 435",
+    "title": "Politics and the Economy",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 436",
+    "title": "Environmental Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 437",
+    "title": "Mass Media and Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 439",
+    "title": "Critical Issues in American Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 442",
+    "title": "The Politics of Human Differences: Diversity and Discriminat",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 444",
+    "title": "Civil and Political Rights and Liberties",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 447",
+    "title": "Global Justice: Interdisciplinary Perspectives",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 449",
+    "title": "Political Psychology",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 451",
+    "title": "Politics of Resources and Development",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 452",
+    "title": "Critical Issues in Law and Public Policy",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 453",
+    "title": "Political Change in Asia",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 456",
+    "title": "Women in International Development",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 457",
+    "title": "Political Economy of Redistribution",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 469",
+    "title": "Critical Issues in Comparative Politics",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 479",
+    "title": "Critical Issues in Political Thought",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 490",
+    "title": "Directed Research",
+    "department": "Political Science"
+  },
+  {
+    "code": "PPD 202",
+    "title": "Health and Health Care in America Today",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 203",
+    "title": "Economic Analysis for Public Policy",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 225",
+    "title": "Solving Public Problems",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 227",
+    "title": "Planning for the Future City",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 240",
+    "title": "Citizenship and Public Ethics",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 245",
+    "title": "The Urban Context",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 300",
+    "title": "Social Justice Issues in Public Policy and Urban Planning",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 301",
+    "title": "PPD Practices: Internship Seminar",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 303",
+    "title": "Statistics for Policy, Planning, and Development",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 313",
+    "title": "Finance of the Public Sector",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 314",
+    "title": "Public Policy and Law",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 315",
+    "title": "Analytic Foundations for Public Policy",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 325",
+    "title": "Fundamentals of Health Policy and Management",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 330",
+    "title": "Introduction to Health Care Systems",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 342",
+    "title": "Crime and Public Policy",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 344",
+    "title": "Environmental Policy and Sustainable Development",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 345",
+    "title": "AI and Urban Planning",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 353",
+    "title": "Philanthropy and Social Change",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 357",
+    "title": "Government and Business",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 360",
+    "title": "Urban Transportation Planning and Policy",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 361",
+    "title": "Sustainable Communities, Policy and Planning",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 371",
+    "title": "The Nonprofit Sector and the Public Interest",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 373",
+    "title": "Public Policy and Planning Analysis",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 382",
+    "title": "International Development",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 400",
+    "title": "Topics in Public Policy and Urban Studies",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 402",
+    "title": "Management of Public and Nonprofit Organizations",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 404",
+    "title": "Empirical Methods for Public Policy",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 407",
+    "title": "Financial Management of Public and Nonprofit Organizations",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 410",
+    "title": "Comparative Urban Development",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 413",
+    "title": "Management of Health Care Organizations",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 414",
+    "title": "Community Health Policy and Planning",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 415",
+    "title": "Health Policy",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 422",
+    "title": "Transportation Data and Automation",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 427",
+    "title": "Geographic Information Systems and Planning      Applications",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 430",
+    "title": "Urban Informatics",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 431",
+    "title": "Undergraduate Policy, Planning, and Development Studio",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 439",
+    "title": "Housing and Community Development",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 478",
+    "title": "Social Innovation",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 490",
+    "title": "Directed Research",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 497A",
+    "title": "Senior Thesis",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 497B",
+    "title": "Senior Thesis",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 499",
+    "title": "Special Topics",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PSYC 100",
+    "title": "Introduction to Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 165",
+    "title": "Drugs, Behavior, and Society",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 215",
+    "title": "Music, Mind and the Brain",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 240",
+    "title": "Scientific Inquiry and Reasoning in Health Care",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 274",
+    "title": "Statistics",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 290",
+    "title": "Supervised Research in Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 301",
+    "title": "Cognitive Processes",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 304",
+    "title": "Sensation and Perception",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 305",
+    "title": "Learning and Memory",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 314",
+    "title": "Experimental Research Methods",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 316",
+    "title": "Non-Experimental Research Methods",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 320",
+    "title": "Principles of Psychobiology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 326",
+    "title": "Behavioral Neuroscience",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 336",
+    "title": "Developmental Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 337",
+    "title": "Adult Development and Aging",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 339",
+    "title": "Origins of the Mind",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 353",
+    "title": "Close Relationships",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 355",
+    "title": "Social Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 357",
+    "title": "Psychology of Persuasion",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 360",
+    "title": "Psychological Disorders",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 361",
+    "title": "Introduction to Clinical Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 363",
+    "title": "Criminal Behavior",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 365",
+    "title": "Introduction to Forensic Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 367",
+    "title": "Stress, Health, and the Mind-Body Connection",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 372",
+    "title": "Human Sexuality",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 375",
+    "title": "States of Consciousness: From Dreams to Drugs",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 380",
+    "title": "Junior Honors Seminar",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 411",
+    "title": "Not Easy Being Green: Decision-Making for Sustainability",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 412",
+    "title": "Current Topics In Social Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 422",
+    "title": "Human Judgment and Decision Making",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 424",
+    "title": "Neuropsychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 425",
+    "title": "Functional Imaging of the Human Brain",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 426",
+    "title": "Motivated Behaviors and Addiction",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 427",
+    "title": "Neuropsychopharmacology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 430",
+    "title": "Social Development of Infants, Children and Adolescents",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 432",
+    "title": "From Eugenics to Neurodiversity: History of DisAbility",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 433",
+    "title": "Children's Learning and Cognitive Development",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 434",
+    "title": "Intelligence, Problem Solving and Creativity",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 436",
+    "title": "Developmental Neuroscience of Human Behavior",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 437",
+    "title": "Adolescent Development",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 439",
+    "title": "Science of Yoga and Meditation",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 440",
+    "title": "Foundations of  Cognitive Neuroscience",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 450",
+    "title": "Neural Network Models of Social and Cognitive Processes",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 452",
+    "title": "Social Neuroscience",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 454",
+    "title": "Social Cognition",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 455",
+    "title": "Cognitive Behavior Therapy",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 459",
+    "title": "Industrial/Organizational Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 462",
+    "title": "Culture and Mental Health",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 464",
+    "title": "Psychology of Marriage and the Family",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 467",
+    "title": "Introduction to Autism Spectrum Disorder",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 468",
+    "title": "Happiness:  Research in Neuroscience and Positive Psychology",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 480",
+    "title": "Senior Honors Seminar",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 490",
+    "title": "Directed Research",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 499",
+    "title": "Special Topics",
+    "department": "Psychology"
+  },
+  {
+    "code": "SOCI 150",
+    "title": "Social Problems",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 155",
+    "title": "Immigrant America",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 169",
+    "title": "Changing Family Forms",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 200",
+    "title": "Introduction to Sociology",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 210",
+    "title": "Science, Technology, and Social Conflict",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 235",
+    "title": "Migration, Law and Society",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 242",
+    "title": "Sociology, Demography and Health",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 250",
+    "title": "Grassroots Participation in Global Perspective",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 255",
+    "title": "Sociology of Globalization",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 270",
+    "title": "Sociological Theory",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 305",
+    "title": "Sociology of Childhood",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 313",
+    "title": "Sociological Research Methods",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 314",
+    "title": "Analyzing Social Statistics",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 325",
+    "title": "Applied Social Research Methods",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 350",
+    "title": "Social Exclusion, Social Power and Deviance",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 351",
+    "title": "Youth, Social Control and Public Policy",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 353",
+    "title": "Crime, Punishment and Society",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 355",
+    "title": "Immigrants in the United States",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 360",
+    "title": "Social Inequality: Class, Status and Power",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 362",
+    "title": "Global and Transnational Sociology",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 369",
+    "title": "The Family in a Changing Society",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 376",
+    "title": "Contemporary Issues in Asian American Communities",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 400",
+    "title": "Field and Survey Experiments",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 408",
+    "title": "Volunteers, Non-Governmental Organizations, and Everyday Pol",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 425",
+    "title": "Social Movements: Power, Resistance and Political Dynamics",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 431",
+    "title": "Cities",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 440",
+    "title": "Environmental Sociology",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 445",
+    "title": "Political and Social Theory",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 450",
+    "title": "Non-Governmental Organizations/Non-profits Field Practicum",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 460",
+    "title": "Key Issues in Contemporary International Migration",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 464",
+    "title": "Sociology of Gender and Work",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 475",
+    "title": "Medical Sociology",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 490",
+    "title": "Directed Research",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 499",
+    "title": "Special Topics",
+    "department": "Sociology"
+  },
+  {
+    "code": "SPAN 120",
+    "title": "Spanish I",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 150",
+    "title": "Spanish II",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 220",
+    "title": "Spanish III",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 240",
+    "title": "Spanish IV",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 260",
+    "title": "Advanced Spanish: Arts and Sciences",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 261",
+    "title": "Advanced Spanish: Society and the Media",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 270",
+    "title": "Spanish for Heritage Speakers",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 280",
+    "title": "Conversational Spanish",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 290",
+    "title": "Introduction to Latin American and Iberian       Studies",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 295",
+    "title": "Gender and Sexuality in Latin American and Spanish Cinema",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 301",
+    "title": "Introduction to Literature and Film",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 302",
+    "title": "Screen Cultures: From Film to the Internet",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 304",
+    "title": "The Art of Fiction",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 308",
+    "title": "The Art of Poetry",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 310",
+    "title": "Structure of Spanish",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 315",
+    "title": "Advanced Grammar and Translation",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 316",
+    "title": "Spanish for the Professions",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 321",
+    "title": "Sounds, Images, Objects",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 380",
+    "title": "Literature of Mexico",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 381",
+    "title": "Narco-World",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 382",
+    "title": "The Aesthetics of Violence in Latin America",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 384",
+    "title": "Flamenco In Spanish Culture",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 385",
+    "title": "The Culture of Food in Hispanic Los Angeles",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 391",
+    "title": "Introduction to Contemporary Spanish Literature (USC Madrid Center)",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 396",
+    "title": "Oaxaca and Oaxacalifornia: Food, Culture, Art and Migration",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 397",
+    "title": "Language Loss and Deculturation in Cusco, Peru",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 409",
+    "title": "Latinx Food and Social Justice",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 413",
+    "title": "Social and Geographic Varieties of Spanish",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 420",
+    "title": "Spanish Language Acquisition",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 464",
+    "title": "Introduction to Contemporary Spanish Theatre",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 483",
+    "title": "Gender and Sexuality",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 484",
+    "title": "Studies in Visual and Material Culture",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 490",
+    "title": "Directed Research",
+    "department": "Spanish"
+  },
+  {
+    "code": "SPAN 499",
+    "title": "Special Topics",
+    "department": "Spanish"
+  },
+  {
+    "code": "TAC 100",
+    "title": "Enhanced Productivity with AI",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 101",
+    "title": "Business Tools and Digital Fluency",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 104",
+    "title": "Web Development",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 115",
+    "title": "Programming in Python",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 116",
+    "title": "Accelerated Programming in Python",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 125",
+    "title": "Hackers to CEOs: Intro to Cyber Security in the AI Era",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 165",
+    "title": "Introduction to C++ Programming",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 168",
+    "title": "Introduction to MATLAB",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 180",
+    "title": "Video Game Production",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 181",
+    "title": "Video Game QA Management",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 190",
+    "title": "Digital Graphics and UI Design Tools",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 215",
+    "title": "Introduction to 3D Modeling, Animation and Visual Effects",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 216",
+    "title": "Applied Python",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 228",
+    "title": "Computer-Aided Modeling and Rapid Fabrication",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 249",
+    "title": "Introduction to Data Analytics",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 259",
+    "title": "Basics of Artificial Intelligence",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 265",
+    "title": "Software Design with Object-Oriented Programming",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 299",
+    "title": "Special Topics",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 301",
+    "title": "Front-End Web Development",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 303",
+    "title": "Full-Stack Web Development",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 304",
+    "title": "Back-End Web Development",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 308",
+    "title": "Computer-Aided Design for Bio-Mechanical Systems",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 310",
+    "title": "Design for User Experience",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 325",
+    "title": "Ethical Hacking",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 342",
+    "title": "iOS App Development",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 348",
+    "title": "Making Smart Devices: Introduction to Electronics/Wearables",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 349",
+    "title": "Enterprise Data Analytics",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 351",
+    "title": "3D Character Modeling for Games",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 356",
+    "title": "Blockchain: Decentralized Applications",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 357",
+    "title": "Enterprise Networks: Design and Architecture",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 359",
+    "title": "Applied Neural Networks",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 361",
+    "title": "Character Rigging for Games",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 365",
+    "title": "Data Structures in C++",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 366",
+    "title": "Blockchain: Advances and Use Cases",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 368",
+    "title": "Cross-Platform App Development with Flutter",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 370",
+    "title": "Cybersecurity Management and Operations",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 371",
+    "title": "Technical Character Animation for Games",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 375",
+    "title": "Digital Forensics and Cybersecurity Investigations",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 376",
+    "title": "Engineering AI Products",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 380",
+    "title": "Video Game Programming",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 382",
+    "title": "Mobile Game Development",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 388",
+    "title": "Developing Connected Devices",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 393",
+    "title": "Video Game Project Management",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 404",
+    "title": "Advanced Front-End Web Development",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 425",
+    "title": "Web Application Security",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 435",
+    "title": "Professional C++",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 438",
+    "title": "Advanced Gameplay Programming",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 443",
+    "title": "Malware Analysis and Reverse Engineering",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 445",
+    "title": "Apple Forensics and Security (macOS and iOS)",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 449",
+    "title": "Applications of Machine Learning",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 450",
+    "title": "High Performance Computing in Applied Machine Learning",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 456",
+    "title": "Blockchain: Capstone",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 458",
+    "title": "Defending and Investigating Compromised Networks",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 459",
+    "title": "Applied Natural Language Processing and Generative AI",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 460",
+    "title": "Web Application Project",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 466",
+    "title": "Building the High Tech Startup",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 470",
+    "title": "Technology and Applied Computing Practicum",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 475",
+    "title": "Advanced Digital Forensics and Incident Response",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 476",
+    "title": "Technologies for Interactive Marketing",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 479",
+    "title": "Cyber Law and Privacy",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 480",
+    "title": "Technology and Applied Computing Internship",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 485",
+    "title": "Programming Game Engines",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 489",
+    "title": "In-Memory Data Modeling and Analytics",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 499",
+    "title": "Special Topics",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "THTR 101",
+    "title": "Introduction to Acting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 105",
+    "title": "Introduction to Screen Acting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 115A",
+    "title": "Movement I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 120A",
+    "title": "Acting I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 120B",
+    "title": "Acting I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 122",
+    "title": "Improvisation and Theatre Games",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 125",
+    "title": "Text Studies for Production",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 130",
+    "title": "Introduction to Theatrical Production",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 131A",
+    "title": "Advanced Theatrical Production",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 131B",
+    "title": "Advanced Theatrical Production",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 132A",
+    "title": "Art of Theatrical Design",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 132B",
+    "title": "Art of Theatrical Design",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 141",
+    "title": "Beginning Voice",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 152",
+    "title": "Introduction to Scene Study: Contemporary Plays",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 192",
+    "title": "History of Stand-Up Comedy",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 195",
+    "title": "Theatre on Film",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 197",
+    "title": "Comedy and Performance",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 202",
+    "title": "The Fundamentals of Comedy",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 205",
+    "title": "Stardom: Creation, Management and Culture Impact",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 213",
+    "title": "Corset Construction",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 214A",
+    "title": "The Actor's Instrument: Voice and Body",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 214B",
+    "title": "The Actor's Instrument: Voice and Body",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 216",
+    "title": "Movement for Actors",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 220A",
+    "title": "Intermediate Acting I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 220B",
+    "title": "Intermediate Acting I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 222",
+    "title": "Stage Make-up",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 225",
+    "title": "Theatre Across History and Cultures",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 230",
+    "title": "Theatrical Design as Poetic Realism",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 231",
+    "title": "Costume Construction",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 232",
+    "title": "Introduction to Theatrical Lighting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 233",
+    "title": "Historic Costumes for the Theatre",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 236",
+    "title": "Introduction to Theatrical Sound",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 241",
+    "title": "Methods and Materials",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 250",
+    "title": "Camera and Improvisation",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 252A",
+    "title": "Intermediate Acting I: Drama/Comedy",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 252B",
+    "title": "Intermediate Acting I: Drama/Comedy",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 290",
+    "title": "Introduction to Medical Clowning",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 295",
+    "title": "Theatre in Los Angeles",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 302",
+    "title": "Shakespeare in His World",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 303",
+    "title": "Projection Design I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 305A",
+    "title": "Directing",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 305B",
+    "title": "Directing",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 306",
+    "title": "Audio-Drama",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 307",
+    "title": "Comedy in LA",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 308",
+    "title": "Programming for Lighting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 312",
+    "title": "LGBTQ Theatre",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 315A",
+    "title": "Physical Theatre I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 315B",
+    "title": "Physical Theatre I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 317",
+    "title": "Theatre Clown",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 318",
+    "title": "Creating the Hit Podcast",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 320A",
+    "title": "Intermediate Acting II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 320B",
+    "title": "Intermediate Acting II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 322",
+    "title": "Improv 2: Advanced Improv",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 325",
+    "title": "Casting for Stage and Screen",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 330",
+    "title": "Scene Design I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 331",
+    "title": "Costume Design I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 332",
+    "title": "Lighting Design I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 333",
+    "title": "Stage Management I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 335",
+    "title": "Scenic Construction",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 336",
+    "title": "Introduction to Sound Design",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 339A",
+    "title": "The Actor's Instrument: Voice and Body II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 339B",
+    "title": "The Actor's Instrument: Voice and Body II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 340A",
+    "title": "Intermediate Voice",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 342A",
+    "title": "Basic Voice",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 342B",
+    "title": "Basic Voice",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 343",
+    "title": "Musical Theatre Audition",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 349",
+    "title": "Costume Crafts: Armor and Millinery",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 352A",
+    "title": "Intermediate Acting II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 352B",
+    "title": "Intermediate Acting II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 354",
+    "title": "Acting Shakespeare",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 355",
+    "title": "Acting for Sitcoms",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 365",
+    "title": "Playwriting I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 366",
+    "title": "Playwriting II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 395",
+    "title": "Drama as Human Relations",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 397",
+    "title": "Theatre Practicum",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 401",
+    "title": "Contemporary Theatre in a Changing World",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 402",
+    "title": "Projection Design II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 404",
+    "title": "Acting Theory",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 405",
+    "title": "Performing Identities",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 406",
+    "title": "Theatre on the Edge",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 407A",
+    "title": "Drawing and Rendering for the Theater",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 407B",
+    "title": "Drawing and Rendering for the Theater",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 408A",
+    "title": "Dialects",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 408B",
+    "title": "Dialects",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 409",
+    "title": "Advanced Drafting: Vectorworks",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 410",
+    "title": "The Digital Actor",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 411",
+    "title": "The Business of Acting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 417",
+    "title": "Stage Combat",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 419",
+    "title": "Alexander Technique for Performers",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 420",
+    "title": "Senior Project",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 421",
+    "title": "Public Speaking as Performance: A Course for Non-Actors",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 422",
+    "title": "Improv 3 : Long Form Improvisation",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 423",
+    "title": "Magic",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 424",
+    "title": "Creator as Entrepreneur",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 425",
+    "title": "Dynamics of Technical Theatre",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 427",
+    "title": "Audition Technique for Film, Television and New Media",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 430",
+    "title": "Stage Management II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 431",
+    "title": "Seminar in Theatre Design",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 432A",
+    "title": "Scene Design II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 432B",
+    "title": "Scene Design II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 433A",
+    "title": "Costume Design II: The Psychology of Fashion",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 433B",
+    "title": "Costume Design II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 434A",
+    "title": "Lighting Design II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 434B",
+    "title": "Lighting Design II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 435",
+    "title": "Advanced Theatrical Drafting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 436",
+    "title": "Sound Design II: Content Creation",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 437",
+    "title": "Scene Painting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 438",
+    "title": "Technical Theatre",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 439",
+    "title": "Stage Properties",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 441",
+    "title": "Advanced Sound Design",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 442",
+    "title": "Voice-over Acting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 443",
+    "title": "Production Management",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 446",
+    "title": "English Language Dubbing",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 447",
+    "title": "Fashion Influencing",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 448",
+    "title": "History of Fashion and the Costume",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 452",
+    "title": "Advanced Acting",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 453",
+    "title": "Taking it on the Road and Beyond",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 454",
+    "title": "Acting Shakespeare II",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 456",
+    "title": "Latinx Theatre",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 457",
+    "title": "Film Acting Practicum",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 460",
+    "title": "Asian and Asian American Theatre: Identity and Aesthetics",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 464",
+    "title": "An Actor's Reel",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 465",
+    "title": "Playwriting III",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 467",
+    "title": "Going Viral: Performance for New Media",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 470",
+    "title": "Sketch Comedy for Theatre",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 471",
+    "title": "Industry Landscape",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 472",
+    "title": "Professional Preparation for Actors",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 473",
+    "title": "Sketch Comedy in Performance",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 474",
+    "title": "Introduction to Stand Up Comedy",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 475",
+    "title": "Acting on Camera: The Collaborative Process",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 476",
+    "title": "African American Theatre, Dance, and Performance",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 479",
+    "title": "Solo Performance",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 480A",
+    "title": "Performance for Camera",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 480B",
+    "title": "Performance for Camera",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 482",
+    "title": "Stand Up 2: Becoming A Pro",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 484",
+    "title": "Acting in Television Commercials",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 488",
+    "title": "Theatre in the Community",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 489",
+    "title": "Theatre Internship",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 490",
+    "title": "Directed Research",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 491",
+    "title": "Theatre Organization and Administration",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 493A",
+    "title": "Periods and Styles",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 493B",
+    "title": "Periods and Styles",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 495",
+    "title": "Experimental Theatre Workshop I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 497",
+    "title": "Advanced Theatre Practicum",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 499",
+    "title": "Special Topics",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "WRIT 150",
+    "title": "Writing and Critical Reasoning--Thematic Approaches",
+    "department": "Writing"
+  },
+  {
+    "code": "WRIT 320",
+    "title": "Experiential Learning",
+    "department": "Writing"
+  },
+  {
+    "code": "WRIT 340",
+    "title": "Advanced Writing and Critical Engagement",
+    "department": "Writing"
+  },
+  {
+    "code": "WRIT 380",
+    "title": "Writing in Global Contexts",
+    "department": "Writing"
+  },
+  {
+    "code": "WRIT 440",
+    "title": "Writing in Practical Contexts",
+    "department": "Writing"
+  }
+]
