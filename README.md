@@ -1,3 +1,5 @@
+<img src="app/icon.png" alt="" width="72" height="72">
+
 # Tommy's Roster
 
 Ask a question about a USC course in your own words and get matched with up to three
