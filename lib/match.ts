@@ -49,7 +49,7 @@ You get a JSON object with:
 - "people": the only people you may choose from. Each has a person_id, major, grad_year and "courses", a list of { code, semester, professor, can_help_with }.
 
 Return:
-- "matches": up to 3 people from "people", best match first. For each one:
+- "matches": up to 3 people from "people", best match first. Return 3 whenever at least 3 people can speak to the course or topic in the question, and fewer only when fewer are relevant. For each one:
   - "person_id": copied exactly from the list.
   - "code": the code of the one course row of that person your reason is based on, copied exactly.
   - "reason": ONE sentence of at most 25 words that connects this person to THIS question. Lead with the part of their can_help_with that fits the question, then the course and semester. Do not list everything in their entry. Mention their major or graduation year only when it matters for this asker, such as a shared major, and write the year as "class of 2028". If they only partly fit, say plainly what they can and cannot speak to. Use only facts in that person's own entry. Refer to the person as "They". Do not use a name.
