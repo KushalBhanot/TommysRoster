@@ -80,6 +80,13 @@ export const ROSTER = [
 ];
 
 export const VARIANTS = [
+  // Round four: one design built from the ui-ux-pro-max skill's recommendations.
+  {
+    id: 12,
+    round: 4,
+    name: "Blocks",
+    summary: "The page as a few large blocks of solid color: a cardinal block for the question, a black block of roster figures, and three blocks for the people. Academic serif headline, an easy-to-read sans for the rest.",
+  },
   // Round three: one design, pushed further.
   {
     id: 11,

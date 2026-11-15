@@ -540,6 +540,11 @@
     "department": "Architecture"
   },
   {
+    "code": "ARCH 109",
+    "title": "Design Foundation Workshop",
+    "department": "Architecture"
+  },
+  {
     "code": "ARCH 114",
     "title": "Architecture: Culture and Community",
     "department": "Architecture"
@@ -885,6 +890,11 @@
     "department": "Astronomy"
   },
   {
+    "code": "ASTR 350",
+    "title": "Astrophysics I",
+    "department": "Astronomy"
+  },
+  {
     "code": "ASTR 400",
     "title": "The Solar System",
     "department": "Astronomy"
@@ -1016,7 +1026,7 @@
   },
   {
     "code": "BISC 300",
-    "title": "Introduction to Microbiology",
+    "title": "Microbiology",
     "department": "Biological Sciences"
   },
   {
@@ -1185,6 +1195,11 @@
     "department": "Biological Sciences"
   },
   {
+    "code": "BISC 445",
+    "title": "Fundamentals of Vertebrate Biology",
+    "department": "Biological Sciences"
+  },
+  {
     "code": "BISC 450",
     "title": "Principles of Immunology",
     "department": "Biological Sciences"
@@ -1201,7 +1216,7 @@
   },
   {
     "code": "BISC 460",
-    "title": "Seminar in Marine and Environmental Biology",
+    "title": "Seminar in Ecology, Evolution and Environment",
     "department": "Biological Sciences"
   },
   {
@@ -1250,6 +1265,11 @@
     "department": "Biological Sciences"
   },
   {
+    "code": "BISC 491",
+    "title": "Practical Aquaculture",
+    "department": "Biological Sciences"
+  },
+  {
     "code": "BISC 493",
     "title": "Honors Seminar",
     "department": "Biological Sciences"
@@ -1290,6 +1310,11 @@
     "department": "Biomedical Engineering"
   },
   {
+    "code": "BME 315",
+    "title": "Deep Learning with Biomedical Applications",
+    "department": "Biomedical Engineering"
+  },
+  {
     "code": "BME 403",
     "title": "Physiological Systems",
     "department": "Biomedical Engineering"
@@ -1316,7 +1341,7 @@
   },
   {
     "code": "BME 410",
-    "title": "Introduction to Biomaterials and Tissue Engineering",
+    "title": "Stem Cells and Biomaterials for Tissue Engineering",
     "department": "Biomedical Engineering"
   },
   {
@@ -1441,7 +1466,7 @@
   },
   {
     "code": "BUAD 206",
-    "title": "Transfer International Experience",
+    "title": "Global Business Experience",
     "department": "Business Administration"
   },
   {
@@ -1457,6 +1482,11 @@
   {
     "code": "BUAD 281",
     "title": "Introduction to Managerial Accounting",
+    "department": "Business Administration"
+  },
+  {
+    "code": "BUAD 298",
+    "title": "Special Topics",
     "department": "Business Administration"
   },
   {
@@ -2125,6 +2155,11 @@
     "department": "Communication"
   },
   {
+    "code": "COMM 473",
+    "title": "Advanced Issues in Communication and Technology",
+    "department": "Communication"
+  },
+  {
     "code": "COMM 489",
     "title": "Campaign Communication",
     "department": "Communication"
@@ -2266,7 +2301,7 @@
   },
   {
     "code": "CSCI 444",
-    "title": "Natural Language Processing",
+    "title": "Language Models in Natural Language Processing",
     "department": "Computer Science"
   },
   {
@@ -2362,6 +2397,11 @@
   {
     "code": "CTCS 392",
     "title": "History of American Cinema to 1960",
+    "department": "Cinema and Media Studies"
+  },
+  {
+    "code": "CTCS 393",
+    "title": "Topics in Historical Cinema and Media",
     "department": "Cinema and Media Studies"
   },
   {
@@ -2575,6 +2615,11 @@
     "department": "Dance"
   },
   {
+    "code": "DANC 184B",
+    "title": "Jazz Dance",
+    "department": "Dance"
+  },
+  {
     "code": "DANC 184C",
     "title": "Jazz Dance",
     "department": "Dance"
@@ -2617,6 +2662,11 @@
   {
     "code": "DANC 190",
     "title": "Gaga: People",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 195",
+    "title": "Kaufman in the Community",
     "department": "Dance"
   },
   {
@@ -2750,6 +2800,11 @@
     "department": "Dance"
   },
   {
+    "code": "DANC 399",
+    "title": "Maymester: Dance Capitals of the World",
+    "department": "Dance"
+  },
+  {
     "code": "DANC 401",
     "title": "Colloquium IV: Establishing a Professional Practice",
     "department": "Dance"
@@ -2797,6 +2852,11 @@
   {
     "code": "DANC 495",
     "title": "Dance Internship",
+    "department": "Dance"
+  },
+  {
+    "code": "DANC 499",
+    "title": "Special Topics",
     "department": "Dance"
   },
   {
@@ -3060,6 +3120,11 @@
     "department": "Electrical and Computer Engineering"
   },
   {
+    "code": "EE 448",
+    "title": "Communication Electronics",
+    "department": "Electrical and Computer Engineering"
+  },
+  {
     "code": "EE 450",
     "title": "Foundations of Computer Networks",
     "department": "Electrical and Computer Engineering"
@@ -3091,7 +3156,7 @@
   },
   {
     "code": "EE 467",
-    "title": "Introduction to Communication Systems",
+    "title": "Fundamentals of Communication Systems",
     "department": "Electrical and Computer Engineering"
   },
   {
@@ -3450,6 +3515,11 @@
     "department": "Finance and Business Economics"
   },
   {
+    "code": "FBE 207",
+    "title": "Financial Literacy for Life and Career",
+    "department": "Finance and Business Economics"
+  },
+  {
     "code": "FBE 299",
     "title": "Special Topics",
     "department": "Finance and Business Economics"
@@ -3542,6 +3612,11 @@
   {
     "code": "FBE 445",
     "title": "Applied Financial Modeling: Principles and Concepts",
+    "department": "Finance and Business Economics"
+  },
+  {
+    "code": "FBE 451",
+    "title": "Quantitative Investment Analysis",
     "department": "Finance and Business Economics"
   },
   {
@@ -3820,6 +3895,11 @@
     "department": "History"
   },
   {
+    "code": "HIST 212",
+    "title": "Histories of Dialogue, Disagreement, and Democracy",
+    "department": "History"
+  },
+  {
     "code": "HIST 225",
     "title": "Film, Power, and American History",
     "department": "History"
@@ -3877,6 +3957,11 @@
   {
     "code": "HIST 316",
     "title": "The Renaissance",
+    "department": "History"
+  },
+  {
+    "code": "HIST 321",
+    "title": "The Crusades",
     "department": "History"
   },
   {
@@ -3995,8 +4080,23 @@
     "department": "History"
   },
   {
+    "code": "HIST 408",
+    "title": "Heretics and Prophets in the Middle Ages",
+    "department": "History"
+  },
+  {
     "code": "HIST 411",
     "title": "Early Modern European Cultural History",
+    "department": "History"
+  },
+  {
+    "code": "HIST 417",
+    "title": "History of Soviet Russia: 1917-1991",
+    "department": "History"
+  },
+  {
+    "code": "HIST 422",
+    "title": "European Intellectual and Cultural History: The 20th Century, 1920 to the Present",
     "department": "History"
   },
   {
@@ -4032,6 +4132,11 @@
   {
     "code": "HIST 456",
     "title": "Race, Slavery, and the Making of the Atlantic World",
+    "department": "History"
+  },
+  {
+    "code": "HIST 458",
+    "title": "History of California",
     "department": "History"
   },
   {
@@ -4092,6 +4197,11 @@
   {
     "code": "IR 213",
     "title": "The Global Economy",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 303",
+    "title": "Leadership and Diplomacy",
     "department": "International Relations"
   },
   {
@@ -4312,6 +4422,11 @@
   {
     "code": "IR 391",
     "title": "Directed International Relations Field Study",
+    "department": "International Relations"
+  },
+  {
+    "code": "IR 397",
+    "title": "Field Research in Human Rights",
     "department": "International Relations"
   },
   {
@@ -4871,7 +4986,7 @@
   },
   {
     "code": "JOUR 409",
-    "title": "Radio Storytelling and Podcasts",
+    "title": "Audio Storytelling for Radio and Podcast",
     "department": "Journalism"
   },
   {
@@ -5380,6 +5495,11 @@
     "department": "Philosophy"
   },
   {
+    "code": "PHIL 174",
+    "title": "Freedom, Equality, and Social Justice",
+    "department": "Philosophy"
+  },
+  {
     "code": "PHIL 176",
     "title": "Introduction to Feminist Philosophy",
     "department": "Philosophy"
@@ -5440,6 +5560,11 @@
     "department": "Philosophy"
   },
   {
+    "code": "PHIL 268",
+    "title": "Philosophy of Sport",
+    "department": "Philosophy"
+  },
+  {
     "code": "PHIL 270",
     "title": "Conceptual Foundations of Conflict",
     "department": "Philosophy"
@@ -5490,6 +5615,11 @@
     "department": "Philosophy"
   },
   {
+    "code": "PHIL 349",
+    "title": "AI Ethics",
+    "department": "Philosophy"
+  },
+  {
     "code": "PHIL 350",
     "title": "Intermediate Logic",
     "department": "Philosophy"
@@ -5507,6 +5637,11 @@
   {
     "code": "PHIL 363",
     "title": "Philosophy of Perception",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 385",
+    "title": "Science and Rationality",
     "department": "Philosophy"
   },
   {
@@ -5530,6 +5665,11 @@
     "department": "Philosophy"
   },
   {
+    "code": "PHIL 428",
+    "title": "Anglo-American Philosophy Since 1950",
+    "department": "Philosophy"
+  },
+  {
     "code": "PHIL 430",
     "title": "Philosophy of Law",
     "department": "Philosophy"
@@ -5542,6 +5682,11 @@
   {
     "code": "PHIL 437",
     "title": "Social and Political Philosophy",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 440",
+    "title": "Contemporary Ethical Theory",
     "department": "Philosophy"
   },
   {
@@ -5577,6 +5722,11 @@
   {
     "code": "PHIL 463",
     "title": "Theories of Action",
+    "department": "Philosophy"
+  },
+  {
+    "code": "PHIL 465",
+    "title": "Philosophy of Language",
     "department": "Philosophy"
   },
   {
@@ -5855,6 +6005,11 @@
     "department": "Political Science"
   },
   {
+    "code": "POSC 329",
+    "title": "Korean American Politics",
+    "department": "Political Science"
+  },
+  {
     "code": "POSC 334",
     "title": "Interest Groups and Elite Behavior",
     "department": "Political Science"
@@ -5907,6 +6062,11 @@
   {
     "code": "POSC 358",
     "title": "Politics of Sub-Sahara Africa",
+    "department": "Political Science"
+  },
+  {
+    "code": "POSC 359",
+    "title": "The Politics of Food",
     "department": "Political Science"
   },
   {
@@ -6030,6 +6190,11 @@
     "department": "Political Science"
   },
   {
+    "code": "POSC 443",
+    "title": "Law in Film",
+    "department": "Political Science"
+  },
+  {
     "code": "POSC 444",
     "title": "Civil and Political Rights and Liberties",
     "department": "Political Science"
@@ -6145,6 +6310,11 @@
     "department": "Policy, Planning and Development"
   },
   {
+    "code": "PPD 321",
+    "title": "Behavioral Insights for Policy Makers",
+    "department": "Policy, Planning and Development"
+  },
+  {
     "code": "PPD 325",
     "title": "Fundamentals of Health Policy and Management",
     "department": "Policy, Planning and Development"
@@ -6187,6 +6357,11 @@
   {
     "code": "PPD 361",
     "title": "Sustainable Communities, Policy and Planning",
+    "department": "Policy, Planning and Development"
+  },
+  {
+    "code": "PPD 363",
+    "title": "Mapping Urban Data for Social Change",
     "department": "Policy, Planning and Development"
   },
   {
@@ -6270,6 +6445,11 @@
     "department": "Policy, Planning and Development"
   },
   {
+    "code": "PPD 477",
+    "title": "Washington, D.C. Policy Analysis Research Seminar",
+    "department": "Policy, Planning and Development"
+  },
+  {
     "code": "PPD 478",
     "title": "Social Innovation",
     "department": "Policy, Planning and Development"
@@ -6312,6 +6492,11 @@
   {
     "code": "PSYC 240",
     "title": "Scientific Inquiry and Reasoning in Health Care",
+    "department": "Psychology"
+  },
+  {
+    "code": "PSYC 250",
+    "title": "Natural and Artificial Intelligence",
     "department": "Psychology"
   },
   {
@@ -6550,6 +6735,11 @@
     "department": "Psychology"
   },
   {
+    "code": "PSYC 470",
+    "title": "Health and Mental Health Research in Mauritius",
+    "department": "Psychology"
+  },
+  {
     "code": "PSYC 480",
     "title": "Senior Honors Seminar",
     "department": "Psychology"
@@ -6632,6 +6822,11 @@
   {
     "code": "SOCI 325",
     "title": "Applied Social Research Methods",
+    "department": "Sociology"
+  },
+  {
+    "code": "SOCI 340",
+    "title": "Organizations: Bureaucracy and Alternatives to Bureaucracy",
     "department": "Sociology"
   },
   {
@@ -6990,6 +7185,11 @@
     "department": "Technology and Applied Computing"
   },
   {
+    "code": "TAC 298",
+    "title": "Special Topics",
+    "department": "Technology and Applied Computing"
+  },
+  {
     "code": "TAC 299",
     "title": "Special Topics",
     "department": "Technology and Applied Computing"
@@ -7111,7 +7311,7 @@
   },
   {
     "code": "TAC 388",
-    "title": "Developing Connected Devices",
+    "title": "Developing Smart Devices",
     "department": "Technology and Applied Computing"
   },
   {
@@ -7122,6 +7322,11 @@
   {
     "code": "TAC 404",
     "title": "Advanced Front-End Web Development",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 405",
+    "title": "Advanced Back-End Web Development",
     "department": "Technology and Applied Computing"
   },
   {
@@ -7147,6 +7352,11 @@
   {
     "code": "TAC 445",
     "title": "Apple Forensics and Security (macOS and iOS)",
+    "department": "Technology and Applied Computing"
+  },
+  {
+    "code": "TAC 447",
+    "title": "Mobile Device Forensics and Security",
     "department": "Technology and Applied Computing"
   },
   {
@@ -7446,7 +7656,7 @@
   },
   {
     "code": "THTR 308",
-    "title": "Programming for Lighting",
+    "title": "Lighting Programming for Live Events",
     "department": "Dramatic Arts"
   },
   {
@@ -7462,6 +7672,11 @@
   {
     "code": "THTR 315B",
     "title": "Physical Theatre I",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 316",
+    "title": "Advanced Movement for Actors",
     "department": "Dramatic Arts"
   },
   {
@@ -7521,7 +7736,7 @@
   },
   {
     "code": "THTR 336",
-    "title": "Introduction to Sound Design",
+    "title": "Sound Design I",
     "department": "Dramatic Arts"
   },
   {
@@ -7552,6 +7767,11 @@
   {
     "code": "THTR 343",
     "title": "Musical Theatre Audition",
+    "department": "Dramatic Arts"
+  },
+  {
+    "code": "THTR 346",
+    "title": "Musical Theatre Sound Reinforcement",
     "department": "Dramatic Arts"
   },
   {
@@ -7731,7 +7951,7 @@
   },
   {
     "code": "THTR 433B",
-    "title": "Costume Design II",
+    "title": "Costume Design II: The Psychology of Fashion",
     "department": "Dramatic Arts"
   },
   {
@@ -7746,7 +7966,7 @@
   },
   {
     "code": "THTR 435",
-    "title": "Advanced Theatrical Drafting",
+    "title": "Advanced Theatrical Drafting: AutoCAD",
     "department": "Dramatic Arts"
   },
   {
@@ -7771,7 +7991,7 @@
   },
   {
     "code": "THTR 441",
-    "title": "Advanced Sound Design",
+    "title": "Digital Sound Mixing",
     "department": "Dramatic Arts"
   },
   {
@@ -7796,7 +8016,7 @@
   },
   {
     "code": "THTR 448",
-    "title": "History of Fashion and the Costume",
+    "title": "History of Fashion and the Costume: A Guide to Glamour",
     "department": "Dramatic Arts"
   },
   {
