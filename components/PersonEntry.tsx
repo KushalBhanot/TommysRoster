@@ -1,4 +1,12 @@
+"use client";
+
+// One person on the roster, as a ruled row: who they are, what they took, the
+// AI's reason when the row came from a match, and the button to ask them.
+// If this browser already sent them a request for this course, the button
+// says "Ask again" and shows when (read from the Sent list in profile.ts).
+
 import type { Person } from "@/lib/courses";
+import { useSent } from "./profile";
 
 interface PersonEntryProps {
   person: Person;
@@ -16,6 +24,18 @@ interface PersonEntryProps {
 /** "2028" → "class of 2028"; anything else is shown the way it was typed. */
 function formatGradYear(gradYear: string): string {
   return /^\d{4}$/.test(gradYear) ? `class of ${gradYear}` : gradYear;
+}
+
+/** "CSCI 103L", "csci  103l" → "CSCI 103L", so codes typed two ways still match. */
+function sameCode(a: string, b: string): boolean {
+  const tidy = (code: string) => code.trim().replace(/\s+/g, " ").toUpperCase();
+  return tidy(a) === tidy(b);
+}
+
+/** An ISO date → "Nov 14", in the person's own time zone. */
+function shortDate(iso: string): string {
+  const date = new Date(iso);
+  return Number.isNaN(date.getTime()) ? "" : date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
 /**
@@ -48,6 +68,11 @@ export function PersonEntry({ person, rank, reason, keyPhrases = [], index = 0, 
   const course = [`${person.code} ${person.title}`.trim(), person.semester, person.professor]
     .filter(Boolean)
     .join(", ");
+
+  // The Sent list is newest first, so this is the latest request to this
+  // person about this course, if there is one.
+  const lastAsked = useSent().find((sent) => sent.person_id === person.person_id && sameCode(sent.code, person.code));
+  const askedOn = lastAsked ? shortDate(lastAsked.sent_at) : "";
 
   return (
     <li
@@ -84,13 +109,20 @@ export function PersonEntry({ person, rank, reason, keyPhrases = [], index = 0, 
 
         {person.note && <p className="mt-3 text-sm text-graphite">&ldquo;{person.note}&rdquo;</p>}
 
-        <button
-          type="button"
-          onClick={onAsk}
-          className="mt-4 min-h-11 cursor-pointer border-2 border-ink px-5 font-display text-lg font-semibold tracking-wide uppercase transition-colors duration-150 hover:bg-ink hover:text-paper"
-        >
-          Ask {person.first_name}
-        </button>
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <button
+            type="button"
+            onClick={onAsk}
+            className="min-h-11 cursor-pointer border-2 border-ink px-5 font-display text-lg font-semibold tracking-wide uppercase transition-colors duration-150 hover:bg-ink hover:text-paper motion-reduce:transition-none"
+          >
+            {lastAsked ? `Ask ${person.first_name} again` : `Ask ${person.first_name}`}
+          </button>
+          {askedOn && (
+            <p className="text-sm text-graphite">
+              You asked on <time dateTime={lastAsked?.sent_at}>{askedOn}</time>.
+            </p>
+          )}
+        </div>
       </div>
     </li>
   );

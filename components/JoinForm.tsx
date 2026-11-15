@@ -8,6 +8,7 @@ import type { CourseSummary } from "@/lib/courses";
 import { ABOUT_TAGS, HELP_TAGS } from "@/lib/tags";
 import { courseHref } from "./CourseSearch";
 import { errorMessage, getJson, postJson } from "./api";
+import { clientId, useProfile, type Profile } from "./profile";
 
 // One course from the catalog, with the semesters it ran and who taught it.
 interface CourseDetail {
@@ -30,12 +31,22 @@ const LABEL = "block font-medium";
  * from who taught it then, and what you can talk about by tapping chips.
  */
 export function JoinForm() {
+  // The fields take their starting values from the profile, so wait until the
+  // browser has read it. The key gives a fresh form if another account signs in.
+  const { profile, ready } = useProfile();
+  if (!ready) return null;
+  return <JoinFields key={profile?.email ?? "signed-out"} profile={profile} />;
+}
+
+function JoinFields({ profile }: { profile: Profile | null }) {
   const codeFromLink = useSearchParams().get("code") ?? "";
 
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [major, setMajor] = useState("");
-  const [gradYear, setGradYear] = useState("");
+  // The form starts filled in from what the person gave at onboarding, so
+  // joining the roster is mostly choosing a course.
+  const [firstName, setFirstName] = useState(profile?.first_name ?? "");
+  const [email, setEmail] = useState(profile?.email ?? "");
+  const [major, setMajor] = useState(profile?.major ?? "");
+  const [gradYear, setGradYear] = useState(profile?.grad_year ?? "");
   const [course, setCourse] = useState<CourseDetail | null>(null);
   const [semester, setSemester] = useState("");
   const [professor, setProfessor] = useState("");
@@ -126,6 +137,8 @@ export function JoinForm() {
         professor,
         help_tags: helpTags,
         about_tags: aboutTags,
+        // Lets "Delete my data" on the Account page remove this sign-up later.
+        client_id: clientId(),
       });
       setStatus("done");
     } catch (err) {
@@ -208,6 +221,25 @@ export function JoinForm() {
           </div>
         ) : (
           <div>
+            {/* Courses named at onboarding are one tap away. */}
+            {profile && profile.courses.length > 0 && (
+              <div className="mb-4">
+                <p className={LABEL}>Courses you said you took</p>
+                <ul className="mt-2 flex flex-wrap gap-2">
+                  {profile.courses.map((code) => (
+                    <li key={code}>
+                      <button
+                        type="button"
+                        onClick={() => chooseCourse(code)}
+                        className="min-h-11 cursor-pointer border-2 border-ink px-3 font-display text-lg font-semibold uppercase transition-colors duration-150 hover:bg-gold"
+                      >
+                        {code}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <label htmlFor="join-course" className={LABEL}>Course you took</label>
             <input
               id="join-course"

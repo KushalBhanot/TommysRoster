@@ -1,19 +1,22 @@
 // The footer: who made this, where the data comes from, and the name set
-// very large and cut off by the bottom of the page.
+// very large and cut off by the bottom of the page. It is cardinal, the
+// brand color, with white text (contrast 8.9:1).
+
+import Link from "next/link";
 
 // The people who built the site, in the order they should be listed.
 const MADE_BY = ["Kushal Bhanot", "Angela Chen", "Alassane Fofana", "Leo Wan"];
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 overflow-hidden bg-ink text-paper">
+    <footer className="mt-24 overflow-hidden bg-cardinal text-paper">
       <div className="mx-auto max-w-5xl px-5 pt-12 sm:pt-16">
         {/* The gold bar from the logo. */}
         <span aria-hidden="true" className="block h-1.5 w-16 bg-gold" />
 
         <div className="mt-8 grid gap-8 text-[15px] sm:grid-cols-[1fr_1fr_2fr]">
           <div>
-            <h2 className="text-paper/60">Made by</h2>
+            <h2 className="text-paper/75">Made by</h2>
             <ul className="mt-1">
               {MADE_BY.map((name) => (
                 <li key={name}>{name}</li>
@@ -21,16 +24,19 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h2 className="text-paper/60">Built at</h2>
-            <p className="mt-1">AI@USC Hackathon</p>
-            <p>HackSC and USC Student Government</p>
-            <p>2026</p>
+            <h2 className="text-paper/75">Built at</h2>
+            <p className="mt-1">AI@USC Hackathon 2026</p>
           </div>
           <div>
-            <h2 className="text-paper/60">About what you see</h2>
+            <h2 className="text-paper/75">About what you see</h2>
             <p className="mt-1">Matches are suggested by AI from what students wrote about themselves.</p>
-            <p>Some profiles are demo data created for this prototype.</p>
             <p>Courses and instructors come from the USC Schedule of Classes.</p>
+            <p className="mt-3">
+              {/* The padding makes the link a 44px tap target. */}
+              <Link href="/privacy" className="-my-3 inline-block py-3 font-semibold underline underline-offset-4">
+                How we protect your data
+              </Link>
+            </p>
           </div>
         </div>
       </div>

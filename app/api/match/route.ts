@@ -1,7 +1,10 @@
+// The match endpoint: checks the request, then hands it to lib/match.ts.
+
 import { errorJson, json, readJsonObject, textField } from "@/lib/http";
-import { matchPeople } from "@/lib/match";
+import { askerCourses, askerLevel, matchPeople } from "@/lib/match";
 import { normalizeCode } from "@/lib/normalize";
 import { allowRequest, clientIp } from "@/lib/rate-limit";
+import { SIGN_IN_FIRST, mayUseSite } from "@/lib/session";
 
 const MAX_QUESTION_CHARS = 300;
 const MAX_ASKER_FIELD_CHARS = 60;
@@ -17,9 +20,15 @@ function optionalText(value: unknown): string {
 }
 
 // POST /api/match
-// body { question, asker_major?, asker_year?, code? }
-// → { matches: [{ person, code, courses, reason }], draft_message }
+// body { question, asker_major?, asker_level?, asker_year?, asker_courses?, code? }
+// → { status, matches: [{ person, reason, key_phrases }], draft_message }
+// asker_level is "undergraduate" or "graduate" (anything else is ignored);
+// asker_courses is a list of course codes (unknown ones are dropped, at most 40).
 export async function POST(request: Request) {
+  // The AI costs money per call: when only USC Google sign-in is accepted,
+  // it answers signed-in USC accounts and nobody else.
+  if (!(await mayUseSite())) return errorJson(SIGN_IN_FIRST, 401);
+
   if (!allowRequest(clientIp(request), RATE_LIMIT, RATE_WINDOW_MS)) {
     return errorJson("Too many questions in a short time. Please wait a minute and try again.", 429);
   }
@@ -37,7 +46,9 @@ export async function POST(request: Request) {
     const result = await matchPeople({
       question,
       asker_major: optionalText(body.asker_major),
+      asker_level: askerLevel(body.asker_level),
       asker_year: optionalText(body.asker_year),
+      asker_courses: askerCourses(body.asker_courses),
       code: typeof body.code === "string" ? normalizeCode(body.code) : "",
     });
     return json(result);

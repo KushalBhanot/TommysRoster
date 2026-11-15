@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
+import { AssistantWidget } from "@/components/AssistantWidget";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
 // Everything that is read as a sentence.
@@ -29,25 +29,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
-        <header className="mx-auto flex w-full max-w-3xl items-center gap-3 px-5 pt-5">
-          <Link href="/" className="flex min-h-11 items-center gap-2.5">
-            {/* The roster mark: three people, three rows, the middle row gold. */}
-            <Image src="/roster-mark.png" alt="" width={46} height={36} priority />
-            <span className="font-display text-xl font-semibold tracking-wide whitespace-nowrap uppercase">
-              Tommy&rsquo;s Roster
-            </span>
-          </Link>
-          <Link
-            href="/join"
-            className="ml-auto inline-flex min-h-11 items-center font-medium whitespace-nowrap underline underline-offset-4"
-          >
-            Join<span className="hidden sm:inline">&nbsp;the roster</span>
-          </Link>
-        </header>
+        <SiteHeader />
 
         <main className="mx-auto w-full max-w-3xl flex-1 px-5">{children}</main>
 
         <SiteFooter />
+
+        {/* Tommy, the helper in the corner. It hides itself until onboarding is done. */}
+        <AssistantWidget />
       </body>
     </html>
   );

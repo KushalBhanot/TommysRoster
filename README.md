@@ -31,10 +31,38 @@ curl -X POST http://localhost:3000/api/match -H 'content-type: application/json'
 
 | Variable | What it does |
 | --- | --- |
-| `ANTHROPIC_API_KEY` | Claude API key from the Claude Console. Only `POST /api/match` uses it. |
+| `ANTHROPIC_API_KEY` | Claude API key from the Claude Console. Used by matching, the personal draft and Tommy (the helper). Without it they fall back to plain answers built in code. |
 | `ANTHROPIC_MODEL` | Optional. Defaults to `claude-haiku-5-5`. Set `claude-sonnet-5-5` for higher quality at a higher price. |
+| `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` | Optional. Turn on USC Google sign-in (see below). |
+| `AUTH_SECRET` | Needed with the two above. Signs the session cookie. 32+ random characters: `openssl rand -base64 48`. |
+| `ALLOW_DEMO_SIGNIN` | Optional. `true` keeps the demo sign-in next to Google sign-in. |
+| `RESEND_API_KEY`, `EMAIL_FROM` | Optional. Email intro requests through Resend instead of only storing them. |
 
-`.env.local` is gitignored. Never commit a key.
+`.env.local` is gitignored. Never commit a key. `.env.example` explains each one.
+
+### Sign-in
+
+- **USC Google sign-in** (real): "Continue with USC Google" sends the browser to Google,
+  limited to usc.edu accounts. USC's Google accounts log in on USC's own NetID page, so
+  this site never sees a password. Google tells the server the verified address, and
+  the server keeps it in a signed, HttpOnly cookie. Set it up with the steps in
+  `.env.example` (create an OAuth client in Google Cloud, add the redirect URI
+  `https://YOUR-SITE/api/auth/callback`).
+- **Demo sign-in**: type a USC email. Only the ending is checked, and the page says so.
+  It is the only way in until Google sign-in is set up, and stays next to it when
+  `ALLOW_DEMO_SIGNIN=true` (useful for people without a USC account, such as judges).
+
+With Google sign-in on and the demo off, the server only believes its own cookie:
+intro requests and roster sign-ups are saved under the verified address whatever the
+page sends, and the AI routes and the lists of people answer 401 without a session.
+
+### Email (optional)
+
+Set `RESEND_API_KEY` and an intro request is emailed to the person, with reply-to set to
+the asker. The address comes from the person's own sign-up, or from
+`data/private/person-emails.json` (`{ "<person_id>": "<email>" }`, gitignored) for
+people who did not sign up through the site. Without a verified sending domain, Resend
+only delivers to the address the Resend account was created with.
 
 ### Data
 
@@ -58,15 +86,22 @@ it already has again (for example to pick up instructor changes).
 
 ### Privacy
 
-An email is collected when someone joins the roster or asks for an intro. It is saved
-only under `data/private/` (gitignored), the people list in memory has no email field at
-all, and no API response includes one. The model is sent no names and no emails.
+The statement users see is in `lib/privacy.ts` (shown after onboarding, on `/account`
+and at `/privacy`). What the code does to back it up:
+
+- The profile and the sent history live in the browser only. There is no account database.
+- The model is sent no names and no emails. Every person, course, year and phrase in its answer is checked in code before it is shown.
+- An email is saved only under `data/private/` (gitignored), the people list in memory has no email field, and no API response includes anyone else's email.
+- Questions typed into the search box, the draft and the helper are not stored or logged.
+- "Delete my account and all data" on `/account` removes the person's requests and sign-ups from the server, takes them off the roster, ends the session and clears the browser.
+- Anthropic's API terms: data sent through the API is not used to train its models and is deleted within 30 days (longer only to enforce its usage policy or comply with the law).
 
 ### Known limitations
 
 - Sign-ups and intro requests are stored in memory (plus a local file when the disk is writable), so on a host like Vercel they are lost when the server restarts; a real launch needs a small database behind those two routes.
-- The `/api/match` rate limit (10 requests per minute per IP) is also in memory, so it is counted per server instance.
-- Intro requests are stored, not emailed. Someone has to forward them.
+- The rate limits on the AI routes (per IP, per minute) are also in memory, so they are counted per server instance.
+- Intro requests are emailed only when Resend is set up; otherwise they are stored and someone has to forward them.
+- The roster itself (demo people, first names, majors, what they offered to talk about) is not encrypted at rest; it holds no emails.
 
 ### Layout
 

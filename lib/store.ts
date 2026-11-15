@@ -36,6 +36,45 @@ export function saveRecord(fileName: string, record: Record<string, unknown>): v
   }
 }
 
+/**
+ * Remove every record in data/private/<fileName> that matches, both from
+ * memory and from the file (best effort, like saveRecord). Returns how many
+ * were removed. Records saved in this process are in memory and usually in the
+ * file too, so the larger of the two counts is the number of distinct records.
+ */
+export function removeRecords(
+  fileName: string,
+  matches: (record: Record<string, unknown>) => boolean,
+): number {
+  const memory = (inMemory.get(fileName) ?? []) as Record<string, unknown>[];
+  const keptInMemory = memory.filter((record) => !matches(record));
+  inMemory.set(fileName, keptInMemory);
+  const removedFromMemory = memory.length - keptInMemory.length;
+
+  let removedFromFile = 0;
+  try {
+    const file = path.join(PRIVATE_DIR, fileName);
+    if (fs.existsSync(file)) {
+      const parsed: unknown = JSON.parse(fs.readFileSync(file, "utf8"));
+      const existing = (Array.isArray(parsed) ? parsed : []) as Record<string, unknown>[];
+      const kept = existing.filter((record) => !matches(record));
+      removedFromFile = existing.length - kept.length;
+      if (removedFromFile > 0) fs.writeFileSync(file, JSON.stringify(kept, null, 2) + "\n");
+    }
+  } catch (error) {
+    console.warn(
+      `[store] could not update data/private/${fileName}, removed from memory only:`,
+      error instanceof Error ? error.message : error,
+    );
+  }
+  return Math.max(removedFromMemory, removedFromFile);
+}
+
+/** A browser id sent by the page: letters, digits and hyphens, at most 80 characters. Otherwise "". */
+export function clientIdField(value: unknown): string {
+  return typeof value === "string" && /^[A-Za-z0-9-]{1,80}$/.test(value) ? value : "";
+}
+
 /** The records saved since this server process started. */
 export function recordsInMemory(fileName: string): unknown[] {
   return inMemory.get(fileName) ?? [];

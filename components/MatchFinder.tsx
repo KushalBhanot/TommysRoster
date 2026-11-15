@@ -6,6 +6,7 @@ import type { MatchResult, MatchStatus } from "@/lib/match";
 import { AskDialog } from "./AskDialog";
 import { errorMessage, getJson, postJson } from "./api";
 import { PersonEntry } from "./PersonEntry";
+import { askerContext, useProfile } from "./profile";
 
 interface MatchFinderProps {
   /** When set, only people who took this course are searched. */
@@ -30,7 +31,8 @@ type Results =
   | { status: "idle" }
   | { status: "loading" }
   | { status: "error"; message: string }
-  | { status: "done"; result: MatchResult };
+  // `asked` is the question as it was sent, even if the box is edited afterwards.
+  | { status: "done"; result: MatchResult; asked: string };
 
 /**
  * The question box and its results: type what you are trying to figure out,
@@ -38,6 +40,9 @@ type Results =
  * and ask one of them.
  */
 export function MatchFinder({ code, heading, headingLevel, intro, examples }: MatchFinderProps) {
+  // What the person told us about themselves at onboarding. Their major, year
+  // and courses go to the matcher with the question (never their name or email).
+  const { profile } = useProfile();
   const [question, setQuestion] = useState("");
   const [results, setResults] = useState<Results>({ status: "idle" });
   // The person whose "Ask" window is open, if any.
@@ -83,8 +88,8 @@ export function MatchFinder({ code, heading, headingLevel, intro, examples }: Ma
     setScanRow(0);
     setResults({ status: "loading" });
     try {
-      const result = await postJson<MatchResult>("/api/match", { question, code });
-      setResults({ status: "done", result });
+      const result = await postJson<MatchResult>("/api/match", { question, code, ...askerContext(profile) });
+      setResults({ status: "done", result, asked: question });
     } catch (error) {
       setResults({ status: "error", message: errorMessage(error) });
     }
@@ -118,6 +123,7 @@ export function MatchFinder({ code, heading, headingLevel, intro, examples }: Ma
 
         <textarea
           id="question"
+          data-tour="question"
           ref={questionRef}
           required
           rows={3}
@@ -140,7 +146,7 @@ export function MatchFinder({ code, heading, headingLevel, intro, examples }: Ma
         )}
 
         {examples.length > 0 && (
-          <ul className="mt-3 flex flex-wrap gap-2">
+          <ul data-tour="examples" className="mt-3 flex flex-wrap gap-2">
             {examples.map((example) => (
               <li key={example}>
                 <button
@@ -158,6 +164,7 @@ export function MatchFinder({ code, heading, headingLevel, intro, examples }: Ma
         <div className="mt-6">
           <button
             type="submit"
+            data-tour="scan"
             disabled={loading}
             className="min-h-12 w-full cursor-pointer bg-cardinal px-8 font-display text-xl font-semibold tracking-wide text-paper uppercase transition-opacity duration-150 disabled:cursor-default disabled:opacity-70 sm:w-auto"
           >
@@ -258,6 +265,8 @@ export function MatchFinder({ code, heading, headingLevel, intro, examples }: Ma
           // A new key gives each person a fresh window (message, email, state).
           key={asking.person_id}
           person={asking}
+          // The personal draft is written about what the person actually asked.
+          question={results.asked}
           draft={results.result.draft_message}
           onClose={() => setAsking(null)}
         />

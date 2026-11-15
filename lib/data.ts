@@ -124,6 +124,24 @@ export function addPersonRow(row: PersonRow): PersonRow {
   return row;
 }
 
+/**
+ * Take sign-ups off the roster: removes the rows of people who signed up
+ * while the server is running ("real" rows) that match. Demo rows are never
+ * removed. Returns how many rows were removed.
+ */
+export function removePersonRows(matches: (row: PersonRow) => boolean): number {
+  const people = getPeopleRows();
+  let removed = 0;
+  // Walk backwards so splicing does not skip the next row.
+  for (let i = people.length - 1; i >= 0; i--) {
+    if (people[i].source === "real" && matches(people[i])) {
+      people.splice(i, 1);
+      removed++;
+    }
+  }
+  return removed;
+}
+
 /** The next unused person_id. */
 export function nextPersonId(): number {
   return Math.max(0, ...getPeopleRows().map((row) => row.person_id)) + 1;

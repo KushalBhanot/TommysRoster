@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { Gate } from "@/components/Gate";
 import { JoinForm } from "@/components/JoinForm";
 
 export const metadata = { title: "Join the roster" };
@@ -7,8 +8,10 @@ export const metadata = { title: "Join the roster" };
 // the address in the browser, so it is wrapped in Suspense.
 export default function JoinPage() {
   return (
-    <Suspense fallback={null}>
-      <JoinForm />
-    </Suspense>
+    <Gate>
+      <Suspense fallback={null}>
+        <JoinForm />
+      </Suspense>
+    </Gate>
   );
 }

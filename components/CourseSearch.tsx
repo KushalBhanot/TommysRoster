@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { CourseSummary } from "@/lib/courses";
 import { errorMessage, getJson } from "./api";
+import { useProfile } from "./profile";
 import { useCourses } from "./useCourses";
 
 // How many courses to list before the person has typed anything.
@@ -54,7 +55,7 @@ export function CourseSearch() {
   const typing = query.trim() !== "";
 
   return (
-    <section aria-labelledby="courses-title">
+    <section data-tour="courses" aria-labelledby="courses-title">
       <h2 id="courses-title" className="font-display text-4xl font-bold uppercase">
         Browse by course
       </h2>
@@ -127,6 +128,10 @@ export function CourseSearch() {
 }
 
 function CourseRows({ courses }: { courses: CourseSummary[] }) {
+  // Courses the person said they took at onboarding get a small mark.
+  const { profile } = useProfile();
+  const taken = new Set(profile?.courses ?? []);
+
   return (
     <ul className="border-t-2 border-ink">
       {courses.map((course) => (
@@ -136,7 +141,12 @@ function CourseRows({ courses }: { courses: CourseSummary[] }) {
             className="grid grid-cols-[5.5rem_1fr] items-baseline gap-x-3 px-3 py-3 transition-colors duration-150 hover:bg-gold sm:grid-cols-[6.5rem_1fr_auto]"
           >
             <span className="font-display text-xl font-semibold uppercase">{course.code}</span>
-            <span>{course.title}</span>
+            <span>
+              {course.title}
+              {taken.has(course.code) && (
+                <span className="ml-2 border border-ink px-1.5 py-0.5 text-xs whitespace-nowrap">You took this</span>
+              )}
+            </span>
             <span className="col-start-2 text-sm text-graphite sm:col-start-3">
               {course.people_count === 0
                 ? "No one yet"

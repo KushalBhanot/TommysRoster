@@ -9,17 +9,26 @@
 // instead of pairing someone with a question that was never really asked.
 // If the model call fails, we only fall back to recent people when we can
 // tell which course the question is about; otherwise we say matching is down.
+//
+// The asker's own profile (major, level, year, courses taken) is sent along so
+// the model can prefer people on a similar path. It is never their name or email.
 
-import { courseTitle } from "./catalog";
+import { courseTitle, findCourse } from "./catalog";
 import { getCourseRows, newestFirst, toPerson, type Person } from "./courses";
 import { getPeopleRows, type PersonRow } from "./data";
 import { generateJson } from "./llm";
 import { normalizeCode } from "./normalize";
 
+/** "" = the asker did not say. */
+export type AskerLevel = "undergraduate" | "graduate" | "";
+
 export interface MatchInput {
   question: string;
   asker_major: string;
+  asker_level: AskerLevel;
   asker_year: string;
+  /** Catalog codes of courses the asker has taken, already checked (see askerCourses). */
+  asker_courses: string[];
   /** "" = search everyone. */
   code: string;
 }
@@ -54,13 +63,35 @@ const MAX_MATCHES = 3;
 const MAX_PEOPLE_IN_PROMPT = 150;
 const MAX_REASON_CHARS = 300;
 const MAX_DRAFT_CHARS = 700;
+const MAX_ASKER_COURSES = 40;
+
+/** The asker's level from a request body; anything other than the two known values reads as "". */
+export function askerLevel(value: unknown): AskerLevel {
+  return value === "undergraduate" || value === "graduate" ? value : "";
+}
+
+/**
+ * The asker's courses from a request body: each one looked up in the catalog,
+ * unknown codes and repeats dropped, at most 40 kept. Not a list reads as [].
+ */
+export function askerCourses(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  const codes = new Set<string>();
+  for (const raw of value) {
+    if (typeof raw !== "string") continue;
+    const course = findCourse(raw);
+    if (course) codes.add(course.code);
+    if (codes.size === MAX_ASKER_COURSES) break;
+  }
+  return [...codes];
+}
 
 const SYSTEM_PROMPT = `You match a USC student who has a question about a course with other USC students who took courses and offered to answer questions.
 
 You get a JSON object with:
 - "question": what the asker is trying to figure out
 - "course": the course code the asker is asking about, or "" when they are searching all courses
-- "asker": their major and year, either may be empty
+- "asker": their major, level ("undergraduate", "graduate" or ""), graduation year and "courses" (codes of courses they have already taken). Any of these may be empty.
 - "people": the only people you may choose from. Each has a person_id, major, grad_year, "about" (things they said about themselves, may be empty) and "courses", a list of { code, title, semester, professor, can_talk_about, note }. "can_talk_about" is what they offered to discuss for that course; "note" is one sentence in their own words and may be empty.
 
 Return:
@@ -78,7 +109,8 @@ Return:
 Rules:
 - Never invent a person, course, professor, semester or any other fact. If something is not in the input, do not say it.
 - Do not use outside knowledge about USC, its courses or its professors.
-- Prefer people whose note or can_talk_about is close to the question; then a similar major or path to the asker; then a more recent semester.
+- Prefer people whose note or can_talk_about is close to the question; then a similar major or path to the asker (the same major, or a course in common with the asker's "courses"); then a more recent semester.
+- A reason may mention something the person shares with the asker, such as the same major or a course they both took, ONLY when it is true of that person's own entry. The asker's courses are not the person's courses: never say the person took a course unless it is in their own "courses" list.
 - If the question names a professor, prefer people who took the course with that professor, and say so in the reason. A professor's name counts only if it appears in that person's entry.
 - Never give an opinion about a professor.
 - For a "course_question" where nobody is a close fit, still return the closest people.
@@ -172,13 +204,13 @@ function checkedKeyPhrases(raw: unknown, reason: string | null): string[] {
 
 // Characters that never belong in a plain sentence shown to a student. If the
 // model leaves any of them in its text, that text is not used.
-const STRAY_MARKUP = /[[\]{}<>|`\\*_#=~^]/;
+export const STRAY_MARKUP = /[[\]{}<>|`\\*_#=~^]/;
 
 /**
  * Cut off anything after the last sentence-ending mark. Models occasionally
  * leave a few stray characters after the sentence, such as `.](x)` or `.','`.
  */
-function tidySentence(text: string): string {
+export function tidySentence(text: string): string {
   const trimmed = text.trim();
   const end = Math.max(trimmed.lastIndexOf("."), trimmed.lastIndexOf("!"), trimmed.lastIndexOf("?"));
   return end === -1 ? trimmed : trimmed.slice(0, end + 1);
@@ -247,7 +279,7 @@ export function validateModelAnswer(
     const row = rows.find((r) => r.code === wanted) ?? rows[0];
 
     const checked = checkedReason(reason, rows);
-    if (checked === null) console.warn("[match] dropped a reason that failed the fact check:", reason);
+    if (checked === null) console.warn("[match] dropped a reason that failed the fact check.");
 
     used.add(row.person_id);
     matches.push(toMatch(row, checked, checkedKeyPhrases(key_phrases, checked)));
@@ -302,7 +334,12 @@ export async function matchPeople(input: MatchInput): Promise<MatchResult> {
       input: JSON.stringify({
         question: input.question,
         course: input.code,
-        asker: { major: input.asker_major, year: input.asker_year },
+        asker: {
+          major: input.asker_major,
+          level: input.asker_level,
+          year: input.asker_year,
+          courses: input.asker_courses,
+        },
         people,
       }),
       schema: RESPONSE_SCHEMA,

@@ -182,9 +182,149 @@ When a match has reason: null, show the person without a reason line. For status
 When nobody is returned, the message depends on status: could not read the question,
 not about a course, nobody fits yet, or matching is unavailable (with a retry).
 
+## Sign-in, onboarding and the helpers around matching
+This section is the contract the pieces are built against.
+
+### Where a person's own data lives
+components/profile.ts keeps it in the browser (localStorage), nowhere else:
+- Profile = { email, first_name, major, level: "undergraduate" | "graduate" | "",
+  grad_year, courses: string[], onboarded, privacy_seen, tour_done }
+- SentRequest = { id, sent_at, person_id, first_name, code, title, message,
+  delivery: "emailed" | "saved" }
+- clientId(): a random id for this browser, sent with requests and sign-ups so the
+  server can delete exactly what this browser created.
+Hooks and functions: useProfile() → { profile, ready }, useSent(), signIn(email),
+updateProfile(changes), addSent(request), clearLocalData(), clientId(),
+askerContext(profile) → { asker_major, asker_level, asker_year, asker_courses }.
+There is no account database. Nothing in this section may return an email from an API.
+
+### Sign-in
+Two ways, chosen by environment variables (lib/session.ts). GET /api/auth/session tells
+the page which are on.
+
+1. USC Google sign-in (real). On when GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and
+   AUTH_SECRET (32+ characters) are set.
+   - GET /api/auth/google redirects to Google with scope "openid email", hd=usc.edu and
+     a random state kept in an HttpOnly cookie. USC's Google accounts log in on USC's
+     own NetID page, so no password ever reaches this site.
+   - GET /api/auth/callback checks the state, swaps the code for an ID token, and
+     requires aud = our client id, a Google issuer, email_verified, hd = "usc.edu" and
+     an @usc.edu address. Then it sets the session cookie and returns to /signin.
+   - The session cookie (roster_session) is { email, exp } plus an HMAC-SHA256 made
+     with AUTH_SECRET: HttpOnly, SameSite=Lax, Secure on https, 7 days.
+   - GET /api/auth/session → { email, google, demo }. email is the caller's OWN
+     verified address (the one email an API returns, and only to its owner).
+     DELETE /api/auth/session signs out.
+2. Demo sign-in: type a USC email; only the ending is checked, and the page says so.
+   There is NO password field anywhere, and no page imitates USC's login page.
+   Allowed when Google is not set up, or when ALLOW_DEMO_SIGNIN=true.
+
+Who the server believes:
+- actingEmail(claimed): the verified session address if there is one; otherwise the
+  address the page sent, but only while demo sign-in is allowed. POST /api/request and
+  POST /api/people use it, so with demo sign-in off nobody can act in someone else's
+  name (401 "Please sign in with your USC account first.").
+- mayUseSite(): with demo sign-in off, the AI routes (/api/match, /api/draft,
+  /api/assistant) and the routes that list people (/api/courses/[code]/people,
+  /api/roster) answer 401 without a verified session.
+
+### Onboarding (/welcome), three steps, then the privacy notice
+1. Your first name.
+2. Your major (select from data/majors.json), undergraduate or graduate, and year of
+   graduation (select).
+3. Courses you have taken: a filter box (type a prefix or code, "csci", "buad312")
+   over GET /api/catalog?q=…&limit=50, shown as a list of checkboxes; chosen courses
+   stay listed as removable chips. Optional, any number.
+Then a privacy notice the person must accept, then the home page.
+
+The privacy statement lives in lib/privacy.ts and is shown in three places: the notice
+at the end of onboarding (must be accepted), "How your information is used" on
+/account, and the public page /privacy (linked from the footer). It has two parts,
+"What we promise" (never sold; never used to train AI, by us or by Anthropic under its
+API terms; shared only with the two services that make the site work; delete your
+account at any time) and "What is kept, and where". Every line must stay true of the
+code: do not claim USC-network encryption or anything else that is not so.
+
+### Gate
+components/Gate.tsx wraps the content of every page that needs a finished profile: /,
+/course/[code], /join, /account and /sent. /signin, /welcome and /privacy are open.
+Signed out → /signin. Signed in but onboarded or privacy_seen is false → /welcome. With
+demo sign-in off, a profile in the browser only counts while the server's session
+cookie names the same address. The page is always rendered but stays hidden until the
+browser has read the profile (nothing private is in the page itself).
+
+### Account (/account)
+See the profile (access), edit it (rectify), download it and the sent history as a JSON
+file, replay the walkthrough, sign out, and "Delete my account and all data": DELETE
+/api/me, then the session is ended, then clearLocalData(), then /signin. It says whether
+the address was verified by USC Google sign-in or typed in.
+
+### Walkthrough
+Starts by itself on the home page the first time (onboarded, privacy_seen, not
+tour_done). It spotlights, in order, the elements marked data-tour="question",
+"examples", "scan", "courses", "sent", "account", "assistant" (a missing one is
+skipped), with Back / Next / Skip and a step count. Finishing or skipping sets tour_done.
+
+### API additions
+POST /api/match also accepts asker_level ("undergraduate" | "graduate") and
+asker_courses: string[] (course codes; unknown codes are ignored, at most 40). The model
+may use the asker's major, level, year and courses to prefer people on a similar path,
+and may say so in the reason only when it is true of that person's rows.
+
+POST /api/draft
+body { person_id: number, code: string, question?: string (max 300),
+       asker_first_name?: string (max 40), asker_major?, asker_level?, asker_year?,
+       asker_courses?: string[] }
+→ { draft: string, source: "ai" | "template" }
+A message written for this one person. The model gets the question, the asker's major,
+level, year and courses, and that person's row (major, grad year, about_tags, course
+code and title, semester, professor, help_tags, note). It does NOT get either first
+name or any email: code adds "Hi <first name>!" in front and the asker's first name as
+a sign-off. 2 to 4 sentences, first person, mentions one concrete thing from the
+person's own entry, invents nothing, no opinion about a professor. On any failure a
+plain template built in code is returned with source "template". 404 if the person is
+not listed for that course. Rate limit 20 per minute per IP.
+
+POST /api/request  (changed)
+body { person_id, code?, question, from_email, client_id? } → { ok: true,
+  delivery: "emailed" | "saved" }
+The sender is actingEmail(from_email): a verified session wins over from_email.
+If RESEND_API_KEY is set and an address is known for the person, the request is emailed
+to them (reply-to: the asker) and delivery is "emailed"; otherwise it is only stored
+and delivery is "saved". Addresses come from data/private/person-emails.json
+({ "<person_id>": "<email>" }, gitignored) or from that person's own sign-up. A failed
+send is never an error for the asker: the request is still stored, delivery "saved".
+
+POST /api/people also accepts client_id and stores it with the private record.
+
+DELETE /api/me
+body { client_id?: string } → { ok: true, removed: { requests: number, signups: number } }
+Removes the caller's intro requests and roster sign-ups (memory and data/private
+files), and takes those sign-ups off the roster. A record is the caller's when it
+carries their browser id, or, for a caller with a verified session, their address
+(so records made in their other browsers go too). A typed, unverified address never
+counts.
+
+POST /api/assistant
+body { messages: [{ role: "user" | "assistant", content: string }] }
+  (1 to 12 messages, each at most 600 chars, the last one from the user)
+→ { reply: string, links: [{ label: string, href: string }] }
+"Tommy", a small helper that answers questions about using the site. It may call two
+tools: search_courses(query) → up to 6 { code, title, people_count }, and
+course_summary(code) → { code, title, people_count, semesters, can_talk_about counts }.
+Tool results never contain names or emails. Replies are 1 to 3 short sentences. links
+are built in code from course codes the reply mentions that exist in the catalog
+(→ /course/<code>) plus fixed pages (/join, /sent, /account). Off-topic questions get a
+one-line redirect. No opinions about professors. If the model is unavailable, a fixed
+helpful reply is returned. Rate limit 12 per minute per IP.
+
+### Sent (/sent)
+The requests this person sent, newest first: who, which course, when, and whether it
+was emailed or saved; each opens to show the message. Read from the browser only.
+
 ## Out of scope for v1
-Accounts, chat, payments, professor ratings, email sending, scheduling, admin UI,
-AI-written course summaries.
+Real USC single sign-on, an account database, chat between students, payments,
+professor ratings, scheduling, admin UI, AI-written course summaries.
 
 ## Order of work
 1. Backend, the catalog and the demo roster. Done.

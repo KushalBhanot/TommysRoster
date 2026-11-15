@@ -1,16 +1,27 @@
+// POST /api/people: someone who took a course adds themselves to the roster.
+// The public row has no email; the email lives only in the private record.
+
 import { findCourse, instructorsFor, semestersOffered } from "@/lib/catalog";
 import { addPersonRow, nextPersonId } from "@/lib/data";
-import { errorJson, json, readJsonObject, textField, uscEmail } from "@/lib/http";
-import { saveRecord } from "@/lib/store";
+import { errorJson, json, readJsonObject, textField } from "@/lib/http";
+import { SIGN_IN_FIRST, actingEmail, demoSignInAllowed } from "@/lib/session";
+import { clientIdField, recordsInMemory, saveRecord } from "@/lib/store";
 import { ABOUT_TAGS, HELP_TAGS, type AboutTag, type HelpTag } from "@/lib/tags";
 import MAJORS from "@/data/majors.json";
 
 const MAX_NAME_CHARS = 40;
 
-// Sign-ups made since the server started: email → person_id, so one person
-// signing up for two courses keeps one id.
-const shared = globalThis as typeof globalThis & { __idByEmail?: Map<string, number> };
-const idByEmail = (shared.__idByEmail ??= new Map<string, number>());
+/**
+ * The person_id this email already has from an earlier sign-up since the
+ * server started, so one person signing up for two courses keeps one id.
+ * Read from the stored records (not a separate list) so that DELETE /api/me
+ * removing those records also forgets the email here.
+ */
+function existingIdFor(email: string): number | undefined {
+  const signups = recordsInMemory("new-people.json") as Record<string, unknown>[];
+  const match = signups.find((record) => record.email === email && typeof record.person_id === "number");
+  return match?.person_id as number | undefined;
+}
 
 /** The values in a JSON array that are on the allowed list, each once. */
 function chosenFrom<T extends string>(value: unknown, allowed: readonly T[]): T[] {
@@ -20,7 +31,7 @@ function chosenFrom<T extends string>(value: unknown, allowed: readonly T[]): T[
 
 // POST /api/people: sign up as someone who took a course.
 // body { first_name, email, major, grad_year, code, semester, professor,
-//        help_tags, about_tags? } → { ok: true }
+//        help_tags, about_tags?, client_id? } → { ok: true }
 // Apart from the first name and the email, every value must be one the form
 // offered: a major from the official list, a course from the catalog, a
 // semester the course ran in, a professor listed for it then, and tags from
@@ -35,8 +46,15 @@ export async function POST(request: Request) {
     return errorJson("Please enter just your first name.", 400);
   }
 
-  const email = uscEmail(body.email);
-  if (!email) return errorJson("Please use your @usc.edu email.", 400);
+  // A verified USC Google session always wins over the address the page
+  // sent, so nobody can put someone else on the roster. The typed address
+  // only counts while demo sign-in is allowed.
+  const email = await actingEmail(body.email);
+  if (!email) {
+    return demoSignInAllowed()
+      ? errorJson("Please use your @usc.edu email.", 400)
+      : errorJson(SIGN_IN_FIRST, 401);
+  }
 
   const major = textField(body.major);
   if (!(MAJORS as string[]).includes(major)) return errorJson("Please choose your major from the list.", 400);
@@ -66,20 +84,28 @@ export async function POST(request: Request) {
   const help_tags: HelpTag[] = chosenFrom(body.help_tags, HELP_TAGS);
   if (help_tags.length === 0) return errorJson("Please pick at least one thing you can talk about.", 400);
   const about_tags: AboutTag[] = chosenFrom(body.about_tags, ABOUT_TAGS);
+  // Optional browser id, kept in the private record only, so DELETE /api/me
+  // can take this sign-up off the roster later.
+  const client_id = clientIdField(body.client_id);
 
   try {
-    if (!idByEmail.has(email)) idByEmail.set(email, nextPersonId());
-    const person_id = idByEmail.get(email)!;
+    const person_id = existingIdFor(email) ?? nextPersonId();
 
     // The public row has no email; the private record does.
     const row = addPersonRow({
       person_id, first_name, major, grad_year, code: course.code, semester, professor,
       help_tags, about_tags, note: "", source: "real",
     });
-    saveRecord("new-people.json", { created_at: new Date().toISOString(), ...row, email });
+    saveRecord("new-people.json", {
+      created_at: new Date().toISOString(),
+      ...row,
+      email,
+      ...(client_id ? { client_id } : {}),
+    });
     return json({ ok: true });
   } catch (error) {
-    console.error("[api/people]", error);
+    // Log the message only, never the record: it holds an email.
+    console.error("[api/people]", error instanceof Error ? error.message : "unknown error");
     return errorJson("Could not save your sign-up. Please try again.", 500);
   }
 }

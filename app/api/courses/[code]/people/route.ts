@@ -2,6 +2,7 @@ import { connection } from "next/server";
 import { findCourse } from "@/lib/catalog";
 import { getCoursePeople } from "@/lib/courses";
 import { errorJson, json } from "@/lib/http";
+import { SIGN_IN_FIRST, mayUseSite } from "@/lib/session";
 
 // GET /api/courses/[code]/people → { code, title, people: Person[] }
 // People are listed most recent semester first. The code can be written any
@@ -13,6 +14,8 @@ export async function GET(
   ctx: RouteContext<"/api/courses/[code]/people">,
 ) {
   await connection();
+  // Who is on the roster is for signed-in USC accounts, when sign-in is required.
+  if (!(await mayUseSite())) return errorJson(SIGN_IN_FIRST, 401);
   const { code } = await ctx.params;
 
   try {
