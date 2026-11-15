@@ -86,11 +86,14 @@ export function parsePeopleCsv(text: string): PersonRow[] {
 }
 
 // Rows from the CSV plus people who signed up while the server is running.
-let people: PersonRow[] | null = null;
+// Kept on globalThis, not in a module variable: Next.js can load this file
+// once per API route, and every route must see the same list.
+const shared = globalThis as typeof globalThis & { __people?: PersonRow[] };
 
 /** Every person row. Loaded from disk on first use, then kept in memory. */
 export function getPeopleRows(): PersonRow[] {
-  if (people) return people;
+  if (shared.__people) return shared.__people;
+  let people: PersonRow[];
 
   const fileName = usingSampleData() ? "sample-people.csv" : "people.csv";
   const file = dataPath(fileName);
@@ -100,6 +103,7 @@ export function getPeopleRows(): PersonRow[] {
     console.warn(`[data] data/${fileName} not found, serving no people.`);
     people = [];
   }
+  shared.__people = people;
   return people;
 }
 

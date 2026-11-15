@@ -59,6 +59,15 @@ response can include one. `data/private/person-emails.csv` maps each `person_id`
 an email so a person can forward intro requests by hand. Intro requests and new sign-ups
 are saved under `data/private/` too.
 
+### Sign-ups and intro requests
+
+`POST /api/people` and `POST /api/request` keep what they receive in memory and also
+try to write it to `data/private/new-people.json` and `data/private/requests.json`.
+Locally both files are written. On a host with a read-only disk (Vercel) only the
+in-memory copy exists, so it is lost when the server instance restarts. That is enough
+for a demo; a real launch needs a small database or a Google Sheet behind these two
+routes.
+
 ### Rerunning the scripts
 
 | Command | When to run it | Output |

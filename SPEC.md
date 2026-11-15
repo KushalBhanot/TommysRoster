@@ -95,15 +95,20 @@ friendly draft message the asker could send.
 POST /api/request
 body { person_id: number, code?: string, question: string, from_email: string }
 → { ok: true }
-Reject unless from_email ends in "@usc.edu" and person_id exists. Store it. Do not send
-email in v1; the UI says the request was sent.
+Reject unless from_email ends in "@usc.edu" and person_id exists (and, when code is
+given, that person is listed for that course). question is the message to the person,
+max 1000 chars. Store it. Do not send email in v1; the UI says the request was sent.
 
 POST /api/people
 body { first_name, major, grad_year, email, code, semester, professor?,
        can_help_with, open_to }
 → { ok: true }
 Sign up as someone who took a course. email must end in "@usc.edu" and is stored only
-in data/private/. The person appears in the lists right away.
+in data/private/. code must look like a course code ("WRIT 150", "CSCI 103L"); open_to
+must be "questions" or "questions+coffee"; everything except professor is required.
+Max lengths: first_name 40, major 60, grad_year 10, semester 20, professor 60,
+can_help_with 300. The person appears in the lists right away. Signing up again with
+the same email for another course keeps the same person_id.
 
 ## Pages
 /  — The main element is a free-text box: "Describe what you're trying to figure out".
