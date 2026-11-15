@@ -11,18 +11,19 @@ Judging criteria:
 - User Experience & Design (20%): intuitive, accessible, visually polished
 
 What this means for how you build:
-1. Polish beats scope. One path must work flawlessly end to end: search a course →
-   read the briefing with sources → ask a question → request an intro → add advice.
+1. Polish beats scope. One path must work flawlessly end to end: describe what you
+   are trying to figure out → see the top 3 matches with reasons → request an intro →
+   sign up as someone who took a course.
    Do not add anything outside SPEC.md. If something is ambiguous, pick the simpler
    option and note it.
-2. Accuracy is the differentiator. Every AI claim must trace to a real student quote.
-   Never invent advice, numbers, courses, or people. A wrong citation is worse than
-   a missing feature.
+2. Accuracy is the differentiator. Every match reason must come from what that person
+   wrote. Never invent people, courses, or facts. A wrong reason is worse than a
+   missing feature.
 3. Privacy. The raw form export contains emails and must never be committed. Keep it
-   in data/private/ (gitignored). A script writes data/advice.csv with the email
+   in data/private/ (gitignored). A script writes data/people.csv with the email
    column removed; only that file is committed and loaded. No API returns an email.
-4. The demo must not depend on live LLM latency. Briefings are precomputed and
-   committed. Only /ask calls the model at request time; handle its failure with a
-   clear message, never a crash.
+4. The demo must not depend on the LLM being up. Only /api/match calls the model at
+   request time; if the call fails it falls back to the most recent people with no
+   reason, never a crash.
 5. Feature freeze is Saturday 10 PM. After that: bug fixes and visual polish only.
 6. All code must be written during the event. Open-source libraries are fine.

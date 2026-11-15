@@ -1,8 +1,6 @@
-// Cleaning rules for raw form answers. Used by the data loader now and by
-// POST /api/advice later, so both paths normalize the same way.
+// Cleaning rules for raw form answers. Used by the data loader, the
+// prepare-data script and POST /api/people, so all paths normalize the same way.
 
-export const HOURS_BUCKETS = ["0-3", "4-6", "7-10", "11-15", "15+"] as const;
-export type Hours = (typeof HOURS_BUCKETS)[number];
 export type OpenTo = "no" | "questions" | "questions+coffee";
 
 /**
@@ -14,21 +12,6 @@ export function normalizeCode(raw: string): string {
   const compact = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
   const match = compact.match(/^([A-Z]+)(\d+[A-Z]*)$/);
   return match ? `${match[1]} ${match[2]}` : compact;
-}
-
-/**
- * Map an hours answer to one of the five buckets, tolerating en dashes,
- * spaces and a trailing "hours". Returns "" when it is not a known bucket,
- * so a bad value can never be counted in the distribution.
- */
-export function normalizeHours(raw: string): Hours | "" {
-  const cleaned = raw
-    .toLowerCase()
-    .replace(/[‒-―]/g, "-") // en/em dashes → hyphen
-    .replace(/hours?|hrs?|\s/g, "");
-  return (HOURS_BUCKETS as readonly string[]).includes(cleaned)
-    ? (cleaned as Hours)
-    : "";
 }
 
 /**

@@ -1,114 +1,76 @@
-// Builds the JSON shapes for GET /api/courses and GET /api/courses/[code]
-// (see the "API" section of SPEC.md) from the in-memory advice rows.
+// Builds the JSON shapes for GET /api/courses and GET /api/courses/[code]/people
+// (see the "API" section of SPEC.md) from the in-memory person rows.
 
-import { getBriefing, getOkAdvice, type Advice, type Briefing } from "./data";
-import { HOURS_BUCKETS, normalizeCode, semesterRank, type Hours } from "./normalize";
+import { getPeopleRows, type PersonRow } from "./data";
+import { normalizeCode, semesterRank } from "./normalize";
 
 export interface CourseSummary {
   code: string;
-  advice_count: number;
-  has_briefing: boolean;
-}
-
-export interface HoursPerWeek {
-  median: string;
-  distribution: Record<string, number>;
-}
-
-export interface Source {
-  id: number;
-  semester: string;
-  professor: string;
-  hours: string;
-  know_before: string;
-  tip: string;
-  avoid: string;
-}
-
-export interface CourseDetail {
-  code: string;
-  advice_count: number;
-  hours_per_week: HoursPerWeek;
-  briefing: Briefing | null;
-  sources: Source[];
   people_count: number;
 }
 
-/** Ok advice rows for one course. Accepts any spelling of the code. */
-export function getCourseAdvice(rawCode: string): Advice[] {
-  const code = normalizeCode(rawCode);
-  return getOkAdvice().filter((row) => row.code === code);
+/** A person as the API returns them: one person in one course. */
+export interface Person {
+  person_id: number;
+  first_name: string;
+  major: string;
+  grad_year: string;
+  semester: string;
+  professor: string;
+  can_help_with: string;
+  open_to: string;
 }
 
-/** Rows a student can be asked through: opted in and has a name to show. */
-export function getPeopleRows(rows: Advice[]): Advice[] {
-  return rows.filter((row) => row.open_to !== "no" && row.first_name !== "");
+export function toPerson(row: PersonRow): Person {
+  return {
+    person_id: row.person_id,
+    first_name: row.first_name,
+    major: row.major,
+    grad_year: row.grad_year,
+    semester: row.semester,
+    professor: row.professor,
+    can_help_with: row.can_help_with,
+    open_to: row.open_to,
+  };
+}
+
+/** Most recent semester first; ties keep the lower person_id first. */
+export function newestFirst(rows: PersonRow[]): PersonRow[] {
+  return [...rows].sort(
+    (a, b) => semesterRank(b.semester) - semesterRank(a.semester) || a.person_id - b.person_id,
+  );
 }
 
 /**
- * Count of answers per bucket plus the median bucket. Pure arithmetic, no LLM.
- * With an even number of answers the median is the lower of the two middle
- * ones. Rows with no valid hours answer are left out; if none are valid the
- * median is "".
+ * The rows for one course, newest first, one per person. Accepts any spelling
+ * of the code. If someone signed up twice for the same course, only their
+ * most recent row is kept.
  */
-export function hoursPerWeek(rows: Advice[]): HoursPerWeek {
-  const distribution: Record<string, number> = {};
-  for (const bucket of HOURS_BUCKETS) distribution[bucket] = 0;
-
-  const answered = rows.map((row) => row.hours).filter((h): h is Hours => h !== "");
-  for (const hours of answered) distribution[hours] += 1;
-
-  // Sort answers by bucket order, then take the middle one.
-  const sorted = answered
-    .map((hours) => HOURS_BUCKETS.indexOf(hours))
-    .sort((a, b) => a - b);
-  const median =
-    sorted.length === 0 ? "" : HOURS_BUCKETS[sorted[Math.floor((sorted.length - 1) / 2)]];
-
-  return { median, distribution };
+export function getCourseRows(rawCode: string): PersonRow[] {
+  const code = normalizeCode(rawCode);
+  const seen = new Set<number>();
+  return newestFirst(getPeopleRows().filter((row) => row.code === code)).filter((row) => {
+    if (seen.has(row.person_id)) return false;
+    seen.add(row.person_id);
+    return true;
+  });
 }
 
-/** All courses that have at least one ok row, most advice first. */
+/** All courses with at least one person, most people first. */
 export function listCourses(): CourseSummary[] {
-  const counts = new Map<string, number>();
-  for (const row of getOkAdvice()) {
-    counts.set(row.code, (counts.get(row.code) ?? 0) + 1);
+  // A Set per course, so a person who signed up twice is counted once.
+  const peopleByCourse = new Map<string, Set<number>>();
+  for (const row of getPeopleRows()) {
+    if (!peopleByCourse.has(row.code)) peopleByCourse.set(row.code, new Set());
+    peopleByCourse.get(row.code)!.add(row.person_id);
   }
 
-  return [...counts.entries()]
-    .map(([code, advice_count]) => ({
-      code,
-      advice_count,
-      has_briefing: getBriefing(code) !== null,
-    }))
-    .sort((a, b) => b.advice_count - a.advice_count || a.code.localeCompare(b.code));
+  return [...peopleByCourse.entries()]
+    .map(([code, ids]) => ({ code, people_count: ids.size }))
+    .sort((a, b) => b.people_count - a.people_count || a.code.localeCompare(b.code));
 }
 
-/** Full course payload, or null when the course has no ok rows. */
-export function getCourseDetail(rawCode: string): CourseDetail | null {
-  const rows = getCourseAdvice(rawCode);
-  if (rows.length === 0) return null;
-
-  // Newest semester first; within a semester, the latest submission first.
-  const newestFirst = [...rows].sort(
-    (a, b) => semesterRank(b.semester) - semesterRank(a.semester) || b.id - a.id,
-  );
-
-  const code = rows[0].code;
-  return {
-    code,
-    advice_count: rows.length,
-    hours_per_week: hoursPerWeek(rows),
-    briefing: getBriefing(code),
-    sources: newestFirst.map((row) => ({
-      id: row.id,
-      semester: row.semester,
-      professor: row.professor,
-      hours: row.hours,
-      know_before: row.know_before,
-      tip: row.tip,
-      avoid: row.avoid,
-    })),
-    people_count: getPeopleRows(rows).length,
-  };
+/** Everyone who took a course and is open to questions, newest first. */
+export function getCoursePeople(rawCode: string): Person[] {
+  return getCourseRows(rawCode).map(toPerson);
 }

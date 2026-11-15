@@ -1,16 +1,17 @@
 import { connection } from "next/server";
 import { listCourses } from "@/lib/courses";
+import { errorJson, json } from "@/lib/http";
 
-// GET /api/courses → [{ code, advice_count, has_briefing }], most advice first.
+// GET /api/courses → [{ code, people_count }], most people first.
 export async function GET() {
   // Run on every request instead of being prerendered at build time, so
-  // advice added while the server is running shows up in the counts.
+  // people who sign up while the server is running show up in the counts.
   await connection();
 
   try {
-    return Response.json(listCourses());
+    return json(listCourses());
   } catch (error) {
     console.error("[api/courses]", error);
-    return Response.json({ error: "Could not load courses." }, { status: 500 });
+    return errorJson("Could not load courses.", 500);
   }
 }

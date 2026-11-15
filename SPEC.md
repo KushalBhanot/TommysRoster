@@ -1,11 +1,13 @@
 # Trojan Course Advice — build spec
 
 ## What it is
-A web app where USC students (1) read real advice from students who took a course,
-summarized by AI with every claim linked to the original student quotes, (2) ask a
-follow-up question that AI answers only from that advice, and (3) if the advice
-doesn't cover it, request an intro to a student who took the course and opted in.
-This is advice about succeeding in a COURSE. It is not a professor rating site.
+A web app where a USC student describes what they are trying to figure out about a
+course, and AI matches them with up to three students who took it and opted in to be
+asked. Each match comes with a one-sentence reason drawn only from what that person
+wrote, plus a draft message the asker can send. The asker then requests an intro.
+Anyone who took a course can sign up to be listed.
+This is about finding the right PERSON to ask. It is not a professor rating site, and
+the AI does not write course advice itself.
 
 ## Stack
 - Next.js (App Router) + TypeScript + Tailwind. One app, no separate backend service.
@@ -21,127 +23,118 @@ This is advice about succeeding in a COURSE. It is not a professor rating site.
 - Shared, change only by agreement: SPEC.md, package.json
 
 ## Data
-Source: data/advice.csv, exported from a Google Form. Columns:
-timestamp, code, semester, professor, hours, know_before, tip, avoid,
-first_name, major_year, email, open_to
+Source: data/people.csv, one row per person per course. Columns:
+person_id, first_name, major, grad_year, code, semester, professor, can_help_with,
+open_to
 
-- hours is one of: "0-3", "4-6", "7-10", "11-15", "15+"
-- open_to is one of: "no", "questions", "questions+coffee" (map the form's wording)
+- person_id is the same on every row of the same person.
+- open_to is "questions" or "questions+coffee". A row with any other value is not
+  loaded: nobody is listed unless they clearly opted in.
 - Normalize code: uppercase, one space between letters and digits ("writ150" → "WRIT 150").
-- Each row gets a stable numeric id (row order). Trim whitespace. Skip rows missing
-  code or both know_before and tip.
-- email is private. It must never appear in any API response.
+- Trim whitespace. Skip rows missing person_id, first_name or code.
+- grad_year is kept as text, the way it was typed ("2028").
 
-Derived files (generated, committed so the app works without live LLM calls):
-- data/moderation.json: per advice id → { ok: boolean, reason?: "personal_attack" |
-  "academic_integrity" | "pii" | "off_topic" }
-- data/briefings.json: per course code → briefing object (see API)
-- data/requests.json, data/new-advice.json: appended at runtime (best effort; keep an
-  in-memory copy too, since some hosts have read-only or non-persistent disks)
+Privacy. The raw form export contains emails and is never committed:
+- It lives in data/private/ (gitignored) as data/private/form-export.csv, with columns
+  timestamp, first_name, major, grad_year, email, code, semester, professor,
+  can_help_with, open_to (one form response per course).
+- `npm run prepare-data` writes data/people.csv from it: email and timestamp removed,
+  person_id assigned from the email (same email → same id, numbered in order of first
+  appearance, so ids stay stable as responses are appended), rows that did not opt in
+  dropped. It also writes data/private/person-emails.csv (person_id → email) so a human
+  can forward an intro request.
+- Only data/people.csv is committed and loaded. No API returns an email, ever.
 
-For development before real data arrives, include data/sample-advice.csv with ~12
-rows across 3 courses. Every sample row's first_name must be "SAMPLE". A flag
-USE_SAMPLE_DATA=true switches to it. Real demo must run with it off.
+Written at runtime (best effort; an in-memory copy is kept too, since some hosts have
+read-only or non-persistent disks). Both hold emails, so both stay in data/private/:
+- data/private/requests.json
+- data/private/new-people.json
 
-## Moderation (scripts/moderate.ts)
-Classify every advice row with the LLM. Mark not ok if it:
-- attacks a named individual personally (criticism of workload/teaching style is fine)
-- shares or offers exam questions, answers, old exams, or completed assignments
-- contains phone numbers, addresses, or other private info about someone
-- is unrelated to the course
-Rows marked not ok are excluded everywhere but kept in moderation.json with the reason.
-
-## Briefings (scripts/build-briefings.ts)
-For each course with >= 3 ok rows, one LLM call produces:
-{ know_before: Point[], how_to_do_well: Point[], watch_out: Point[] }
-Point = { point: string, source_ids: number[], professor?: string }
-
-Rules for the prompt and for post-validation in code:
-- Use only the provided advice. No outside knowledge about the course or USC.
-- Every point must list the ids of the rows that support it.
-- If only one student said it, phrase it as one student's view ("One student said…").
-  Never write "most students" unless 3+ sources support it.
-- If all sources for a point had the same professor, set professor to that name.
-- Max 4 points per section, each under 30 words. Plain language.
-- After the call, code must verify every source_id exists, is ok, and belongs to that
-  course; drop any point that fails. Log what was dropped.
-Courses with 1–2 rows get no briefing; the UI shows the raw advice only.
-
-hours_per_week is computed in code, not by the LLM: the distribution over the five
-buckets and the median bucket.
+For development before real data arrives, include data/sample-people.csv with 15 rows
+across 3 courses. Every sample row's first_name must be "SAMPLE". A flag
+USE_SAMPLE_DATA=true switches to it. Real demo must run with it off. While the flag is
+on, every API response carries the header `X-Sample-Data: true`.
 
 ## API
 All responses JSON. Errors: { "error": string } with a 4xx/5xx status.
 
-GET /api/courses
-→ [{ code, advice_count, has_briefing }]  sorted by advice_count desc
+Person = { person_id, first_name, major, grad_year, semester, professor,
+           can_help_with, open_to }
+It describes one person in one course (semester, professor and can_help_with are the
+ones for that course). All values are strings except person_id (number). A missing
+optional value is "".
 
-GET /api/courses/[code]
-→ {
-    code, advice_count,
-    hours_per_week: { median: string, distribution: Record<string, number> },
-    briefing: { know_before: Point[], how_to_do_well: Point[], watch_out: Point[] } | null,
-    sources: [{ id, semester, professor, hours, know_before, tip, avoid }],
-    people_count: number
-  }
-404 if the course has no ok rows.
+GET /api/courses
+→ [{ code, people_count }]  sorted by people_count desc, then code
 
 GET /api/courses/[code]/people
-→ [{ id, first_name, major_year, semester, professor, open_to }]
-Only rows with open_to != "no". No email, ever.
+→ Person[]  most recent semester first
+A course nobody has signed up for returns [] (200), so the page can show an empty state.
 
-POST /api/courses/[code]/ask
-body { question: string }  (max 300 chars)
-→ { answer: string, source_ids: number[], covered: boolean,
-    suggested_people: Person[] }
-The LLM gets the question plus all ok advice for this course and must answer only
-from it, citing ids. If the advice doesn't answer the question, covered=false and
-answer says so in one sentence. suggested_people: up to 3 from /people, preferring
-a professor named in the question, then most recent semester. Validate source_ids
-in code as with briefings.
+POST /api/match
+body { question: string (max 300 chars), asker_major?: string, asker_year?: string,
+       code?: string }
+→ { matches: [{ person: Person, courses: string[], reason: string | null }],
+    draft_message: string }
+One LLM call via lib/llm.ts. Input: the question, the asker info, and the people (for
+that course if code is given, otherwise everyone). Output: up to 3 person_ids ranked,
+each with a one-sentence reason using only facts from that person's rows, plus a short
+friendly draft message the asker could send.
+- person is that person's row for the given course, or their most recent row when no
+  code is given. courses lists every course code that person is signed up for.
+- Code validates every person_id the LLM returns and drops any that is not in the list
+  it was given. Never invent people or facts.
+- If the LLM call fails, fall back to the most recent semester first, with reason: null
+  and a plain draft_message built in code from the question.
+- No people to choose from → matches: [].
 
-POST /api/courses/[code]/request
-body { person_id: number, question: string, from_email: string }
+POST /api/request
+body { person_id: number, code?: string, question: string, from_email: string }
 → { ok: true }
-Reject if from_email doesn't end in "@usc.edu" or person isn't open to questions.
-Store the request. Do not send email in v1; the UI says the request was sent.
+Reject unless from_email ends in "@usc.edu" and person_id exists. Store it. Do not send
+email in v1; the UI says the request was sent.
 
-POST /api/advice
-body { code, semester, professor?, hours, know_before, tip, avoid?,
-       first_name?, major_year?, email?, open_to }
+POST /api/people
+body { first_name, major, grad_year, email, code, semester, professor?,
+       can_help_with, open_to }
 → { ok: true }
-Validate, run the same moderation check on this one row, store it. It appears in
-sources immediately if ok; briefings are rebuilt offline.
+Sign up as someone who took a course. email must end in "@usc.edu" and is stored only
+in data/private/. The person appears in the lists right away.
 
 ## Pages
-/  — Search. One input with autocomplete over /api/courses, showing code and
-     "N students". Below it, the most-covered courses as cards. One-line tagline.
-/course/[code] — the main screen, in this order:
-  1. Header: course code, "Advice from N students", hours-per-week bar chart.
-  2. Briefing: three sections. Each point has a "N sources" chip that expands to
-     show the exact student quotes (semester, professor). If no briefing, say
-     "Not enough advice yet for a summary" and show the raw advice.
-  3. Ask box: question in, answer out with the same source chips. If covered=false,
-     show "No one has covered this yet. Ask someone who took it:" with people cards.
-  4. People: cards with first name, major/year, semester, professor, and a badge for
-     coffee chats. "Ask [name]" opens a modal (question + your USC email) → request.
-  5. All advice, newest first. "Add your advice" button.
-/contribute — the advice form (same fields as the API), course code prefilled from
+/  — The main element is a free-text box: "Describe what you're trying to figure out".
+     Submitting it calls POST /api/match and shows the top 3 matches with their reasons.
+     Below it, course search: one input with autocomplete over /api/courses, showing
+     code and "N students", then the most-covered courses as cards. One-line tagline.
+/course/[code] — in this order:
+  1. Header: course code, "N students took this and are open to questions".
+  2. The same question box, scoped to this course (sends code) → top 3 matches.
+  3. Everyone who took it: cards with first name, major, grad year, semester,
+     professor, what they can help with, and a badge for coffee chats.
+  "Ask [name]" on any card opens a modal (message + your USC email) → POST /api/request.
+  The message is prefilled with draft_message when the card came from a match.
+  A link to /join?code=… for people who took the course.
+/join — the sign-up form (same fields as POST /api/people), course code prefilled from
   a ?code= query param. Success state thanks them and links back to the course.
 
 UX rules: mobile-first, works at 380px. Loading, empty, and error states for every
 fetch. No login. Clean and calm: white background, generous spacing, one accent
 color (USC cardinal #990000) used sparingly, gold only for small highlights.
-Footer line: "Advice comes from USC students. Summaries are AI-generated and link
-to their sources."
+When a match has reason: null, show the person without a reason line.
+Footer line: "Everyone listed here is a USC student who opted in. Matches are suggested
+by AI from what they wrote."
+
+Fixtures: the frontend may fall back to its mock fixtures only in development
+(NODE_ENV=development), never in a production build. Show a visible "SAMPLE DATA" badge
+whenever fixtures are in use or an API response has the header `X-Sample-Data: true`.
 
 ## Out of scope for v1
-Accounts, chat, payments, professor ratings, email sending, scheduling, admin UI.
+Accounts, chat, payments, professor ratings, email sending, scheduling, admin UI,
+AI-written course summaries, content moderation.
 
 ## Order of work
-1. Skeleton deployed: home page calls GET /api/courses and renders the list.
-2. Backend: data loading + /api/courses + /api/courses/[code] on sample data.
-   Frontend: course page against that endpoint.
-3. moderate + build-briefings scripts; briefing shows with source chips.
-4. /ask, /people, /request. Then /contribute and POST /api/advice.
-5. Swap in real data, rerun scripts, polish.
+1. Backend: people data + GET /api/courses + GET /api/courses/[code]/people on sample
+   data. Frontend: the pages against fixtures in the shapes above.
+2. lib/llm.ts + POST /api/match.
+3. POST /api/request and POST /api/people. Frontend: modal and /join wired to them.
+4. Swap in real data, deploy, polish.
