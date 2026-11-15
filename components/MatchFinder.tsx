@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { Match, MatchResult } from "@/lib/match";
+import type { Match, MatchResult, MatchStatus } from "@/lib/match";
 import { AskDialog } from "./AskDialog";
 import { errorMessage, postJson } from "./api";
 import { PersonEntry } from "./PersonEntry";
@@ -194,13 +194,18 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
         {results.status === "done" && results.result.matches.length === 0 && (
           <div className="mt-12 border-t border-rule pt-8">
             <h2 ref={headingRef} tabIndex={-1} className="text-xl font-semibold focus:outline-none">
-              No one on the roster fits that yet
+              {noPeopleMessage(results.result.status, code).title}
             </h2>
-            <p className="mt-2 max-w-xl text-graphite">
-              {code
-                ? `Try asking about a specific part of ${code}, like the exams, the workload or a project.`
-                : "Try naming the course you're asking about, or pick a course below to see everyone who took it."}
-            </p>
+            <p className="mt-2 max-w-xl text-graphite">{noPeopleMessage(results.result.status, code).body}</p>
+            {results.result.status === "unavailable" && (
+              <button
+                type="button"
+                onClick={findPeople}
+                className="mt-5 h-11 rounded-full border border-ink px-5 text-sm font-semibold transition-colors hover:bg-ink hover:text-paper"
+              >
+                Try again
+              </button>
+            )}
           </div>
         )}
 
@@ -209,11 +214,11 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
             <h2 ref={headingRef} tabIndex={-1} className="text-xl font-semibold focus:outline-none">
               People who can help
             </h2>
-            {/* The model was unavailable: the API still returns people, with no reason. */}
-            {results.result.matches.every((match) => match.reason === null) && (
+            {/* The model was unavailable: these are simply the latest people from the course. */}
+            {results.result.status === "fallback" && (
               <p className="mt-2 max-w-xl text-graphite">
-                We couldn&rsquo;t rank people against your question just now, so these are the
-                most recent people on the roster.
+                We couldn&rsquo;t read your question with AI just now, so these are the most
+                recent people who took {results.result.matches[0].code}.
               </p>
             )}
             <ul className="mt-6 border-b border-rule">
@@ -245,6 +250,38 @@ export function MatchFinder({ code, examples }: MatchFinderProps) {
       )}
     </div>
   );
+}
+
+/**
+ * What to say when the API returns nobody. It tells us why (see MatchStatus in
+ * lib/match.ts), so the page can be honest about it: text it could not read
+ * and a question nobody can answer yet are different situations.
+ */
+function noPeopleMessage(status: MatchStatus, code?: string): { title: string; body: string } {
+  switch (status) {
+    case "unclear":
+      return {
+        title: "We couldn't read that as a question",
+        body: "Try a full sentence about a course, for example: How do I prepare for exams in CHEM 105A?",
+      };
+    case "off_topic":
+      return {
+        title: "That doesn't look like a question about a course",
+        body: "This roster connects you with students who took a class. Ask about a course, its workload, its exams, or which section to take.",
+      };
+    case "unavailable":
+      return {
+        title: "Matching isn't available right now",
+        body: "We couldn't reach the AI that reads your question. Try again in a minute, or pick a course below to see everyone who took it.",
+      };
+    default:
+      return {
+        title: "No one on the roster fits that yet",
+        body: code
+          ? `Try asking about a specific part of ${code}, like the exams, the workload or a project.`
+          : "Try naming the course you're asking about, or pick a course below to see everyone who took it.",
+      };
+  }
 }
 
 /** Three grey placeholder rows shown while the matches are being found. */

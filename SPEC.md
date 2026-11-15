@@ -75,7 +75,8 @@ A course nobody has signed up for returns [] (200), so the page can show an empt
 POST /api/match
 body { question: string (max 300 chars), asker_major?: string, asker_year?: string,
        code?: string }
-→ { matches: [{ person: Person, code: string, courses: string[], reason: string | null }],
+→ { status: "matched" | "fallback" | "no_match" | "unclear" | "off_topic" | "unavailable",
+    matches: [{ person: Person, code: string, courses: string[], reason: string | null }],
     draft_message: string }
 One LLM call via lib/llm.ts. Input: the question, the asker info, and the people (for
 that course if code is given, otherwise everyone). Output: up to 3 person_ids ranked,
@@ -89,12 +90,20 @@ friendly draft message the asker could send.
 - Code validates every person_id the LLM returns and drops any that is not in the list
   it was given. A reason that names a course or a year that is not in that person's
   rows, or that contains stray markup, is replaced by null. Never invent people or facts.
-- If the LLM call fails, fall back to the most recent semester first, with reason: null
-  and a plain draft_message built in code from the question.
+- The model first says what it was given. Gibberish, a greeting or text too vague to
+  read is "unclear"; a real question about something other than a course is
+  "off_topic". Both return matches: [] and the page says so plainly. Text that is
+  obviously not a sentence (almost no letters, one letter repeated) is "unclear"
+  without calling the model at all.
+- If the LLM call fails, people are shown only when the course is known: code was
+  given, or the question names a course that is on the roster. Then the most recent
+  people from that course are returned with reason: null and status "fallback".
+  Otherwise status is "unavailable" and matches is []. Nobody is ever suggested for a
+  question that could not be read.
 - Rate limit: 10 requests per minute per IP, kept in memory. Over the limit → 429 with
   { "error": string }.
-- No people to choose from, or the question is not about a course → matches: [] and
-  draft_message: "".
+- A course question nobody fits, or a course with no people → status "no_match",
+  matches: [] and draft_message: "".
 
 POST /api/request
 body { person_id: number, code?: string, question: string, from_email: string }
@@ -141,8 +150,10 @@ request. No login. White background, generous spacing, one accent color (USC car
 #990000) used sparingly: the main action and keyboard focus. Gold only for small
 markers. Serif type is for words a student wrote (the question, can_help_with, the
 message); sans is for the interface and for what the AI wrote.
-When a match has reason: null, show the person without a reason line; when every match
-has reason: null, say that the people shown are the most recent ones.
+When a match has reason: null, show the person without a reason line. For status
+"fallback", say that the people shown are simply the most recent ones from that course.
+When nobody is returned, the message depends on status: could not read the question,
+not about a course, nobody fits yet, or matching is unavailable (with a retry).
 A visible "SAMPLE DATA" badge in the header while USE_SAMPLE_DATA is on.
 Footer line: "Matches are suggested by AI from what students wrote about themselves."
 
