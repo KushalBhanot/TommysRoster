@@ -1,11 +1,22 @@
-<img src="app/icon.png" alt="" width="72" height="72">
+<p align="center">
+  <img src="docs/logo.png" alt="Tommy's Roster logo" width="112" height="112">
+</p>
 
-# Tommy's Roster
+<h1 align="center">Tommy's Roster</h1>
 
-Ask a question about a USC course in your own words and get matched with up to three
-students who took it, with a reason for each one. Then send them a message.
+<p align="center">
+  Ask a question about a USC course in your own words.<br>
+  Get matched with up to three students who took it, and a reason for each one.
+</p>
 
-**Live:** https://tommys-roster.vercel.app · Built in 24 hours at the AI@USC Hackathon 2026.
+<p align="center">
+  <a href="https://tommys-roster.vercel.app"><b>Try it live →</b></a>
+  &nbsp;·&nbsp; Built in 24 hours at the AI@USC Hackathon 2026
+</p>
+
+<p align="center">
+  <img src="docs/screen-results.png" alt="Three matched students, each with a reason, for a question about CSCI 103" width="820">
+</p>
 
 ## What you can do
 
@@ -13,6 +24,10 @@ students who took it, with a reason for each one. Then send them a message.
 - **Reach out.** Press Ask and a first message is drafted for that one person. Press Tab to accept it, or write your own.
 - **Join.** Took a class? Add yourself so the next student can ask you.
 - **Stay in control.** See, edit, download or delete everything you gave the site, from the Account page.
+
+<p align="center">
+  <img src="docs/screen-draft.png" alt="The ask window with a message drafted for one person, shown in grey until Tab is pressed" width="820">
+</p>
 
 ## How a match happens
 
