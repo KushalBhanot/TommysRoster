@@ -89,6 +89,42 @@ export function SignInForm() {
 
   const signInError = SIGN_IN_ERRORS[params.get("error") ?? ""];
 
+  const demoForm = (
+    <form onSubmit={submit} noValidate className={`max-w-md ${session.google ? "mt-5" : "mt-8"}`}>
+      <label htmlFor="signin-email" className={LABEL}>USC email</label>
+      <input
+        id="signin-email"
+        type="email"
+        required
+        autoFocus={!session.google}
+        autoComplete="email"
+        inputMode="email"
+        placeholder="you@usc.edu"
+        value={email}
+        onChange={(e) => {
+          setEmail(e.target.value);
+          if (error) setError("");
+        }}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? "signin-error" : undefined}
+        className={`${FIELD} placeholder:text-[#767676]`}
+      />
+      {error && (
+        <p id="signin-error" role="alert" className="mt-2 font-semibold text-cardinal">
+          {error}
+        </p>
+      )}
+
+      <button
+        type="submit"
+        className={`${session.google ? SECONDARY_BUTTON : PRIMARY_BUTTON} mt-6 w-full justify-center sm:w-auto`}
+      >
+        {session.google ? "Continue without verifying" : "Continue"}
+      </button>
+    </form>
+  );
+
+
   return (
     <div className="pt-10 sm:pt-16">
       <h1 className="font-display text-5xl leading-[0.95] font-bold uppercase sm:text-7xl">Sign in</h1>
@@ -115,51 +151,30 @@ export function SignInForm() {
         </div>
       )}
 
-      {session.demo && (
-        <form onSubmit={submit} noValidate className={`max-w-md ${session.google ? "mt-12 border-t border-rule pt-8" : "mt-8"}`}>
-          {session.google && (
-            <h2 className="mb-4 font-display text-2xl leading-none font-bold uppercase">Or try the demo</h2>
-          )}
-          <label htmlFor="signin-email" className={LABEL}>USC email</label>
-          <input
-            id="signin-email"
-            type="email"
-            required
-            autoFocus={!session.google}
-            autoComplete="email"
-            inputMode="email"
-            placeholder="you@usc.edu"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              if (error) setError("");
-            }}
-            aria-invalid={error ? true : undefined}
-            aria-describedby={error ? "signin-error" : undefined}
-            className={`${FIELD} placeholder:text-[#767676]`}
-          />
-          {error && (
-            <p id="signin-error" role="alert" className="mt-2 font-semibold text-cardinal">
-              {error}
-            </p>
-          )}
-
-          <button
-            type="submit"
-            className={`${session.google ? SECONDARY_BUTTON : PRIMARY_BUTTON} mt-6 w-full justify-center sm:w-auto`}
-          >
-            {session.google ? "Continue without verifying" : "Continue"}
-          </button>
-        </form>
+      {/* With USC Google sign-in on, the unverified way in is tucked away:
+          it is there for people without a USC account, not the main door. */}
+      {session.demo && session.google && (
+        <details className="mt-12 max-w-xl border-t border-rule pt-4">
+          <summary className="inline-flex min-h-11 cursor-pointer items-center font-medium underline underline-offset-4">
+            No USC account? Sign in without verifying
+          </summary>
+          <p className="mt-3 text-sm text-graphite">
+            For people looking at this prototype who do not have a USC account. Type any address that ends in
+            @usc.edu. It is not checked, and there is no password.
+          </p>
+          {demoForm}
+        </details>
       )}
 
-      {/* Honest about what each way of signing in does and does not check. */}
-      {session.demo && (
-        <p className="mt-10 max-w-xl border-l-4 border-rule pl-4 text-sm text-graphite">
-          {session.google
-            ? "The demo sign-in is for trying the prototype without a USC account. It only checks that the address ends in @usc.edu and never asks for a password."
-            : "Prototype sign-in. A USC deployment would use USC sign-in (NetID). This demo only checks that the address ends in @usc.edu and never asks for a password."}
-        </p>
+      {session.demo && !session.google && (
+        <>
+          {demoForm}
+          {/* Honest about what this sign-in does and does not check. */}
+          <p className="mt-10 max-w-xl border-l-4 border-rule pl-4 text-sm text-graphite">
+            Prototype sign-in. A USC deployment would use USC sign-in (NetID). This demo only checks that the
+            address ends in @usc.edu and never asks for a password.
+          </p>
+        </>
       )}
     </div>
   );
