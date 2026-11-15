@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/**/*": ["./data/*.csv", "./data/*.json"],
   },
+  // data/private/ holds emails. It is gitignored, so it is not on the host
+  // anyway; this also keeps it out of the function bundle when someone deploys
+  // straight from a laptop.
+  outputFileTracingExcludes: {
+    "/**/*": ["./data/private/**/*"],
+  },
   turbopack: {
     rules: {
       "*.css": {
