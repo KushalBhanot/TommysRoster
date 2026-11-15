@@ -18,10 +18,10 @@ the AI does not write course advice itself.
 - Env: ANTHROPIC_API_KEY, ANTHROPIC_MODEL (optional). Never commit .env. Provide
   .env.example.
 
-## Ownership (do not edit outside your area)
-- Backend (Leo): app/api/**, lib/**, scripts/**, data/**
-- Frontend (teammate): app/** except app/api, components/**, public/**
-- Shared, change only by agreement: SPEC.md, package.json
+## Ownership
+One owner for now: Leo builds the backend and the first version of the frontend in the
+same session, so the earlier backend / frontend split no longer applies. SPEC.md and
+package.json are still changed only on purpose, with a note in the commit.
 
 ## Data
 Source: data/people.csv, one row per person per course. Columns:
@@ -91,6 +91,8 @@ friendly draft message the asker could send.
   rows, or that contains stray markup, is replaced by null. Never invent people or facts.
 - If the LLM call fails, fall back to the most recent semester first, with reason: null
   and a plain draft_message built in code from the question.
+- Rate limit: 10 requests per minute per IP, kept in memory. Over the limit → 429 with
+  { "error": string }.
 - No people to choose from, or the question is not about a course → matches: [] and
   draft_message: "".
 

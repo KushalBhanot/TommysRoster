@@ -1,9 +1,14 @@
 import { errorJson, json, readJsonObject, textField } from "@/lib/http";
 import { matchPeople } from "@/lib/match";
 import { normalizeCode } from "@/lib/normalize";
+import { allowRequest, clientIp } from "@/lib/rate-limit";
 
 const MAX_QUESTION_CHARS = 300;
 const MAX_ASKER_FIELD_CHARS = 60;
+
+// Each match request calls a paid model, so one IP gets 10 per minute.
+const RATE_LIMIT = 10;
+const RATE_WINDOW_MS = 60_000;
 
 // An optional short text field; anything too long is treated as not given.
 function optionalText(value: unknown): string {
@@ -15,6 +20,10 @@ function optionalText(value: unknown): string {
 // body { question, asker_major?, asker_year?, code? }
 // → { matches: [{ person, code, courses, reason }], draft_message }
 export async function POST(request: Request) {
+  if (!allowRequest(clientIp(request), RATE_LIMIT, RATE_WINDOW_MS)) {
+    return errorJson("Too many questions in a short time. Please wait a minute and try again.", 429);
+  }
+
   const body = await readJsonObject(request);
   if (!body) return errorJson("Send a JSON body with a question.", 400);
 

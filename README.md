@@ -1,8 +1,4 @@
-# People of USC
-
-Source for [peopleofusc.com](https://peopleofusc.com). Currently a "website in progress" placeholder page, deployed on Vercel.
-
-## Trojan Course Advice
+# Tommy's Roster
 
 Describe what you are trying to figure out about a course, and get matched with up to
 three USC students who took it and opted in to be asked. Each match comes with a reason
@@ -63,10 +59,11 @@ are saved under `data/private/` too.
 
 `POST /api/people` and `POST /api/request` keep what they receive in memory and also
 try to write it to `data/private/new-people.json` and `data/private/requests.json`.
-Locally both files are written. On a host with a read-only disk (Vercel) only the
-in-memory copy exists, so it is lost when the server instance restarts. That is enough
-for a demo; a real launch needs a small database or a Google Sheet behind these two
-routes.
+
+### Known limitations
+
+- Sign-ups and intro requests are stored in memory (plus a local file when the disk is writable), so on a host like Vercel they are lost when the server restarts; a real launch needs a small database behind those two routes.
+- The `/api/match` rate limit (10 requests per minute per IP) is also in memory, so it is counted per server instance.
 
 ### Rerunning the scripts
 
@@ -76,8 +73,8 @@ routes.
 
 Nothing else is precomputed: matching runs at request time.
 
-### Who owns what
+### Layout
 
-- Backend: `app/api/**`, `lib/**`, `scripts/**`, `data/**`
-- Frontend: `app/**` except `app/api`, `components/**`, `public/**`
-- Shared, change only by agreement: `SPEC.md`, `package.json`
+- `app/api/**`, `lib/**`: the API routes and the code behind them
+- `app/**` (other than `app/api`), `components/**`: the pages
+- `scripts/**`, `data/**`: data preparation and the data files
